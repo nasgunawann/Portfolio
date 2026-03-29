@@ -1,0 +1,44 @@
+---
+---
+<section class="h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden bg-zinc-950">
+  <div class="absolute p-24 w-full h-full flex justify-between opacity-50 pointer-events-none">
+    <div class="w-96 h-96 bg-brand-primary rounded-full filter blur-[128px] animate-pulse"></div>
+    <div class="w-96 h-96 bg-brand-secondary rounded-full filter blur-[128px] animate-pulse delay-700 self-end"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <h2 class="text-sm font-semibold tracking-widest text-brand-secondary uppercase mb-4 animate-fade-in">
+        Welcome to my portfolio
+    </h2>
+    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+      Hi, I'm <span class="bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary bg-clip-text text-transparent">Nasgun</span>
+    </h1>
+    <p class="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
+      A passionate Web Developer focused on building high-performance, beautiful, and user-friendly digital experiences.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#projects"
+        class="px-8 py-4 bg-white text-zinc-950 font-bold rounded-lg hover:bg-zinc-200 transition-all transform hover:scale-105"
+      >
+        View My Work
+      </a>
+      <a
+        href="#contact"
+        class="px-8 py-4 bg-zinc-900 text-white font-bold rounded-lg border border-white/10 hover:bg-zinc-800 transition-all transform hover:scale-105"
+      >
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+</style>

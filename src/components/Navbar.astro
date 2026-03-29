@@ -1,0 +1,40 @@
+---
+const navItems = [
+  { name: 'About', href: '#about' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Contact', href: '#contact' },
+];
+---
+
+<nav class="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="shrink-0">
+        <a href="#" class="text-xl font-bold bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+          Nasgun
+        </a>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-zinc-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="md:hidden flex items-center">
+        <!-- Mobile menu button can be added here if needed -->
+        <button class="text-zinc-300 hover:text-white p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
