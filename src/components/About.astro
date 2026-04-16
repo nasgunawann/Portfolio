@@ -10,7 +10,10 @@ import nas from "../assets/nasgun_portrait.png";
     <div
         class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0"
     >
-        <div class="h-screen flex items-center justify-center sticky top-0" id="about-bg-container">
+        <div
+            class="h-screen flex items-center justify-center sticky top-0"
+            id="about-bg-container"
+        >
             <span
                 class="text-[25vw] font-bold text-brand-text/5 leading-none tracking-tighter"
                 id="about-bg-text"
@@ -86,7 +89,7 @@ import nas from "../assets/nasgun_portrait.png";
             >
                 <div class="space-y-8">
                     <p
-                        class="text-2xl md:text-3xl font-medium leading-[1.4] text-brand-text/80 tracking-tight"
+                        class="text-2xl md:text-3xl font-medium leading-[1.4] text-brand-text tracking-tight"
                     >
                         I am a Full-Stack Web Developer specialized in producing
                         <span class="text-brand-text font-bold italic"
@@ -98,7 +101,7 @@ import nas from "../assets/nasgun_portrait.png";
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div class="space-y-4">
                             <h4
-                                class="text-[13px] font-bold tracking-[0.2em] text-brand-accent uppercase"
+                                class="text-[15px] font-bold tracking-[0.2em] text-brand-accent uppercase"
                             >
                                 Expertise
                             </h4>
@@ -114,7 +117,7 @@ import nas from "../assets/nasgun_portrait.png";
                         </div>
                         <div class="space-y-4">
                             <h4
-                                class="text-[13px] font-bold tracking-[0.2em] text-brand-accent uppercase"
+                                class="text-[15px] font-bold tracking-[0.2em] text-brand-accent uppercase"
                             >
                                 Philosophy
                             </h4>
@@ -133,11 +136,11 @@ import nas from "../assets/nasgun_portrait.png";
                 <!-- Technical Toolkit (Editorial Style) -->
                 <div class="pt-8">
                     <h4
-                        class="text-[11px] font-bold tracking-[0.4em] text-brand-text/40 uppercase mb-8"
+                        class="text-[20px] font-bold tracking-[0.4em] text-brand-text uppercase mb-4"
                     >
                         Technical Arsenal
                     </h4>
-                    <div class="flex flex-wrap gap-x-12 gap-y-6">
+                    <div class="flex flex-wrap gap-4">
                         {
                             [
                                 "LARAVEL",
@@ -147,11 +150,8 @@ import nas from "../assets/nasgun_portrait.png";
                                 "GSAP",
                                 "AI/LLM API",
                             ].map((tool) => (
-                                <div class="group relative py-2">
-                                    <span class="text-[13px] font-bold tracking-widest text-brand-text/80 group-hover:text-brand-accent transition-colors duration-300">
-                                        {tool}
-                                    </span>
-                                    <div class="absolute bottom-0 left-0 w-0 h-px bg-brand-accent group-hover:w-full transition-all duration-500" />
+                                <div class="px-5 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[11px] font-black tracking-[0.2em] text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase cursor-default">
+                                    {tool}
                                 </div>
                             ))
                         }

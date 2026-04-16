@@ -9,48 +9,74 @@ import SocialLinks from "./SocialLinks";
     <!-- Sticky Editorial Header (Scroll-Activated) -->
     <nav
         id="sticky-header"
-        class="fixed top-0 left-0 w-full z-100 px-6 md:px-12 py-6 flex items-center justify-between bg-brand-bg/40 backdrop-blur-xl border-b border-brand-text/5 opacity-0 -translate-y-full transition-shadow duration-500"
+        class="fixed top-0 left-0 w-full z-100 px-6 md:px-12 py-6 flex items-center justify-between bg-brand-bg/80 backdrop-blur-xl border-b border-brand-text/5 opacity-0 -translate-y-full transition-all duration-500"
     >
         <div class="flex items-center gap-12 text-editorial">
             <a
                 href="#"
-                class="hover:text-brand-accent transition-colors font-bold"
+                class="hover:text-brand-accent transition-colors font-bold tracking-widest text-lg"
                 >NASRULLAH GUNAWAN</a
             >
-            <div class="hidden lg:flex items-center gap-8 opacity-60">
+            <div class="hidden lg:flex items-center gap-10 opacity-70 ml-8">
                 <a
                     href="#about"
-                    class="hover:text-brand-text hover:opacity-100 transition-all uppercase tracking-widest"
-                    >About</a
-                >
+                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                    >
+                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
+                    Story
+                </a>
                 <a
                     href="#projects"
-                    class="hover:text-brand-text hover:opacity-100 transition-all uppercase tracking-widest"
-                    >Work</a
-                >
+                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                    >
+                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
+                    Works
+                </a>
+                <a
+                    href="#experience"
+                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                    >
+                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
+                    Career
+                </a>
+                <a
+                    href="#credentials"
+                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                    >
+                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
+                    Credentials
+                </a>
             </div>
         </div>
 
         <div class="flex items-center gap-8">
-            <div class="hidden md:block text-editorial">
+            <div class="hidden md:flex items-center text-editorial">
                 <a
-                    href="mailto:nasgunawann@gmail.com"
-                    class="hover:text-brand-accent transition-colors"
-                    >START A PROJECT <span class="text-sm ml-1">↗</span></a
-                >
+                    href="#contact"
+                    class="flex items-center gap-3 text-[11px] font-bold hover:text-brand-accent transition-colors uppercase tracking-[0.3em]"
+                    >
+                    Let's Talk <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                </a>
             </div>
-            <div class="grid grid-cols-2 gap-1 opacity-40">
-                <div class="w-1 h-1 bg-current"></div><div
-                    class="w-1 h-1 bg-current"
-                >
-                </div>
-                <div class="w-1 h-1 bg-current"></div><div
-                    class="w-1 h-1 bg-current"
-                >
-                </div>
-            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="lg:hidden flex flex-col justify-center gap-2 w-8 h-8 focus:outline-none z-110">
+                <span class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center" id="bar1"></span>
+                <span class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center" id="bar2"></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-brand-bg/95 backdrop-blur-2xl  translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-10">
+        <a href="#about" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Story</a>
+        <a href="#projects" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Works</a>
+        <a href="#experience" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Career</a>
+        <a href="#credentials" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Credentials</a>
+        <a href="#contact" class="mobile-link text-xl mt-8 flex items-center gap-4 font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">
+            Let's Talk <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+        </a>
+    </div>
 
     <!-- Main Content Layout -->
     <div
@@ -273,6 +299,39 @@ import SocialLinks from "./SocialLinks";
 
     // Wait for content to load
     window.addEventListener("DOMContentLoaded", () => {
+        // --- Mobile Menu Toggle Logic ---
+        const menuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+        const bar1 = document.getElementById("bar1");
+        const bar2 = document.getElementById("bar2");
+        const mobileLinks = document.querySelectorAll(".mobile-link");
+
+        if (menuToggle && mobileOverlay && bar1 && bar2) {
+            let isOpen = false;
+            
+            const toggleMenu = () => {
+                isOpen = !isOpen;
+                if (isOpen) {
+                    mobileOverlay.classList.remove("translate-x-full");
+                    mobileOverlay.classList.add("translate-x-0");
+                    bar1.classList.add("rotate-45", "translate-y-1");
+                    bar2.classList.add("-rotate-45", "-translate-y-1");
+                } else {
+                    mobileOverlay.classList.remove("translate-x-0");
+                    mobileOverlay.classList.add("translate-x-full");
+                    bar1.classList.remove("rotate-45", "translate-y-1");
+                    bar2.classList.remove("-rotate-45", "-translate-y-1");
+                }
+            };
+
+            menuToggle.addEventListener("click", toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    if (isOpen) toggleMenu();
+                });
+            });
+        }
+
         // 1. Entrance Animations
         const tl = gsap.timeline({
             defaults: { ease: "power4.out", duration: 1.8 },
