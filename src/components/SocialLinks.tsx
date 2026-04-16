@@ -41,7 +41,7 @@ export default function SocialLinks({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-text/40 hover:text-brand-accent transition-all duration-300 transform hover:-translate-y-1"
+                    className="p-3.5 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-brand-text/80 shadow-lg hover:bg-brand-text hover:text-brand-bg hover:scale-110 transition-all duration-300 flex items-center justify-center"
                     aria-label={name}
                 >
                     <Icon size={iconSize} stroke={1.5} />
