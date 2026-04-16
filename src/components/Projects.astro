@@ -1,69 +1,319 @@
 ---
+import img01 from "../assets/projects/content-planner.png";
+import img01_v2 from "../assets/projects/content-planner-v2.png";
+import img01_v3 from "../assets/projects/content-planner-v3.png";
+import img02 from "../assets/projects/finance-tracker.png";
+import img03 from "../assets/projects/lms-academy.png";
+import img04 from "../assets/projects/it-roadmap.png";
+
+import ProjectCarousel from "./ProjectCarousel";
+
 const projects = [
-  {
-    title: 'Modern E-Commerce',
-    description: 'A fully responsive e-commerce platform with a clean design and smooth animations.',
-    tags: ['Astro', 'Tailwind CSS', 'React'],
-    link: '#',
-  },
-  {
-    title: 'SAAS Dashboard',
-    description: 'An interactive dashboard with data visualization and glassmorphism effects.',
-    tags: ['Astro', 'Chart.js', 'Tailwind CSS'],
-    link: '#',
-  },
-  {
-    title: 'Real Estate Platform',
-    description: 'A premium real estate listing site with advanced search filtering.',
-    tags: ['Tailwind CSS', 'Alpine.js', 'Astro'],
-    link: '#',
-  },
+    {
+        id: "01",
+        title: "NANASGUNUNG CONTENT PLANNER",
+        year: "2024",
+        category: "SaaS / AI INTEGRATION",
+        images: [img01, img01_v2, img01_v3],
+        description:
+            "A high-impact SaaS platform to automatically generate content plans using IBM Granite LLM. Integrated with Supabase for real-time data persistence and scalable user authentication.",
+        tags: ["Next.js", "AI Integration", "Supabase", "IBM Granite"],
+        link: "https://planner.nanasgunung.com",
+    },
+    {
+        id: "02",
+        title: "KASLO — FINANCE TRACKER",
+        year: "2024",
+        category: "FINTECH / REACT APP",
+        images: [img02, img01, img01_v2, img01_v3],
+        description:
+            "A React-based finance tracker designed for modern users. High-performance data fetching and real-time Supabase integration to manage personal wealth across multiple accounts.",
+        tags: ["Next.js", "Supabase", "TypeScript", "Tailwind"],
+        link: "https://kaslo.nanasgunung.com",
+    },
+    {
+        id: "03",
+        title: "LMS — ACADEMY PLATFORM",
+        year: "2023",
+        category: "E-LEARNING / FULL-STACK",
+        images: [img03, img01, img01_v2, img01_v3],
+        description:
+            "A robust Laravel platform developed using Agile Scrum methodologies. Complete student/instructor modules, automated assessment tracking, and centralized course management.",
+        tags: ["Laravel", "Livewire", "MySQL", "Scrum"],
+        link: "#",
+    },
+    {
+        id: "04",
+        title: "IT ROADMAP RESEARCH",
+        year: "2023",
+        category: "STRATEGY / ARCHITECTURE",
+        images: [img04, img01, img01_v2, img01_v3],
+        description:
+            "Comprehensive digital transformation roadmap planning using TOGAF ADM. Visualized through BPMN for strategic business alignment and technology modernization.",
+        tags: ["TOGAF ADM", "Analysis", "BPMN", "Strategy"],
+        link: "#",
+    },
 ];
 ---
 
-<section id="projects" class="py-24 px-6 bg-zinc-950">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-white mb-4">Featured Projects</h2>
-      <p class="text-zinc-400 max-w-2xl mx-auto">
-        Check out some of my recent work, designed with a focus on usability and beauty.
-      </p>
+<section
+    id="projects"
+    class="relative min-h-screen bg-brand-bg py-24 md:py-40 px-6 md:px-12 overflow-hidden border-t border-brand-text/5"
+>
+    <!-- Background Large Typography (Decorative) -->
+    <div
+        class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0"
+    >
+        <div class="h-screen flex items-center justify-center sticky top-0">
+            <span
+                class="text-[17vw] font-bold text-brand-text/5 leading-none uppercase"
+                id="projects-bg-text"
+            >
+                PROJECTS
+            </span>
+        </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project) => (
-        <div class="group relative bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden hover:border-brand-primary/50 transition-all duration-300">
-          <div class="aspect-video bg-zinc-800 p-8 flex items-center justify-center">
-            <!-- Project Placeholder Visual -->
-            <div class="w-full h-full bg-linear-to-br from-brand-primary/20 via-brand-secondary/20 to-brand-accent/20 rounded-xl animate-pulse">
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8"
+        >
+            <div class="overflow-hidden">
+                <h2
+                    class="text-brand-accent mb-4 tracking-[0.5em] uppercase"
+                    id="projects-tag"
+                >
+                    02 / SELECTED WORKS
+                </h2>
+                <h3
+                    class="text-6xl md:text-8xl font-bold leading-none tracking-widest"
+                    id="projects-title"
+                >
+                    PORTFOLIO <br /> ARCHIVE
+                </h3>
             </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">
-              {project.title}
-            </h3>
-            <p class="text-zinc-400 text-sm mb-4">
-              {project.description}
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              {project.tags.map((tag) => (
-                <span class="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-semibold rounded-full border border-white/5">
-                  {tag}
-                </span>
-              ))}
+            <div class="md:text-right max-w-xs overflow-hidden">
+                <p
+                    class="text-[11px] leading-relaxed text-brand-text/50 uppercase tracking-widest"
+                    id="projects-info"
+                >
+                    A Curated Selection of High-End Digital Solutions & Technical
+                    Architecture.
+                </p>
             </div>
-            <a
-              href={project.link}
-              class="inline-flex items-center text-brand-secondary font-bold text-sm hover:underline underline-offset-4"
-            >
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
         </div>
-      ))}
+
+        <!-- Vertical Accordion List -->
+        <div class="border-t border-brand-text/10" id="projects-list">
+            {
+                projects.map((project, index) => (
+                    <div
+                        class="project-item group border-b border-brand-text/10 overflow-hidden cursor-pointer"
+                        data-id={project.id}
+                    >
+                        <!-- Row Summary -->
+                        <div class="flex items-center justify-between py-12 md:py-16 transition-all duration-500 group-hover:px-4 md:group-hover:px-8">
+                            <div class="flex items-center gap-8 md:gap-16">
+                                <span class="text-[12px] md:text-[14px] font-bold text-brand-text/40 tracking-widest font-mono">
+                                    [{project.id}]
+                                </span>
+                                <h4 class="text-3xl md:text-6xl font-bold tracking-wide group-hover:text-brand-accent transition-colors">
+                                    {project.title}
+                                </h4>
+                            </div>
+                            <div class="flex items-center gap-12 text-right">
+                                <span class="hidden md:block text-[11px] font-bold tracking-[0.2em] text-brand-text/30 uppercase">
+                                    {project.category}
+                                </span>
+                                <span class="text-[14px] md:text-[18px] font-bold text-brand-text/20 group-hover:text-brand-text transition-colors">
+                                    {project.year}
+                                </span>
+                                <div class="w-8 h-8 rounded-full border border-brand-text/10 flex items-center justify-center -rotate-90 group-hover:rotate-0 transition-transform duration-500">
+                                    <span class="text-lg group-hover:translate-x-1 transition-transform">
+                                        ⟶
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row Detail (Accordion Content) -->
+                        <div class="project-detail max-h-0 opacity-0 px-8 md:px-32 pb-16 overflow-hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 py-12 border-t border-brand-text/5">
+                                <!-- Text Content -->
+                                <div class="md:col-span-6 space-y-12">
+                                    <p class="text-lg md:text-2xl leading-relaxed text-brand-text/80 font-medium">
+                                        {project.description}
+                                    </p>
+                                    <div class="flex flex-wrap gap-3">
+                                        {project.tags.map((tag) => (
+                                            <span class="px-4 py-1.5 border border-brand-text/10 rounded-full text-[10px] font-bold tracking-widest text-brand-text/40 grayscale group-hover:grayscale-0 transition-all uppercase">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <div class="pt-8">
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            class="group/btn inline-flex items-center gap-6 text-[13px] font-bold tracking-[0.3em] uppercase border-b-2 border-brand-text/10 pb-2 hover:border-brand-accent transition-all w-fit"
+                                        >
+                                            EXPLORE SITE{" "}
+                                            <span class="text-lg group-hover/btn:translate-x-2 transition-transform">
+                                                ⟶
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Image Preview -->
+                                <div class="md:col-span-6">
+                                    <div class="relative project-image-container opacity-0 translate-y-6">
+                                        <ProjectCarousel 
+                                            images={project.images} 
+                                            title={project.title} 
+                                            client:visible 
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </section>
+
+<style>
+    .project-item.is-active .project-detail {
+        max-height: 2000px;
+        opacity: 1;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const sections = ["#projects-tag", "#projects-title", "#projects-info"];
+
+        // 1. Entrance Reveal for Header
+        const projectsTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top 70%",
+            },
+        });
+
+        projectsTl.from(sections, {
+            y: 40,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1.2,
+            ease: "power3.out",
+        });
+
+        // 2. Sequential Project Row Reveal
+        gsap.from(".project-item", {
+            scrollTrigger: {
+                trigger: "#projects-list",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1.5,
+            ease: "power3.out",
+        });
+
+        // 3. Accordion Logic (Single Expansion)
+        const items = document.querySelectorAll(".project-item");
+
+        items.forEach((item) => {
+            const row = item.querySelector("div:first-child"); // Click target
+            const detail = item.querySelector(".project-detail");
+            const arrow = item.querySelector(".w-8");
+            const imageContainer = item.querySelector(".project-image-container");
+
+            if (row && detail && arrow && imageContainer) {
+                row.addEventListener("click", () => {
+                    const isActive = item.classList.contains("is-active");
+
+                // Close all others
+                items.forEach((others) => {
+                    if (others !== item) {
+                        const otherDetail = others.querySelector(".project-detail");
+                        const otherArrow = others.querySelector(".w-8");
+                        const otherImg = others.querySelector(".project-image-container");
+
+                        gsap.to(otherDetail, {
+                            maxHeight: 0,
+                            opacity: 0,
+                            duration: 0.4,
+                            ease: "power2.inOut",
+                        });
+                        gsap.to(otherArrow, { rotate: -90, duration: 0.4 });
+                        gsap.to(otherImg, {
+                            opacity: 0,
+                            y: 20,
+                            duration: 0.4,
+                            ease: "power2.inOut",
+                        });
+                        others.classList.remove("is-active");
+                    }
+                });
+
+                // Toggle current
+                if (isActive) {
+                    gsap.to(detail, {
+                        maxHeight: 0,
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                    });
+                    gsap.to(arrow, { rotate: -90, duration: 0.4 });
+                    gsap.to(imageContainer, {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                    });
+                    item.classList.remove("is-active");
+                } else {
+                    gsap.to(detail, {
+                        maxHeight: 1200,
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: "power3.out",
+                    });
+                    gsap.to(arrow, { rotate: 0, duration: 0.4 });
+                    
+                    // Image reveal animation
+                    gsap.fromTo(imageContainer, 
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.5, delay: 0.1, ease: "power2.out" }
+                    );
+                    
+                    item.classList.add("is-active");
+                }
+            });
+        }
+    });
+
+        // 4. Background Decorative Text (Sticky with Lag)
+        gsap.to("#projects-bg-text", {
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.5,
+            },
+            y: 100,
+            ease: "none",
+        });
+    });
+</script>
