@@ -1,6 +1,8 @@
 ---
-import '@/styles/global.css';
+import "@/styles/global.css";
+import ClickSpark from "@/components/ui/ClickSpark";
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +10,26 @@ import '@/styles/global.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>Nasrullah Gunawan | Portfolio</title>
 	</head>
 	<body>
 		<div class="noise-overlay"></div>
-		<slot />
+		<ClickSpark
+			sparkColor="#ffffff"
+			sparkSize={12}
+			sparkRadius={18}
+			sparkCount={10}
+			duration={600}
+			client:load
+		>
+			<slot />
+		</ClickSpark>
 	</body>
 </html>
-
