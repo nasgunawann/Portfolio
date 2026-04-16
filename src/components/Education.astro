@@ -1,67 +1,11 @@
 ---
-const formalEducation = [
-    {
-        title: "Sistem Informasi (S1)",
-        institution: "Universitas Islam Negeri Sumatera Utara",
-        period: "2023 - Present",
-        location: "Medan, ID",
-        narrative: "Currently pursuing my Bachelor's degree, I focus on the intersection of technical architecture and financial optimization. My academic tenure is dedicated to exploring AI-driven personal finance systems and implementing Agile methodologies for large-scale campus platforms.",
-        skills: ["System Analysis", "Database Design", "Agile Methodologies"],
-    }
-];
+import { getCollection } from "astro:content";
 
-const certifications = [
-    {
-        title: "AWS Re/Start Cloud Trainee",
-        institution: "Orbit Future Academy",
-        period: "Mar 2026 - Present",
-        technicalNote: "Selected for an intensive 12-week program focusing on AWS Architecture (EC2, S3, RDS, VPC), network security, and scalable cloud deployments.",
-        skills: ["Cloud Architecture", "VPC", "Security Protocols"],
-        isCurrent: true
-    },
-    {
-        title: "Fundamental Project Management",
-        institution: "KOMDIGI & Google",
-        period: "Issued Aug 2025",
-        technicalNote: "Specialized training via Fresh Graduate Academy (DTS) focusing on SDLC and strategic project management methodologies.",
-        skills: ["Project Management", "SDLC", "Strategy"],
-    },
-    {
-        title: "Student Developer Initiative",
-        institution: "Hacktiv8 Indonesia",
-        period: "Issued Oct 2025",
-        technicalNote: "Advanced program focused on Code Generation and Optimization techniques to improve development efficiency.",
-        skills: ["Code Optimization", "Code Generation", "Performance"],
-    },
-    {
-        title: "Intro to Generative AI",
-        institution: "Amazon Web Services (AWS)",
-        period: "Issued Mar 2026",
-        technicalNote: "Training badge for foundational Generative AI concepts and deployment within the AWS ecosystem.",
-        skills: ["Generative AI", "AWS AI Services", "LLMs"],
-    },
-    {
-        title: "Gen AI Apps with Microsoft Azure",
-        institution: "Dicoding Indonesia",
-        period: "Issued Mar 2026",
-        technicalNote: "Implementation of Large Language Models (LLM) and Generative AI application development on Azure.",
-        skills: ["Azure Cloud", "LLM", "Generative AI"],
-    },
-    {
-        title: "Data Science with Microsoft Fabric",
-        institution: "Dicoding Indonesia",
-        period: "Issued Mar 2026",
-        technicalNote: "Advanced data analytics and data science application using the Microsoft Fabric platform.",
-        skills: ["Data Analytics", "Data Science", "Microsoft Fabric"],
-    },
-    {
-        title: "IBM Granite: Code Optimization",
-        institution: "IBM",
-        period: "Issued Sep 2025",
-        technicalNote: "Specialized training in utilizing IBM Granite models for code generation and algorithmic optimization.",
-        skills: ["IBM Granite", "Code Optimization", "AI Tools"],
-    }
-];
+const educationEntries = await getCollection("education");
+const formalEducation = educationEntries.map((e: any) => e.data);
+
+const certsEntries = await getCollection("certifications");
+const certifications = certsEntries.map((c: any) => c.data);
 ---
 
 <section
@@ -124,7 +68,7 @@ const certifications = [
 
                 <div class="space-y-24">
                     {
-                        formalEducation.map((item) => (
+                        formalEducation.map((item: any) => (
                             <div class="credential-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                                 <!-- Year & Type -->
                                 <div class="md:col-span-3 pt-2">
@@ -152,7 +96,7 @@ const certifications = [
                                     </div>
 
                                     <div class="flex flex-wrap gap-3 pt-4">
-                                        {item.skills.map((skill) => (
+                                        {item.skills.map((skill: string) => (
                                             <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[10px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase leading-none">
                                                 {skill}
                                             </span>
@@ -176,7 +120,7 @@ const certifications = [
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {
-                        certifications.map((item) => (
+                        certifications.map((item: any) => (
                             <div class="credential-item-compact group p-8 border border-brand-text/5 rounded-[2.5rem] bg-brand-text/1 hover:bg-brand-accent/5 hover:border-brand-accent/20 transition-all duration-500 flex flex-col justify-between h-full relative overflow-hidden">
                                 <div class="space-y-6 relative z-10">
                                     <div class="space-y-2">
@@ -206,7 +150,7 @@ const certifications = [
                                 </div>
                                 
                                 <div class="flex flex-wrap gap-2 pt-8">
-                                    {item.skills.map((skill) => (
+                                    {item.skills.map((skill: string) => (
                                         <span class="px-3 py-1.5 bg-brand-accent/5 border border-brand-accent/10 rounded-full text-[9px] font-bold tracking-widest text-brand-text hover:text-brand-bg hover:bg-brand-accent hover:border-brand-accent transition-all duration-300 uppercase leading-none">
                                            {skill}
                                         </span>

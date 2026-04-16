@@ -1,60 +1,10 @@
 ---
-import img01 from "@/assets/projects/content-planner.png";
-import img01_v2 from "@/assets/projects/content-planner-v2.png";
-import img01_v3 from "@/assets/projects/content-planner-v3.png";
-import img02 from "@/assets/projects/finance-tracker.png";
-import img03 from "@/assets/projects/lms-academy.png";
-import img04 from "@/assets/projects/it-roadmap.png";
-
+import { getCollection } from "astro:content";
 import ProjectCarousel from "@/components/ui/ProjectCarousel";
 import { IconArrowRight, IconChevronRight } from "@tabler/icons-react";
 
-const projects = [
-    {
-        id: "01",
-        title: "NANASGUNUNG CONTENT PLANNER",
-        year: "2024",
-        category: "SaaS / AI INTEGRATION",
-        images: [img01, img01_v2, img01_v3],
-        description:
-            "A high-impact SaaS platform to automatically generate content plans using IBM Granite LLM. Integrated with Supabase for real-time data persistence and scalable user authentication.",
-        tags: ["Next.js", "AI Integration", "Supabase", "IBM Granite"],
-        link: "https://planner.nanasgunung.com",
-    },
-    {
-        id: "02",
-        title: "KASLO — FINANCE TRACKER",
-        year: "2024",
-        category: "FINTECH / REACT APP",
-        images: [img02, img01, img01_v2, img01_v3],
-        description:
-            "A React-based finance tracker designed for modern users. High-performance data fetching and real-time Supabase integration to manage personal wealth across multiple accounts.",
-        tags: ["Next.js", "Supabase", "TypeScript", "Tailwind"],
-        link: "https://kaslo.nanasgunung.com",
-    },
-    {
-        id: "03",
-        title: "LMS — ACADEMY PLATFORM",
-        year: "2023",
-        category: "E-LEARNING / FULL-STACK",
-        images: [img03, img01, img01_v2, img01_v3],
-        description:
-            "A robust Laravel platform developed using Agile Scrum methodologies. Complete student/instructor modules, automated assessment tracking, and centralized course management.",
-        tags: ["Laravel", "Livewire", "MySQL", "Scrum"],
-        link: "#",
-    },
-    {
-        id: "04",
-        title: "IT ROADMAP RESEARCH",
-        year: "2023",
-        category: "STRATEGY / ARCHITECTURE",
-        images: [img04, img01, img01_v2, img01_v3],
-        description:
-            "Comprehensive digital transformation roadmap planning using TOGAF ADM. Visualized through BPMN for strategic business alignment and technology modernization.",
-        tags: ["TOGAF ADM", "Analysis", "BPMN", "Strategy"],
-        link: "#",
-    },
-];
+const projectsEntries = await getCollection("projects");
+const projects = projectsEntries.map((p: any) => p.data);
 ---
 
 <section
@@ -108,7 +58,7 @@ const projects = [
         <!-- Vertical Accordion List -->
         <div class="border-t border-brand-text/10" id="projects-list">
             {
-                projects.map((project, index) => (
+                projects.map((project: any, index: number) => (
                     <div
                         class="project-item group border-b border-brand-text/10 overflow-hidden cursor-pointer"
                         data-id={project.id}
@@ -147,7 +97,7 @@ const projects = [
                                         {project.description}
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
+                                        {project.tags.map((tag: string) => (
                                             <span class="px-3 py-1.5 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[9px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase">
                                                 {tag}
                                             </span>

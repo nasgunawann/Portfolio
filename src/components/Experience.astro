@@ -1,31 +1,8 @@
 ---
-const experiences = [
-    {
-        role: "Founder & Lead Software Developer",
-        company: "Nanasgunung Creative Studio",
-        period: "Dec 2024 - Present",
-        location: "Medan, ID / Hybrid",
-        narrative: "Orchestrating the complete project lifecycle for 10+ high-end digital solutions. I specialized in building scalable internal systems using Next.js and Laravel, while pioneered a SaaS MVP integrating IBM Granite LLM that achieved sub-3-second generation speeds.",
-        skills: ["Next.js", "Laravel", "IBM Granite", "Software Architecture"],
-        isCurrent: true
-    },
-    {
-        role: "Graphic Designer",
-        company: "KalenderKonten",
-        period: "Sep 2023 - Dec 2024",
-        location: "Medan, ID / Hybrid",
-        narrative: "Spearheaded visual strategy for multiple high-stakes client accounts, delivering over 115+ strategic marketing assets with rigorous brand fidelity. Collaborated closely with marketing leads to synthesize creative vision with strategic campaign objectives while ensuring zero missed deadlines.",
-        skills: ["Brand Identity", "Visual Design", "Social Media Advertising", "Creative Direction"],
-    },
-    {
-        role: "Graphic Design Intern",
-        company: "KalenderKonten",
-        period: "Mar 2023 - Sep 2023",
-        location: "Medan, ID / On-site",
-        narrative: "Optimized daily content workflows by architecting reusable master design templates, effectively slicing routine production time by 50%. Supported senior creative teams in translating complex briefs into high-volume, pixel-perfect visuals for major client accounts.",
-        skills: ["Workflow Optimization", "Master Templating", "Graphic Design Software", "Visual Production"],
-    }
-];
+import { getCollection } from "astro:content";
+
+const experiencesEntries = await getCollection("experience");
+const experiences = experiencesEntries.map((e: any) => e.data);
 ---
 
 <section
@@ -79,7 +56,7 @@ const experiences = [
         <!-- Career Timeline -->
         <div class="space-y-40">
             {
-                experiences.map((exp) => (
+                experiences.map((exp: any, index: number) => (
                     <div class="experience-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                         <!-- Left: Date Marker -->
                         <div class="md:col-span-3 pt-2">
@@ -112,8 +89,8 @@ const experiences = [
                             </div>
 
                             <!-- Skill Tags -->
-                            <div class="flex flex-wrap gap-2 pt-4">
-                                {exp.skills.map((skill) => (
+                            <div class="flex flex-wrap gap-3">
+                                {exp.skills.map((skill: string) => (
                                     <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[10px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase leading-none">
                                         {skill}
                                     </span>
