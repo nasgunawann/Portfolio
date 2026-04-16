@@ -1,28 +1,246 @@
 ---
+import nas from "../assets/nasgun_portrait.png";
 ---
-<section id="about" class="py-24 bg-zinc-900 px-6">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-    <div class="w-full md:w-1/2">
-      <div class="relative w-72 h-72 mx-auto md:mx-0">
-        <div class="absolute inset-0 bg-linear-to-r from-brand-primary to-brand-secondary rounded-2xl transform rotate-6 scale-105 opacity-20"></div>
-        <div class="relative w-full h-full bg-zinc-800 rounded-2xl border border-white/5 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-32 h-32 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
+
+<section
+    id="about"
+    class="relative min-h-screen bg-brand-bg py-24 md:py-40 px-6 md:px-12 overflow-hidden"
+>
+    <!-- Background Large Typography (Decorative) -->
+    <div
+        class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0"
+    >
+        <div class="h-screen flex items-center justify-center sticky top-0" id="about-bg-container">
+            <span
+                class="text-[25vw] font-bold text-brand-text/5 leading-none tracking-tighter"
+                id="about-bg-text"
+            >
+                STORY
+            </span>
         </div>
-      </div>
     </div>
-    <div class="w-full md:w-1/2">
-      <h2 class="text-3xl font-bold mb-6 text-white tracking-tight underline decoration-brand-primary decoration-4 underline-offset-8">
-        About Me
-      </h2>
-      <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-        Hello! I'm Nasgun, a web developer with a passion for building clean, efficient, and user-friendly web applications.
-        I love the challenge of turning complex problems into simple, beautiful, and intuitive designs.
-      </p>
-      <p class="text-zinc-400 text-lg leading-relaxed">
-        My goal is to always build products that provide pixel-perfect experiences while maintaining high performance and scalability.
-      </p>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+        >
+            <div class="overflow-hidden">
+                <h2
+                    class="text-brand-accent mb-4 tracking-[0.5em] uppercase"
+                    id="about-tag"
+                >
+                    01 / BIOGRAPHY
+                </h2>
+                <h3
+                    class="text-6xl md:text-8xl font-bold leading-none tracking-widest"
+                    id="about-title"
+                >
+                    THE <br /> ARCHITECT
+                </h3>
+            </div>
+            <div class="md:text-right max-w-xs overflow-hidden">
+                <p
+                    class="text-[11px] leading-relaxed text-brand-text/50 uppercase tracking-widest"
+                    id="about-info"
+                >
+                    Fusing Technical Robustness with Design Excellence to Build
+                    Digital Landmarks.
+                </p>
+            </div>
+        </div>
+
+        <!-- Content Grid (Asymmetric Editorial) -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start"
+        >
+            <!-- Image Column -->
+            <div
+                class="md:col-span-5 relative group"
+                id="about-image-container"
+            >
+                <div
+                    class="aspect-4/5 bg-brand-text/5 rounded-[3rem] overflow-hidden border border-brand-text/10"
+                >
+                    <img
+                        src={nas.src}
+                        alt="Nasrullah Gunawan Portfolio Candid"
+                        class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-1000 scale-120 group-hover:scale-110"
+                    />
+                </div>
+                <!-- Editorial Caption -->
+                <div class="mt-6 flex items-center gap-4">
+                    <div class="h-px w-8 bg-brand-text/20"></div>
+                    <span
+                        class="text-[10px] text-brand-text/40 tracking-[0.2em] uppercase font-bold"
+                    >
+                        Photographic Detail / 2024 Profile
+                    </span>
+                </div>
+            </div>
+
+            <!-- Text Column -->
+            <div
+                class="md:col-span-7 space-y-12 md:space-y-20 pt-8"
+                id="about-content"
+            >
+                <div class="space-y-8">
+                    <p
+                        class="text-2xl md:text-3xl font-medium leading-[1.4] text-brand-text/80 tracking-tight"
+                    >
+                        I am a Full-Stack Web Developer specialized in producing
+                        <span class="text-brand-text font-bold italic"
+                            >Top-notch & Impactful</span
+                        >
+                        digital experiences using Laravel, Next.js, and AI API integrations.
+                    </p>
+                    <div class="h-px w-full bg-brand-text/5"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4
+                                class="text-[13px] font-bold tracking-[0.2em] text-brand-accent uppercase"
+                            >
+                                Expertise
+                            </h4>
+                            <p
+                                class="text-[14px] leading-relaxed text-brand-text/60"
+                            >
+                                My focus lies in automating business processes
+                                through custom web architecture. I manage
+                                projects end-to-end, from analysis to
+                                deployment, ensuring every bit of code serves a
+                                purpose.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4
+                                class="text-[13px] font-bold tracking-[0.2em] text-brand-accent uppercase"
+                            >
+                                Philosophy
+                            </h4>
+                            <p
+                                class="text-[14px] leading-relaxed text-brand-text/60"
+                            >
+                                Beyond just pixels and code, I believe in
+                                building digital environments that feel natural
+                                and highly functional—merging artistic flair
+                                with technical rigor.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Toolkit (Editorial Style) -->
+                <div class="pt-8">
+                    <h4
+                        class="text-[11px] font-bold tracking-[0.4em] text-brand-text/40 uppercase mb-8"
+                    >
+                        Technical Arsenal
+                    </h4>
+                    <div class="flex flex-wrap gap-x-12 gap-y-6">
+                        {
+                            [
+                                "LARAVEL",
+                                "NEXT.JS",
+                                "TYPESCRIPT",
+                                "TAILWIND CSS",
+                                "GSAP",
+                                "AI/LLM API",
+                            ].map((tool) => (
+                                <div class="group relative py-2">
+                                    <span class="text-[13px] font-bold tracking-widest text-brand-text/80 group-hover:text-brand-accent transition-colors duration-300">
+                                        {tool}
+                                    </span>
+                                    <div class="absolute bottom-0 left-0 w-0 h-px bg-brand-accent group-hover:w-full transition-all duration-500" />
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const aboutTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 60%", // Trigger when section is 60% into viewport
+                end: "top 20%",
+                toggleActions: "play none none none",
+            },
+        });
+
+        // 1. Title & Tag Reveal
+        aboutTl
+            .from("#about-tag", {
+                x: -20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+            })
+            .from(
+                "#about-title",
+                {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power4.out",
+                },
+                "-=0.6",
+            )
+            .from(
+                "#about-info",
+                {
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                },
+                "-=0.8",
+            );
+
+        // 2. Image Container Reveal
+        gsap.from("#about-image-container", {
+            scrollTrigger: {
+                trigger: "#about-image-container",
+                start: "top 80%",
+            },
+            y: 80,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power3.out",
+        });
+
+        // 3. Content Text Blocks Reveal
+        gsap.from("#about-content > div", {
+            scrollTrigger: {
+                trigger: "#about-content",
+                start: "top 75%",
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.3,
+            duration: 1.2,
+            ease: "power3.out",
+        });
+
+        // 4. Background Decorative Text Parallax (Now Sticky with Lag)
+        gsap.to("#about-bg-text", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.5,
+            },
+            y: 100,
+            ease: "none",
+        });
+    });
+</script>
