@@ -1,38 +1,40 @@
 ---
 const skillCategories = [
   {
-    name: 'Frontend',
-    skills: ['HTML5', 'CSS3/Sass', 'JavaScript (ES6+)', 'TypeScript', 'React', 'Vue.js', 'Next.js', 'Astro', 'Tailwind CSS'],
+    name: 'Languages & Frameworks',
+    skills: ['PHP (Laravel, CI)', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Tailwind CSS', 'Bootstrap'],
   },
   {
-    name: 'Backend & Tools',
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Git/GitHub', 'Docker', 'Vite', 'Webpack'],
+    name: 'Backend & Database',
+    skills: ['MySQL', 'PostgreSQL', 'Supabase', 'REST API', 'Auth Integration'],
   },
   {
-    name: 'Design & UX',
-    skills: ['Figma', 'Adobe XD', 'User Experience', 'Prototyping', 'Responsive Design', 'Accessibility'],
+    name: 'Tools & DevOps',
+    skills: ['Git', 'GitHub', 'Docker', 'Linux', 'Vercel', 'CI/CD'],
   },
 ];
 ---
 
-<section id="skills" class="py-24 px-6 bg-zinc-900">
-  <div class="max-w-6xl mx-auto">
+<section id="skills" class="section-container bg-brand-pastel-blue/30 overflow-hidden relative">
+  <!-- Retro Star Doodle -->
+  <div class="absolute top-10 right-10 text-brand-accent animate-spin-slow">
+    <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" /></svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto w-full relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-white mb-4">Core Competencies</h2>
-      <p class="text-zinc-400 max-w-2xl mx-auto">
-        These are the core technologies and tools I use to bring ideas to life.
-      </p>
+      <h2 class="text-6xl font-black text-brand-text mb-6 tracking-tighter">My <span class="text-brand-primary italic font-serif">Toolbox</span></h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       {skillCategories.map((category) => (
-        <div class="flex flex-col gap-6 p-8 rounded-2xl bg-zinc-950 border border-white/5 hover:border-brand-accent/30 transition-all duration-300">
-          <h3 class="text-xl font-bold text-brand-accent tracking-wide uppercase">
+        <div class="flex flex-col gap-8 p-10 rounded-[3rem] bg-white border-2 border-brand-text shadow-retro hover:shadow-retro-hover transition-all">
+          <h3 class="text-2xl font-black text-brand-primary uppercase tracking-widest leading-none">
             {category.name}
           </h3>
-          <ul class="flex flex-wrap gap-2 text-zinc-300 list-none p-0">
+          <ul class="flex flex-wrap gap-3 list-none p-0">
             {category.skills.map((skill) => (
-              <li class="px-4 py-2 border border-white/10 rounded-lg bg-zinc-900 group-hover:bg-zinc-800 transition-colors">
+              <li class="px-5 py-2.5 border-2 border-brand-text rounded-full bg-brand-bg text-brand-text text-sm font-black hover:bg-brand-primary hover:text-white transition-all cursor-default select-none shadow-sm">
                 {skill}
               </li>
             ))}
@@ -42,3 +44,13 @@ const skillCategories = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+</style>
