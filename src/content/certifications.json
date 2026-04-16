@@ -1,52 +1,97 @@
 [
     {
-        "title": "AWS Re/Start Cloud Trainee",
-        "institution": "Orbit Future Academy",
-        "period": "Mar 2026 - Present",
-        "technicalNote": "Selected for an intensive 12-week program focusing on AWS Architecture (EC2, S3, RDS, VPC), network security, and scalable cloud deployments.",
-        "skills": ["Cloud Architecture", "VPC", "Security Protocols"],
-        "isCurrent": true
-    },
-    {
-        "title": "Fundamental Project Management",
-        "institution": "KOMDIGI & Google",
-        "period": "Issued Aug 2025",
-        "technicalNote": "Specialized training via Fresh Graduate Academy (DTS) focusing on SDLC and strategic project management methodologies.",
-        "skills": ["Project Management", "SDLC", "Strategy"]
-    },
-    {
-        "title": "Student Developer Initiative",
-        "institution": "Hacktiv8 Indonesia",
-        "period": "Issued Oct 2025",
-        "technicalNote": "Advanced program focused on Code Generation and Optimization techniques to improve development efficiency.",
-        "skills": ["Code Optimization", "Code Generation", "Performance"]
-    },
-    {
-        "title": "Intro to Generative AI",
-        "institution": "Amazon Web Services (AWS)",
-        "period": "Issued Mar 2026",
-        "technicalNote": "Training badge for foundational Generative AI concepts and deployment within the AWS ecosystem.",
-        "skills": ["Generative AI", "AWS AI Services", "LLMs"]
-    },
-    {
-        "title": "Gen AI Apps with Microsoft Azure",
-        "institution": "Dicoding Indonesia",
-        "period": "Issued Mar 2026",
-        "technicalNote": "Implementation of Large Language Models (LLM) and Generative AI application development on Azure.",
-        "skills": ["Azure Cloud", "LLM", "Generative AI"]
-    },
-    {
-        "title": "Data Science with Microsoft Fabric",
-        "institution": "Dicoding Indonesia",
-        "period": "Issued Mar 2026",
-        "technicalNote": "Advanced data analytics and data science application using the Microsoft Fabric platform.",
-        "skills": ["Data Analytics", "Data Science", "Microsoft Fabric"]
-    },
-    {
+        "id": "cert-07",
         "title": "IBM Granite: Code Optimization",
         "institution": "IBM",
         "period": "Issued Sep 2025",
         "technicalNote": "Applied knowledge in optimizing Large Language Model performance and code-base integration utilizing the IBM Granite architecture.",
-        "skills": ["LLM Optimization", "IBM Granite", "Python"]
+        "skills": [
+            "LLM Optimization",
+            "IBM Granite",
+            "Python"
+        ],
+        "link": "/credentials/ibm-granite-cert.pdf",
+        "linkType": "pdf"
+    },
+    {
+        "id": "cert-06",
+        "title": "Data Science with Microsoft Fabric",
+        "institution": "Dicoding Indonesia",
+        "period": "Issued Mar 2026",
+        "technicalNote": "Advanced data analytics and data science application using the Microsoft Fabric platform.",
+        "skills": [
+            "Data Analytics",
+            "Data Science",
+            "Microsoft Fabric"
+        ]
+    },
+    {
+        "id": "cert-05",
+        "title": "Gen AI Apps with Microsoft Azure",
+        "institution": "Dicoding Indonesia",
+        "period": "Issued Mar 2026",
+        "technicalNote": "Implementation of Large Language Models (LLM) and Generative AI application development on Azure.",
+        "skills": [
+            "Azure Cloud",
+            "LLM",
+            "Generative AI"
+        ],
+        "link": "https://www.dicoding.com/certificates/gen-ai-azure",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-04",
+        "title": "Intro to Generative AI",
+        "institution": "Amazon Web Services (AWS)",
+        "period": "Issued Mar 2026",
+        "technicalNote": "Training badge for foundational Generative AI concepts and deployment within the AWS ecosystem.",
+        "skills": [
+            "Generative AI",
+            "AWS AI Services",
+            "LLMs"
+        ],
+        "link": "https://www.credly.com/badges/aws-gen-ai",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-03",
+        "title": "Student Developer Initiative",
+        "institution": "Hacktiv8 Indonesia",
+        "period": "Issued Oct 2025",
+        "technicalNote": "Advanced program focused on Code Generation and Optimization techniques to improve development efficiency.",
+        "skills": [
+            "Code Optimization",
+            "Code Generation",
+            "Performance"
+        ]
+    },
+    {
+        "id": "cert-02",
+        "title": "Fundamental Project Management",
+        "institution": "KOMDIGI & Google",
+        "period": "Issued Aug 2025",
+        "technicalNote": "Specialized training via Fresh Graduate Academy (DTS) focusing on SDLC and strategic project management methodologies.",
+        "skills": [
+            "Project Management",
+            "SDLC",
+            "Strategy"
+        ],
+        "link": "/credentials/google-pm-cert.pdf",
+        "linkType": "pdf"
+    },
+    {
+        "id": "cert-01",
+        "title": "AWS Re/Start Cloud Trainee",
+        "institution": "Orbit Future Academy",
+        "period": "Mar 2026 - Present",
+        "technicalNote": "Selected for an intensive 12-week program focusing on AWS Architecture (EC2, S3, RDS, VPC), network security, and scalable cloud deployments.",
+        "skills": [
+            "Cloud Architecture",
+            "VPC",
+            "Security Protocols"
+        ],
+        "isCurrent": true,
+        "link": "https://aws.amazon.com/training/restart/",
+        "linkType": "external"
     }
 ]

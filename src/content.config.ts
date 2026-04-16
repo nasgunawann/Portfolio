@@ -18,6 +18,7 @@ const projects = defineCollection({
 const experience = defineCollection({
     loader: file("src/content/experience.json"),
     schema: z.object({
+        id: z.string(),
         role: z.string(),
         company: z.string(),
         period: z.string(),
@@ -31,6 +32,7 @@ const experience = defineCollection({
 const education = defineCollection({
     loader: file("src/content/education.json"),
     schema: z.object({
+        id: z.string(),
         title: z.string(),
         institution: z.string(),
         period: z.string(),
@@ -42,13 +44,17 @@ const education = defineCollection({
 
 const certifications = defineCollection({
     loader: file("src/content/certifications.json"),
-    schema: z.object({
+    schema: ({ image }) => z.object({
+        id: z.string(),
         title: z.string(),
         institution: z.string(),
         period: z.string(),
         technicalNote: z.string(),
         skills: z.array(z.string()),
         isCurrent: z.boolean().optional(),
+        image: image().optional(),
+        link: z.string().optional(),
+        linkType: z.enum(['external', 'pdf']).optional(),
     }),
 });
 

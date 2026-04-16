@@ -1,32 +1,23 @@
 [
     {
-        "id": "01",
-        "title": "NANASGUNUNG CONTENT PLANNER",
-        "year": "2024",
-        "category": "SaaS / AI INTEGRATION",
+        "id": "04",
+        "title": "IT ROADMAP RESEARCH",
+        "year": "2023",
+        "category": "STRATEGY / ARCHITECTURE",
         "images": [
+            "../assets/projects/it-roadmap.png",
             "../assets/projects/content-planner.png",
             "../assets/projects/content-planner-v2.png",
             "../assets/projects/content-planner-v3.png"
         ],
-        "description": "A high-impact SaaS platform to automatically generate content plans using IBM Granite LLM. Integrated with Supabase for real-time data persistence and scalable user authentication.",
-        "tags": ["Next.js", "AI Integration", "Supabase", "IBM Granite"],
-        "link": "https://planner.nanasgunung.com"
-    },
-    {
-        "id": "02",
-        "title": "KASLO — FINANCE TRACKER",
-        "year": "2024",
-        "category": "FINTECH / REACT APP",
-        "images": [
-            "../assets/projects/finance-tracker.png",
-            "../assets/projects/content-planner.png",
-            "../assets/projects/content-planner-v2.png",
-            "../assets/projects/content-planner-v3.png"
+        "description": "Comprehensive digital transformation roadmap planning using TOGAF ADM. Visualized through BPMN for strategic business alignment and technology modernization.",
+        "tags": [
+            "TOGAF ADM",
+            "Analysis",
+            "BPMN",
+            "Strategy"
         ],
-        "description": "A React-based finance tracker designed for modern users. High-performance data fetching and real-time Supabase integration to manage personal wealth across multiple accounts.",
-        "tags": ["Next.js", "Supabase", "TypeScript", "Tailwind"],
-        "link": "https://kaslo.nanasgunung.com"
+        "link": "#"
     },
     {
         "id": "03",
@@ -40,22 +31,51 @@
             "../assets/projects/content-planner-v3.png"
         ],
         "description": "A robust Laravel platform developed using Agile Scrum methodologies. Complete student/instructor modules, automated assessment tracking, and centralized course management.",
-        "tags": ["Laravel", "Livewire", "MySQL", "Scrum"],
+        "tags": [
+            "Laravel",
+            "Livewire",
+            "MySQL",
+            "Scrum"
+        ],
         "link": "#"
     },
     {
-        "id": "04",
-        "title": "IT ROADMAP RESEARCH",
-        "year": "2023",
-        "category": "STRATEGY / ARCHITECTURE",
+        "id": "02",
+        "title": "KASLO — FINANCE TRACKER",
+        "year": "2024",
+        "category": "FINTECH / REACT APP",
         "images": [
-            "../assets/projects/it-roadmap.png",
+            "../assets/projects/finance-tracker.png",
             "../assets/projects/content-planner.png",
             "../assets/projects/content-planner-v2.png",
             "../assets/projects/content-planner-v3.png"
         ],
-        "description": "Comprehensive digital transformation roadmap planning using TOGAF ADM. Visualized through BPMN for strategic business alignment and technology modernization.",
-        "tags": ["TOGAF ADM", "Analysis", "BPMN", "Strategy"],
-        "link": "#"
+        "description": "A React-based finance tracker designed for modern users. High-performance data fetching and real-time Supabase integration to manage personal wealth across multiple accounts.",
+        "tags": [
+            "Next.js",
+            "Supabase",
+            "TypeScript",
+            "Tailwind"
+        ],
+        "link": "https://kaslo.nanasgunung.com"
+    },
+    {
+        "id": "01",
+        "title": "NANASGUNUNG CONTENT PLANNER",
+        "year": "2024",
+        "category": "SaaS / AI INTEGRATION",
+        "images": [
+            "../assets/projects/content-planner.png",
+            "../assets/projects/content-planner-v2.png",
+            "../assets/projects/content-planner-v3.png"
+        ],
+        "description": "A high-impact SaaS platform to automatically generate content plans using IBM Granite LLM. Integrated with Supabase for real-time data persistence and scalable user authentication.",
+        "tags": [
+            "Next.js",
+            "AI Integration",
+            "Supabase",
+            "IBM Granite"
+        ],
+        "link": "https://planner.nanasgunung.com"
     }
 ]
