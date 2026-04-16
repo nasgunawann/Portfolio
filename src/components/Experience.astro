@@ -54,52 +54,63 @@ const experiences = experiencesEntries.map((e: any) => e.data);
         </div>
 
         <!-- Career Timeline -->
-        <div class="space-y-40">
-            {
-                experiences.map((exp: any, index: number) => (
-                    <div class="experience-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                        <!-- Left: Date Marker -->
-                        <div class="md:col-span-3 pt-2">
-                            <span class="text-[13px] font-bold tracking-[0.3em] text-brand-accent uppercase block h-fit border-l-2 border-brand-accent/30 pl-4 py-1">
-                                {exp.period}
-                            </span>
-                            {exp.isCurrent && (
-                                <span class="inline-block mt-4 px-3 py-1 bg-brand-accent/10 rounded-full text-[9px] font-bold tracking-widest text-brand-accent animate-pulse uppercase">
-                                    CURRENT
+        <div class="relative">
+            <!-- Continuous Timeline Line -->
+            <div 
+                class="absolute left-0 top-0 bottom-0 w-px bg-brand-text/10 hidden md:block origin-top" 
+                id="experience-timeline-line"
+            ></div>
+
+            <div class="space-y-40">
+                {
+                    experiences.map((exp: any, index: number) => (
+                        <div class="experience-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative">
+                            <!-- Left: Date Marker -->
+                            <div class="md:col-span-3 pt-2 relative">
+                                <!-- Technical Tick (Hidden on Mobile) -->
+                                <div class="absolute left-0 top-6 w-8 h-px bg-brand-accent/30 hidden md:block"></div>
+                                
+                                <span class="text-[13px] font-bold tracking-[0.3em] text-brand-accent uppercase block h-fit md:pl-12 py-1">
+                                    {exp.period}
                                 </span>
-                            )}
-                        </div>
-
-                        <!-- Right: Content -->
-                        <div class="md:col-span-9 space-y-8">
-                            <div class="space-y-2">
-                                <h4 class="text-4xl md:text-7xl font-bold tracking-wide text-brand-text group-hover:text-brand-accent transition-colors duration-500">
-                                    {exp.role}
-                                </h4>
-                                <p class="text-xl md:text-2xl font-serif italic text-brand-text/50">
-                                    {exp.company}
-                                </p>
-                            </div>
-
-                            <div class="max-w-4xl relative">
-                                <div class="absolute -left-6 top-0 bottom-0 w-px bg-brand-text/10" />
-                                <p class="text-lg md:text-2xl leading-relaxed text-brand-text/70 font-medium pl-6">
-                                    "{exp.narrative}"
-                                </p>
-                            </div>
-
-                            <!-- Skill Tags -->
-                            <div class="flex flex-wrap gap-3">
-                                {exp.skills.map((skill: string) => (
-                                    <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[10px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase leading-none">
-                                        {skill}
+                                {exp.isCurrent && (
+                                    <span class="inline-block mt-4 md:ml-12 px-3 py-1 bg-brand-accent/10 rounded-full text-[9px] font-bold tracking-widest text-brand-accent animate-pulse uppercase">
+                                        CURRENT
                                     </span>
-                                ))}
+                                )}
+                            </div>
+
+                            <!-- Right: Content -->
+                            <div class="md:col-span-9 space-y-8">
+                                <div class="space-y-2">
+                                    <h4 class="text-4xl md:text-7xl font-bold tracking-wide text-brand-text group-hover:text-brand-accent transition-colors duration-500">
+                                        {exp.role}
+                                    </h4>
+                                    <p class="text-xl md:text-2xl font-serif italic text-brand-text/50">
+                                        {exp.company}
+                                    </p>
+                                </div>
+
+                                <div class="max-w-4xl relative">
+                                    <div class="absolute -left-6 top-0 bottom-0 w-px bg-brand-text/10" />
+                                    <p class="text-lg md:text-2xl leading-relaxed text-brand-text/70 font-medium pl-6">
+                                        "{exp.narrative}"
+                                    </p>
+                                </div>
+
+                                <!-- Skill Tags -->
+                                <div class="flex flex-wrap gap-3">
+                                    {exp.skills.map((skill: string) => (
+                                        <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[10px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase leading-none">
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
         </div>
     </div>
 </section>
@@ -128,7 +139,19 @@ const experiences = experiencesEntries.map((e: any) => e.data);
             ease: "power3.out",
         });
 
-        // 2. Row Stagger (Sequential Reveal)
+        // 2. Timeline Line Drawing
+        gsap.from("#experience-timeline-line", {
+            scrollTrigger: {
+                trigger: ".experience-item",
+                start: "top 80%",
+                end: "bottom 60%",
+                scrub: 1,
+            },
+            scaleY: 0,
+            ease: "none",
+        });
+
+        // 3. Row Stagger (Sequential Reveal)
         gsap.from(".experience-item", {
             scrollTrigger: {
                 trigger: "#experience",

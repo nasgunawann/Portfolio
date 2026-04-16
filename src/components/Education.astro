@@ -1,5 +1,7 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { IconExternalLink, IconFileDownload } from "@tabler/icons-react";
 
 const educationEntries = await getCollection("education");
 const formalEducation = educationEntries.map((e: any) => e.data);
@@ -58,9 +60,15 @@ const certifications = certsEntries.map((c: any) => c.data);
 
         <div class="space-y-40">
             <!-- 04.1 Formal Education (Institutional Style) -->
-            <div class="space-y-20 section-formal">
+            <div class="space-y-20 section-formal relative">
+                <!-- Continuous Timeline Line -->
+                <div 
+                    class="absolute left-0 top-0 bottom-0 w-px bg-brand-text/10 hidden md:block origin-top" 
+                    id="education-timeline-line"
+                ></div>
+
                 <div class="flex items-center gap-6">
-                    <span class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase">
+                    <span class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase md:pl-12">
                         04.1 / Academic Degrees
                     </span>
                     <div class="h-px flex-1 bg-brand-text/10"></div>
@@ -69,10 +77,13 @@ const certifications = certsEntries.map((c: any) => c.data);
                 <div class="space-y-24">
                     {
                         formalEducation.map((item: any) => (
-                            <div class="credential-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                            <div class="credential-item group grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative">
                                 <!-- Year & Type -->
-                                <div class="md:col-span-3 pt-2">
-                                    <span class="text-[13px] font-bold tracking-[0.3em] text-brand-accent uppercase block h-fit border-l-2 border-brand-accent/30 pl-4 py-1">
+                                <div class="md:col-span-3 pt-2 relative">
+                                    <!-- Technical Tick -->
+                                    <div class="absolute left-0 top-6 w-8 h-px bg-brand-accent/30 hidden md:block"></div>
+
+                                    <span class="text-[13px] font-bold tracking-[0.3em] text-brand-accent uppercase block h-fit md:pl-12 py-1">
                                         {item.period}
                                     </span>
                                 </div>
@@ -143,18 +154,53 @@ const certifications = certsEntries.map((c: any) => c.data);
                                         {item.technicalNote}
                                     </p>
 
-                                    <!-- Certificate Preview Placeholder -->
-                                    <div class="aspect-16/10 w-full bg-brand-text/5 rounded-2xl border border-brand-text/5 flex items-center justify-center group-hover:bg-brand-accent/5 group-hover:border-brand-accent/10 transition-all mt-2">
-                                        <span class="text-[8px] font-bold text-brand-text/20 uppercase tracking-[0.3em] group-hover:text-brand-accent/30">Preview Credential</span>
+                                    <!-- Certificate Preview -->
+                                    <div class="relative group/cert h-fit mt-2">
+                                        <div class="aspect-16/10 w-full bg-brand-text/5 rounded-2xl border border-brand-text/5 flex items-center justify-center group-hover:bg-brand-accent/5 group-hover:border-brand-accent/10 transition-all overflow-hidden">
+                                            {item.isCurrent ? (
+                                                <span class="text-[10px] font-bold text-brand-accent animate-pulse uppercase tracking-[0.4em]">IN PROGRESS</span>
+                                            ) : item.image ? (
+                                                <Image 
+                                                    src={item.image} 
+                                                    alt={item.title}
+                                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                />
+                                            ) : (
+                                                <span class="text-[8px] font-bold text-brand-text/20 uppercase tracking-[0.3em] group-hover:text-brand-accent/30">Preview Credential</span>
+                                            )}
+                                        </div>
+
+                                        {!item.isCurrent && item.link && (
+                                            <a 
+                                                href={item.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2.5 bg-brand-text text-brand-bg rounded-full text-[9px] font-bold tracking-widest uppercase hover:bg-brand-accent hover:scale-110 transition-all duration-300 shadow-2xl z-20"
+                                            >
+                                                {item.linkType === 'pdf' ? (
+                                                    <>
+                                                        <IconFileDownload size={14} stroke={2.5} />
+                                                        PDF
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <IconExternalLink size={14} stroke={2.5} />
+                                                        VERIFY
+                                                    </>
+                                                )}
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                                 
                                 <div class="flex flex-wrap gap-2 pt-8">
-                                    {item.skills.map((skill: string) => (
-                                        <span class="px-3 py-1.5 bg-brand-accent/5 border border-brand-accent/10 rounded-full text-[9px] font-bold tracking-widest text-brand-text hover:text-brand-bg hover:bg-brand-accent hover:border-brand-accent transition-all duration-300 uppercase leading-none">
-                                           {skill}
-                                        </span>
-                                    ))}
+                                    <div class="flex flex-wrap gap-2">
+                                        {item.skills.map((skill: string) => (
+                                            <span class="px-3 py-1.5 bg-brand-accent/5 border border-brand-accent/10 rounded-full text-[9px] font-bold tracking-widest text-brand-text hover:text-brand-bg hover:bg-brand-accent hover:border-brand-accent transition-all duration-300 uppercase leading-none">
+                                               {skill}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ))
@@ -191,7 +237,19 @@ const certifications = certsEntries.map((c: any) => c.data);
             ease: "power3.out",
         });
 
-        // 2. Items are now static for better performance and reliability
+        // 2. Timeline Line Drawing
+        gsap.from("#education-timeline-line", {
+            scrollTrigger: {
+                trigger: ".section-formal",
+                start: "top 70%",
+                end: "bottom 60%",
+                scrub: 1,
+            },
+            scaleY: 0,
+            ease: "none",
+        });
+
+        // 3. Items Entrance (Already defined via section or can be reinforced)
         
         // 3. Background Sticky Text with Lag
         gsap.to("#credentials-bg-text", {
