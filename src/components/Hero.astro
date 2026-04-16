@@ -1,44 +1,340 @@
 ---
+import nas from "../assets/nasgun_nobg.png";
+import SocialLinks from "./SocialLinks";
 ---
-<section class="h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden bg-zinc-950">
-  <div class="absolute p-24 w-full h-full flex justify-between opacity-50 pointer-events-none">
-    <div class="w-96 h-96 bg-brand-primary rounded-full filter blur-[128px] animate-pulse"></div>
-    <div class="w-96 h-96 bg-brand-secondary rounded-full filter blur-[128px] animate-pulse delay-700 self-end"></div>
-  </div>
 
-  <div class="relative z-10 max-w-4xl mx-auto text-center">
-    <h2 class="text-sm font-semibold tracking-widest text-brand-secondary uppercase mb-4 animate-fade-in">
-        Welcome to my portfolio
-    </h2>
-    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-      Hi, I'm <span class="bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary bg-clip-text text-transparent">Nasgun</span>
-    </h1>
-    <p class="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-      A passionate Web Developer focused on building high-performance, beautiful, and user-friendly digital experiences.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href="#projects"
-        class="px-8 py-4 bg-white text-zinc-950 font-bold rounded-lg hover:bg-zinc-200 transition-all transform hover:scale-105"
-      >
-        View My Work
-      </a>
-      <a
-        href="#contact"
-        class="px-8 py-4 bg-zinc-900 text-white font-bold rounded-lg border border-white/10 hover:bg-zinc-800 transition-all transform hover:scale-105"
-      >
-        Get In Touch
-      </a>
+<section
+    class="min-h-screen bg-brand-bg relative flex flex-col items-center justify-center px-6 overflow-hidden"
+>
+    <!-- Sticky Editorial Header (Scroll-Activated) -->
+    <nav
+        id="sticky-header"
+        class="fixed top-0 left-0 w-full z-100 px-6 md:px-12 py-6 flex items-center justify-between bg-brand-bg/40 backdrop-blur-xl border-b border-brand-text/5 opacity-0 -translate-y-full transition-shadow duration-500"
+    >
+        <div class="flex items-center gap-12 text-editorial">
+            <a
+                href="#"
+                class="hover:text-brand-accent transition-colors font-bold"
+                >NASRULLAH GUNAWAN</a
+            >
+            <div class="hidden lg:flex items-center gap-8 opacity-60">
+                <a
+                    href="#about"
+                    class="hover:text-brand-text hover:opacity-100 transition-all uppercase tracking-widest"
+                    >About</a
+                >
+                <a
+                    href="#projects"
+                    class="hover:text-brand-text hover:opacity-100 transition-all uppercase tracking-widest"
+                    >Work</a
+                >
+            </div>
+        </div>
+
+        <div class="flex items-center gap-8">
+            <div class="hidden md:block text-editorial">
+                <a
+                    href="mailto:nasgunawann@gmail.com"
+                    class="hover:text-brand-accent transition-colors"
+                    >START A PROJECT <span class="text-sm ml-1">↗</span></a
+                >
+            </div>
+            <div class="grid grid-cols-2 gap-1 opacity-40">
+                <div class="w-1 h-1 bg-current"></div><div
+                    class="w-1 h-1 bg-current"
+                >
+                </div>
+                <div class="w-1 h-1 bg-current"></div><div
+                    class="w-1 h-1 bg-current"
+                >
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Layout -->
+    <div
+        class="relative w-full max-w-7xl mx-auto min-h-screen flex flex-col md:items-center md:justify-center pt-16 md:pt-0"
+    >
+        <!-- Large Background Text (Bebas Neue) -->
+        <div
+            class="relative md:absolute md:inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 mb-8 md:mb-0"
+        >
+            <h1
+                class="text-[18vw] md:text-[25vw] leading-[0.75] text-brand-text/50 text-center whitespace-nowrap"
+            >
+                <div class="overflow-hidden py-2">
+                    <span class="inline-block opacity-0" id="name-line-1"
+                        >NASRULLAH</span
+                    >
+                </div>
+                <div class="overflow-hidden py-2">
+                    <span class="inline-block opacity-0" id="name-line-2"
+                        >GUNAWAN</span
+                    >
+                </div>
+            </h1>
+
+            <!-- Professional Tag & Mobile Editorial (Mobile Only) -->
+            <div
+                class="xl:hidden flex flex-col items-center gap-4 mt-2 mb-4 relative z-30 pointer-events-auto"
+                id="mobile-content-stack"
+            >
+                <div class="overflow-hidden opacity-0" id="mobile-tag">
+                    <p
+                        class="text-[10px] font-bold tracking-[0.4em] text-brand-text/40 uppercase"
+                    >
+                        FULL-STACK DEVELOPER
+                    </p>
+                </div>
+
+                <div
+                    class="max-w-[300px] text-center opacity-0"
+                    id="mobile-editorial"
+                >
+                    <p
+                        class="text-[12px] leading-relaxed text-brand-text/90 font-medium uppercase tracking-wide"
+                    >
+                        Producing top-notch and impactful digital experiences
+                        with high-end web architecture & AI integration.
+                    </p>
+                </div>
+
+                <div class="flex gap-3 opacity-0" id="mobile-badges">
+                    <span
+                        class="px-4 py-1.5 border border-brand-text/10 bg-brand-text/5 rounded-full text-[9px] font-bold tracking-widest text-brand-text/60 uppercase text-center"
+                        >FULL-STACK</span
+                    >
+                    <span
+                        class="px-4 py-1.5 border border-brand-text/10 bg-brand-text/5 rounded-full text-[9px] font-bold tracking-widest text-brand-text/60 uppercase text-center"
+                        >2024</span
+                    >
+                </div>
+
+                <div class="pt-2 opacity-0" id="mobile-cta">
+                    <a
+                        href="#projects"
+                        class="px-8 py-4 border-2 border-brand-text/10 rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block pointer-events-auto cursor-pointer"
+                    >
+                        VIEW PROJECTS ⟶
+                    </a>
+                </div>
+
+                <div
+                    class="pt-2 opacity-0 flex items-center justify-center"
+                >
+                    <SocialLinks id="mobile-socials" className="gap-8" client:load />
+                </div>
+            </div>
+        </div>
+
+        <!-- Portrait Container (Responsive: Stacked on Mobile, Anchored on Desktop) -->
+        <div
+            class="relative md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 z-20 w-full max-w-2xl h-[50vh] md:h-[85vh] flex items-end justify-center pointer-events-none mt-auto"
+        >
+            <div
+                class="w-full h-full relative group flex items-end justify-center pointer-events-auto"
+            >
+                <img
+                    id="portrait-img"
+                    src={nas.src}
+                    alt="Nasrullah Gunawan"
+                    class="w-auto h-full object-contain transition-all duration-1000 origin-bottom opacity-0"
+                />
+            </div>
+        </div>
+
+        <!-- Side Text Blocks (Editorial Cards - Desktop/Tablet Only) -->
+        <div
+            class="absolute left-10 top-1/2 -translate-y-1/2 w-85 hidden xl:block z-40 corner-block opacity-0"
+        >
+            <div
+                class="bg-brand-bg/60 backdrop-blur-xl border border-brand-text/15 p-10 rounded-[2.5rem] shadow-2xl"
+            >
+                <div class="space-y-10">
+                    <p
+                        class="text-[13px] leading-relaxed text-brand-text/90 font-medium tracking-wide uppercase"
+                    >
+                        AS A FULL-STACK DEVELOPER, I FOCUS ON PRODUCING
+                        TOP-NOTCH AND IMPACTFUL DIGITAL EXPERIENCES.
+                    </p>
+                    <p
+                        class="text-[11px] text-brand-text/50 italic leading-relaxed"
+                    >
+                        NASRULLAH'S WEB ARCHITECTURE & AI INTEGRATION EXPERTISE
+                        DELIVERED.
+                    </p>
+                    <div class="pt-2 flex flex-col gap-6">
+                        <a
+                            href="#projects"
+                            class="group inline-flex items-center gap-6 text-editorial text-[12px]! border-b-2 border-brand-text/10 pb-2 hover:border-brand-text transition-all w-fit"
+                        >
+                            VIEW PROJECTS <span
+                                class="text-lg group-hover:translate-x-2 transition-transform"
+                                >⟶</span
+                            >
+                        </a>
+                        <a
+                            href="mailto:nasgunawann@gmail.com"
+                            class="group inline-flex items-center gap-6 text-editorial text-[12px]! border-b-2 border-brand-text/10 pb-2 hover:border-brand-text transition-all w-fit"
+                        >
+                            LET'S TALK <span
+                                class="text-lg group-hover:translate-x-2 transition-transform"
+                                >⟶</span
+                            >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="absolute right-10 top-1/2 -translate-y-1/2 w-85 hidden xl:block z-30 text-right corner-block opacity-0"
+        >
+            <div
+                class="bg-brand-bg/60 backdrop-blur-xl border border-brand-text/15 p-10 rounded-[2.5rem] shadow-2xl"
+            >
+                <div class="space-y-10">
+                    <p
+                        class="text-[13px] leading-relaxed text-brand-text/90 font-medium tracking-wide uppercase"
+                    >
+                        A CUTTING-EDGE DIGITAL PLATFORM DESIGNED TO
+                        REVOLUTIONIZE THE WAY PEOPLE INTERACT WITH TECHNOLOGY.
+                    </p>
+                    <p
+                        class="text-[11px] text-brand-text/50 italic leading-relaxed"
+                    >
+                        EXCEPTIONAL DIGITAL DESIGN AND USER EXPERIENCE.
+                    </p>
+                    <div class="flex justify-end gap-3 pt-2">
+                        <span
+                            class="px-5 py-2 border border-brand-text/20 bg-brand-text/5 rounded-full text-[10px] font-bold tracking-widest text-brand-text/80"
+                            >FULL-STACK</span
+                        >
+                        <span
+                            class="px-5 py-2 border border-brand-text/20 bg-brand-text/5 rounded-full text-[10px] font-bold tracking-widest text-brand-text/80"
+                            >2024</span
+                        >
+                    </div>
+                    
+                    <SocialLinks
+                        className="justify-end gap-6 pt-6 border-t border-brand-text/5"
+                        client:load
+                    />
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Bottom Marquee (Ticker) -->
+    <div
+        class="absolute bottom-0 left-0 w-full z-40 bg-brand-text text-brand-bg"
+    >
+        <div class="marquee-container border-none py-4! shadow-2xl">
+            <div
+                class="marquee-content gap-16 text-editorial font-bold! tracking-[0.5em]! text-[11px]!"
+            >
+                <span>FULL-STACK DEVELOPMENT</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>LARAVEL EXPERT</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>NEXT.JS SPECIALIST</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>AI INTEGRATION</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>UI/UX STRATEGY</span>
+                <span class="text-brand-secondary">✦</span>
+            </div>
+            <!-- Duplicate for loop -->
+            <div
+                class="marquee-content gap-16 text-editorial font-bold! tracking-[0.5em]! text-[11px]!"
+                aria-hidden="true"
+            >
+                <span>FULL-STACK DEVELOPMENT</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>LARAVEL EXPERT</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>NEXT.JS SPECIALIST</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>AI INTEGRATION</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>UI/UX STRATEGY</span>
+                <span class="text-brand-secondary">✦</span>
+            </div>
+        </div>
+    </div>
 </section>
 
-<style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
-  }
-</style>
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Wait for content to load
+    window.addEventListener("DOMContentLoaded", () => {
+        // 1. Entrance Animations
+        const tl = gsap.timeline({
+            defaults: { ease: "power4.out", duration: 1.8 },
+        });
+
+        // Slide Reveal Name
+        tl.fromTo(
+            "#name-line-1",
+            { xPercent: -100, opacity: 0 },
+            { xPercent: 0, opacity: 1 },
+            0.2,
+        );
+
+        tl.fromTo(
+            "#name-line-2",
+            { xPercent: 100, opacity: 0 },
+            { xPercent: 0, opacity: 1 },
+            0.2,
+        );
+
+        // Portrait Reveal
+        tl.fromTo(
+            "#portrait-img",
+            { y: 100, opacity: 0, scale: 1.15 },
+            { y: 0, opacity: 1, scale: 1.15, duration: 0.1 },
+            1,
+        );
+
+        // Corner Blocks & Mobile Content reveal
+        tl.fromTo(
+            [
+                ".corner-block",
+                "#mobile-tag",
+                "#mobile-editorial",
+                "#mobile-badges",
+                "#mobile-cta",
+                "#mobile-socials",
+            ],
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.1, duration: 1.0 },
+            "-=1",
+        );
+
+        // 2. Sticky Header Scroll Animation
+        gsap.to("#sticky-header", {
+            opacity: 1,
+            y: 0,
+            duration: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "section", // Target this section (Hero)
+                start: "bottom top", // Trigger when Hero bottom reaches viewport top
+                toggleActions: "play none none reverse",
+            },
+        });
+
+        // 3. Continuous Marquee Animation (GSAP)
+        gsap.to(".marquee-content", {
+            xPercent: -100,
+            repeat: -1,
+            duration: 25,
+            ease: "none",
+        });
+    });
+</script>
