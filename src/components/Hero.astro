@@ -1,6 +1,7 @@
 ---
-import nas from "../assets/nasgun_nobg.png";
-import SocialLinks from "./SocialLinks";
+import nas from "@/assets/nasgun_nobg.png";
+import SocialLinks from "@/components/SocialLinks";
+import { IconArrowRight } from "@tabler/icons-react";
 ---
 
 <section
@@ -21,29 +22,41 @@ import SocialLinks from "./SocialLinks";
                 <a
                     href="#about"
                     class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                >
+                    <span
+                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
+                        >/</span
                     >
-                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
                     Story
                 </a>
                 <a
                     href="#projects"
                     class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                >
+                    <span
+                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
+                        >/</span
                     >
-                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
                     Works
                 </a>
                 <a
                     href="#experience"
                     class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                >
+                    <span
+                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
+                        >/</span
                     >
-                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
                     Career
                 </a>
                 <a
                     href="#credentials"
                     class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+                >
+                    <span
+                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
+                        >/</span
                     >
-                    <span class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity">/</span>
                     Credentials
                 </a>
             </div>
@@ -54,27 +67,60 @@ import SocialLinks from "./SocialLinks";
                 <a
                     href="#contact"
                     class="flex items-center gap-3 text-[11px] font-bold hover:text-brand-accent transition-colors uppercase tracking-[0.3em]"
-                    >
-                    Let's Talk <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                >
+                    Let's Talk <span
+                        class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"
+                    ></span>
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" class="lg:hidden flex flex-col justify-center gap-2 w-8 h-8 focus:outline-none z-110">
-                <span class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center" id="bar1"></span>
-                <span class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center" id="bar2"></span>
+            <button
+                id="mobile-menu-toggle"
+                class="lg:hidden flex flex-col justify-center gap-2 w-8 h-8 focus:outline-none z-110"
+            >
+                <span
+                    class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center"
+                    id="bar1"></span>
+                <span
+                    class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center"
+                    id="bar2"></span>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-brand-bg/95 backdrop-blur-2xl  translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-10">
-        <a href="#about" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Story</a>
-        <a href="#projects" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Works</a>
-        <a href="#experience" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Career</a>
-        <a href="#credentials" class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">Credentials</a>
-        <a href="#contact" class="mobile-link text-xl mt-8 flex items-center gap-4 font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors">
-            Let's Talk <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+    <div
+        id="mobile-overlay"
+        class="fixed inset-0 bg-brand-bg/95 backdrop-blur-2xl z-90 translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-10"
+    >
+        <a
+            href="#about"
+            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
+            >Story</a
+        >
+        <a
+            href="#projects"
+            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
+            >Works</a
+        >
+        <a
+            href="#experience"
+            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
+            >Career</a
+        >
+        <a
+            href="#credentials"
+            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
+            >Credentials</a
+        >
+        <a
+            href="#contact"
+            class="mobile-link text-xl mt-8 flex items-center gap-4 font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
+        >
+            Let's Talk <span
+                class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"
+            ></span>
         </a>
     </div>
 
@@ -101,55 +147,25 @@ import SocialLinks from "./SocialLinks";
                 </div>
             </h1>
 
-            <!-- Professional Tag & Mobile Editorial (Mobile Only) -->
+            <!-- Minimal CTA & Socials (Mobile Only) -->
             <div
-                class="xl:hidden flex flex-col items-center gap-4 mt-2 mb-4 relative z-30 pointer-events-auto"
+                class="xl:hidden flex flex-col items-center gap-8 mt-8 mb-4 relative z-30 pointer-events-auto"
                 id="mobile-content-stack"
             >
-                <div class="overflow-hidden opacity-0" id="mobile-tag">
-                    <p
-                        class="text-[10px] font-bold tracking-[0.4em] text-brand-text/40 uppercase"
-                    >
-                        FULL-STACK DEVELOPER
-                    </p>
-                </div>
-
-                <div
-                    class="max-w-[300px] text-center opacity-0"
-                    id="mobile-editorial"
-                >
-                    <p
-                        class="text-[12px] leading-relaxed text-brand-text/90 font-medium uppercase tracking-wide"
-                    >
-                        Producing top-notch and impactful digital experiences
-                        with high-end web architecture & AI integration.
-                    </p>
-                </div>
-
-                <div class="flex gap-3 opacity-0" id="mobile-badges">
-                    <span
-                        class="px-4 py-1.5 border border-brand-text/10 bg-brand-text/5 rounded-full text-[9px] font-bold tracking-widest text-brand-text/60 uppercase text-center"
-                        >FULL-STACK</span
-                    >
-                    <span
-                        class="px-4 py-1.5 border border-brand-text/10 bg-brand-text/5 rounded-full text-[9px] font-bold tracking-widest text-brand-text/60 uppercase text-center"
-                        >2024</span
-                    >
-                </div>
-
-                <div class="pt-2 opacity-0" id="mobile-cta">
+                <div class="opacity-0" id="mobile-cta">
                     <a
-                        href="#projects"
-                        class="px-8 py-4 border-2 border-brand-text/10 rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block pointer-events-auto cursor-pointer"
+                        href="#contact"
+                        class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg"
                     >
-                        VIEW PROJECTS ⟶
+                        <span class="flex items-center gap-2">LET'S TALK <IconArrowRight size={16} stroke={2} /></span>
                     </a>
                 </div>
 
-                <div
-                    class="pt-2 opacity-0 flex items-center justify-center"
-                >
-                    <SocialLinks id="mobile-socials" className="gap-8" client:load />
+                <div class="opacity-0 flex items-center justify-center" id="mobile-socials">
+                    <SocialLinks
+                        className="gap-8"
+                        client:load
+                    />
                 </div>
             </div>
         </div>
@@ -165,90 +181,36 @@ import SocialLinks from "./SocialLinks";
                     id="portrait-img"
                     src={nas.src}
                     alt="Nasrullah Gunawan"
-                    class="w-auto h-full object-contain transition-all duration-1000 origin-bottom opacity-0"
+                    class="w-auto h-full object-contain transition-all duration-1000 origin-bottom opacity-0 filter grayscale hover:grayscale-0"
                 />
             </div>
         </div>
 
-        <!-- Side Text Blocks (Editorial Cards - Desktop/Tablet Only) -->
+        <!-- Floating Minimal Links (Desktop Only) -->
         <div
-            class="absolute left-10 top-1/2 -translate-y-1/2 w-85 hidden xl:block z-40 corner-block opacity-0"
+            class="absolute left-12 bottom-24 hidden xl:flex flex-col gap-4 z-40 corner-block opacity-0"
         >
-            <div
-                class="bg-brand-bg/60 backdrop-blur-xl border border-brand-text/15 p-10 rounded-[2.5rem] shadow-2xl"
+            <a
+                href="#projects"
+                class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg w-fit text-center"
             >
-                <div class="space-y-10">
-                    <p
-                        class="text-[13px] leading-relaxed text-brand-text/90 font-medium tracking-wide uppercase"
-                    >
-                        AS A FULL-STACK DEVELOPER, I FOCUS ON PRODUCING
-                        TOP-NOTCH AND IMPACTFUL DIGITAL EXPERIENCES.
-                    </p>
-                    <p
-                        class="text-[11px] text-brand-text/50 italic leading-relaxed"
-                    >
-                        NASRULLAH'S WEB ARCHITECTURE & AI INTEGRATION EXPERTISE
-                        DELIVERED.
-                    </p>
-                    <div class="pt-2 flex flex-col gap-6">
-                        <a
-                            href="#projects"
-                            class="group inline-flex items-center gap-6 text-editorial text-[12px]! border-b-2 border-brand-text/10 pb-2 hover:border-brand-text transition-all w-fit"
-                        >
-                            VIEW PROJECTS <span
-                                class="text-lg group-hover:translate-x-2 transition-transform"
-                                >⟶</span
-                            >
-                        </a>
-                        <a
-                            href="mailto:nasgunawann@gmail.com"
-                            class="group inline-flex items-center gap-6 text-editorial text-[12px]! border-b-2 border-brand-text/10 pb-2 hover:border-brand-text transition-all w-fit"
-                        >
-                            LET'S TALK <span
-                                class="text-lg group-hover:translate-x-2 transition-transform"
-                                >⟶</span
-                            >
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <span class="flex items-center gap-2 justify-center">VIEW PROJECTS <IconArrowRight size={16} stroke={2} /></span>
+            </a>
+            <a
+                href="#contact"
+                class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg w-fit text-center"
+            >
+                <span class="flex items-center gap-2 justify-center">LET'S TALK <IconArrowRight size={16} stroke={2} /></span>
+            </a>
         </div>
 
         <div
-            class="absolute right-10 top-1/2 -translate-y-1/2 w-85 hidden xl:block z-30 text-right corner-block opacity-0"
+            class="absolute right-12 bottom-32 hidden xl:block z-30 corner-block opacity-0"
         >
-            <div
-                class="bg-brand-bg/60 backdrop-blur-xl border border-brand-text/15 p-10 rounded-[2.5rem] shadow-2xl"
-            >
-                <div class="space-y-10">
-                    <p
-                        class="text-[13px] leading-relaxed text-brand-text/90 font-medium tracking-wide uppercase"
-                    >
-                        A CUTTING-EDGE DIGITAL PLATFORM DESIGNED TO
-                        REVOLUTIONIZE THE WAY PEOPLE INTERACT WITH TECHNOLOGY.
-                    </p>
-                    <p
-                        class="text-[11px] text-brand-text/50 italic leading-relaxed"
-                    >
-                        EXCEPTIONAL DIGITAL DESIGN AND USER EXPERIENCE.
-                    </p>
-                    <div class="flex justify-end gap-3 pt-2">
-                        <span
-                            class="px-5 py-2 border border-brand-text/20 bg-brand-text/5 rounded-full text-[10px] font-bold tracking-widest text-brand-text/80"
-                            >FULL-STACK</span
-                        >
-                        <span
-                            class="px-5 py-2 border border-brand-text/20 bg-brand-text/5 rounded-full text-[10px] font-bold tracking-widest text-brand-text/80"
-                            >2024</span
-                        >
-                    </div>
-                    
-                    <SocialLinks
-                        className="justify-end gap-6 pt-6 border-t border-brand-text/5"
-                        client:load
-                    />
-                </div>
-            </div>
+            <SocialLinks
+                className="gap-8"
+                client:load
+            />
         </div>
     </div>
 
@@ -306,26 +268,26 @@ import SocialLinks from "./SocialLinks";
         const bar2 = document.getElementById("bar2");
         const mobileLinks = document.querySelectorAll(".mobile-link");
 
-        if (menuToggle && mobileOverlay && bar1 && bar2) {
+        if (menuToggle && mobileOverlay) {
             let isOpen = false;
-            
+
             const toggleMenu = () => {
                 isOpen = !isOpen;
                 if (isOpen) {
                     mobileOverlay.classList.remove("translate-x-full");
                     mobileOverlay.classList.add("translate-x-0");
-                    bar1.classList.add("rotate-45", "translate-y-1");
-                    bar2.classList.add("-rotate-45", "-translate-y-1");
+                    bar1?.classList.add("rotate-45", "translate-y-1");
+                    bar2?.classList.add("-rotate-45", "-translate-y-1");
                 } else {
                     mobileOverlay.classList.remove("translate-x-0");
                     mobileOverlay.classList.add("translate-x-full");
-                    bar1.classList.remove("rotate-45", "translate-y-1");
-                    bar2.classList.remove("-rotate-45", "-translate-y-1");
+                    bar1?.classList.remove("rotate-45", "translate-y-1");
+                    bar2?.classList.remove("-rotate-45", "-translate-y-1");
                 }
             };
 
             menuToggle.addEventListener("click", toggleMenu);
-            mobileLinks.forEach(link => {
+            mobileLinks.forEach((link) => {
                 link.addEventListener("click", () => {
                     if (isOpen) toggleMenu();
                 });
@@ -364,9 +326,6 @@ import SocialLinks from "./SocialLinks";
         tl.fromTo(
             [
                 ".corner-block",
-                "#mobile-tag",
-                "#mobile-editorial",
-                "#mobile-badges",
                 "#mobile-cta",
                 "#mobile-socials",
             ],

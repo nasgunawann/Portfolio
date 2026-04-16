@@ -1,12 +1,13 @@
 ---
-import img01 from "../assets/projects/content-planner.png";
-import img01_v2 from "../assets/projects/content-planner-v2.png";
-import img01_v3 from "../assets/projects/content-planner-v3.png";
-import img02 from "../assets/projects/finance-tracker.png";
-import img03 from "../assets/projects/lms-academy.png";
-import img04 from "../assets/projects/it-roadmap.png";
+import img01 from "@/assets/projects/content-planner.png";
+import img01_v2 from "@/assets/projects/content-planner-v2.png";
+import img01_v3 from "@/assets/projects/content-planner-v3.png";
+import img02 from "@/assets/projects/finance-tracker.png";
+import img03 from "@/assets/projects/lms-academy.png";
+import img04 from "@/assets/projects/it-roadmap.png";
 
-import ProjectCarousel from "./ProjectCarousel";
+import ProjectCarousel from "@/components/ui/ProjectCarousel";
+import { IconArrowRight, IconChevronRight } from "@tabler/icons-react";
 
 const projects = [
     {
@@ -129,9 +130,9 @@ const projects = [
                                 <span class="text-[14px] md:text-[18px] font-bold text-brand-text/20 group-hover:text-brand-text transition-colors">
                                     {project.year}
                                 </span>
-                                <div class="w-8 h-8 rounded-full border border-brand-text/10 flex items-center justify-center -rotate-90 group-hover:rotate-0 transition-transform duration-500">
+                                <div class="w-8 h-8 rounded-full border border-brand-text/10 flex items-center justify-center">
                                     <span class="text-lg group-hover:translate-x-1 transition-transform">
-                                        ⟶
+                                        <IconChevronRight size={20} stroke={2} />
                                     </span>
                                 </div>
                             </div>
@@ -160,7 +161,7 @@ const projects = [
                                         >
                                             EXPLORE SITE{" "}
                                             <span class="text-lg group-hover/btn:translate-x-2 transition-transform">
-                                                ⟶
+                                                <IconArrowRight size={20} stroke={2} />
                                             </span>
                                         </a>
                                     </div>
@@ -253,15 +254,15 @@ const projects = [
                         gsap.to(otherDetail, {
                             maxHeight: 0,
                             opacity: 0,
-                            duration: 0.4,
-                            ease: "power2.inOut",
+                            duration: 0.5,
+                            ease: "power3.out",
                         });
-                        gsap.to(otherArrow, { rotate: -90, duration: 0.4 });
+                        gsap.to(otherArrow, { rotate: 0, duration: 0.5, ease: "power3.out" });
                         gsap.to(otherImg, {
                             opacity: 0,
                             y: 20,
-                            duration: 0.4,
-                            ease: "power2.inOut",
+                            duration: 0.5,
+                            ease: "power3.out",
                         });
                         others.classList.remove("is-active");
                     }
@@ -272,30 +273,30 @@ const projects = [
                     gsap.to(detail, {
                         maxHeight: 0,
                         opacity: 0,
-                        duration: 0.4,
-                        ease: "power2.inOut",
+                        duration: 0.5,
+                        ease: "power3.out",
                     });
-                    gsap.to(arrow, { rotate: -90, duration: 0.4 });
+                    gsap.to(arrow, { rotate: 0, duration: 0.5, ease: "power3.out" });
                     gsap.to(imageContainer, {
                         opacity: 0,
                         y: 20,
-                        duration: 0.4,
-                        ease: "power2.inOut",
+                        duration: 0.5,
+                        ease: "power3.out",
                     });
                     item.classList.remove("is-active");
                 } else {
                     gsap.to(detail, {
                         maxHeight: 1200,
                         opacity: 1,
-                        duration: 0.6,
+                        duration: 0.5,
                         ease: "power3.out",
                     });
-                    gsap.to(arrow, { rotate: 0, duration: 0.4 });
+                    gsap.to(arrow, { rotate: 90, duration: 0.5, ease: "power3.out" });
                     
                     // Image reveal animation
                     gsap.fromTo(imageContainer, 
                         { opacity: 0, y: 20 },
-                        { opacity: 1, y: 0, duration: 0.5, delay: 0.1, ease: "power2.out" }
+                        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
                     );
                     
                     item.classList.add("is-active");
