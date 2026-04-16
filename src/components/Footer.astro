@@ -1,28 +1,11 @@
 ---
-
+import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
 ---
 
 <footer
     id="contact"
     class="relative min-h-screen bg-brand-bg py-4 px-6 md:py-8 md:px-12 overflow-hidden border-t border-brand-text/5"
 >
-    <!-- Background Large Typography -->
-    <div
-        class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0"
-    >
-        <div
-            class="h-screen flex items-center justify-center sticky top-0"
-            id="footer-bg-container"
-        >
-            <span
-                class="text-[14vw] font-bold text-brand-text/5 leading-none uppercase"
-                id="footer-bg-text"
-            >
-                CONTACT
-            </span>
-        </div>
-    </div>
-
     <div
         class="max-w-7xl mx-auto relative z-10 flex flex-col h-full min-h-[70vh] justify-between"
     >
@@ -42,7 +25,7 @@
                         class="text-6xl md:text-8xl font-bold leading-none tracking-widest uppercase"
                         id="footer-title"
                     >
-                        LET'S <br /> COLLABORATE
+                        CONTACT ME
                     </h3>
                 </div>
                 <div class="md:text-right max-w-xs overflow-hidden">
@@ -59,29 +42,20 @@
             <!-- Content Area -->
             <div class="space-y-32">
                 <div
-                    class="grid grid-cols-1 md:grid-cols-12 gap-12 font-medium border-t border-brand-text/10 pt-20"
+                    class="grid grid-cols-1 md:grid-cols-12 gap-12 font-medium pt-20"
                 >
                     <!-- Email Contact -->
                     <div
                         class="md:col-span-8 flex flex-col justify-center space-y-8"
                     >
-                        <p
-                            class="text-xl md:text-3xl leading-relaxed text-brand-text/70"
-                        >
-                            Got a project in mind, or just want to say hi? <br
-                                class="hidden md:block"
-                            />
-                            Drop me an email, and let's craft something exceptional
-                            together.
-                        </p>
                         <a
                             href="mailto:nasgunawann@gmail.com"
                             class="group w-full max-w-full flex items-center gap-4 md:gap-6 text-[7vw] md:text-4xl lg:text-5xl font-bold hover:text-brand-accent transition-colors text-brand-text break-all md:break-normal"
                         >
                             nasgunawann@gmail.com
                             <span
-                                class="hidden md:inline group-hover:translate-x-4 transition-transform text-brand-accent"
-                                >⟶</span
+                                class="md:inline group-hover:translate-x-4 transition-transform text-brand-accent flex items-center justify-center w-12 h-12"
+                                ><IconArrowRight size={32} stroke={2} /></span
                             >
                         </a>
                     </div>
@@ -164,8 +138,8 @@
                             class="pt-2 pl-2 md:pl-0 group flex items-center gap-4 text-lg font-bold uppercase tracking-widest hover:text-brand-accent transition-all text-brand-text/60"
                         >
                             Back to Top <span
-                                class="group-hover:-translate-y-2 transition-transform text-2xl leading-none"
-                                >↑</span
+                                class="group-hover:-translate-y-2 transition-transform leading-none flex items-center justify-center w-6 h-6 border border-brand-text/10 rounded-full"
+                                ><IconArrowUp size={16} stroke={2} /></span
                             >
                         </button>
                     </div>

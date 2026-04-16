@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade } from "swiper/modules";
+import { IconArrowRight } from "@tabler/icons-react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -61,10 +62,10 @@ export default function ProjectCarousel({
             {images.length > 1 && (
                 <>
                     <button className="swiper-button-prev-custom absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-bg/40 backdrop-blur-sm border border-brand-text/10 flex items-center justify-center text-brand-text opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-brand-bg hover:scale-110 cursor-pointer">
-                        <span className="rotate-180">⟶</span>
+                        <span className="rotate-180"><IconArrowRight size={20} stroke={1.5} /></span>
                     </button>
                     <button className="swiper-button-next-custom absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-bg/40 backdrop-blur-sm border border-brand-text/10 flex items-center justify-center text-brand-text opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-brand-bg hover:scale-110 cursor-pointer">
-                        <span>⟶</span>
+                        <span><IconArrowRight size={20} stroke={1.5} /></span>
                     </button>
                 </>
             )}
