@@ -146,6 +146,12 @@ import { IconArrowRight } from "@tabler/icons-react";
                     >
                 </div>
             </h1>
+            <h2
+                class="text-[11px] font-bold tracking-[0.5em] uppercase text-brand-accent mt-4 opacity-0"
+                id="hero-subtitle"
+            >
+                Full-Stack Web Developer & AI Specialist
+            </h2>
 
             <!-- Minimal CTA & Socials (Mobile Only) -->
             <div
@@ -157,15 +163,20 @@ import { IconArrowRight } from "@tabler/icons-react";
                         href="#contact"
                         class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg"
                     >
-                        <span class="flex items-center gap-2">LET'S TALK <IconArrowRight size={16} stroke={2} /></span>
+                        <span class="flex items-center gap-2"
+                            >LET'S TALK <IconArrowRight
+                                size={16}
+                                stroke={2}
+                            /></span
+                        >
                     </a>
                 </div>
 
-                <div class="opacity-0 flex items-center justify-center" id="mobile-socials">
-                    <SocialLinks
-                        className="gap-8"
-                        client:load
-                    />
+                <div
+                    class="opacity-0 flex items-center justify-center"
+                    id="mobile-socials"
+                >
+                    <SocialLinks className="gap-8" client:load />
                 </div>
             </div>
         </div>
@@ -194,23 +205,24 @@ import { IconArrowRight } from "@tabler/icons-react";
                 href="#projects"
                 class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg w-fit text-center"
             >
-                <span class="flex items-center gap-2 justify-center">VIEW PROJECTS <IconArrowRight size={16} stroke={2} /></span>
+                <span class="flex items-center gap-2 justify-center"
+                    >VIEW PROJECTS <IconArrowRight size={16} stroke={2} /></span
+                >
             </a>
             <a
                 href="#contact"
                 class="px-8 py-4 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-brand-text hover:text-brand-bg transition-all inline-block shadow-lg w-fit text-center"
             >
-                <span class="flex items-center gap-2 justify-center">LET'S TALK <IconArrowRight size={16} stroke={2} /></span>
+                <span class="flex items-center gap-2 justify-center"
+                    >LET'S TALK <IconArrowRight size={16} stroke={2} /></span
+                >
             </a>
         </div>
 
         <div
             class="absolute right-12 bottom-32 hidden xl:block z-30 corner-block opacity-0"
         >
-            <SocialLinks
-                className="gap-8"
-                client:load
-            />
+            <SocialLinks className="gap-8" client:load />
         </div>
     </div>
 
@@ -224,13 +236,17 @@ import { IconArrowRight } from "@tabler/icons-react";
             >
                 <span>FULL-STACK DEVELOPMENT</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>LARAVEL EXPERT</span>
+                <span>LARAVEL</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>NEXT.JS SPECIALIST</span>
+                <span>NEXT.JS</span>
                 <span class="text-brand-secondary">✦</span>
                 <span>AI INTEGRATION</span>
                 <span class="text-brand-secondary">✦</span>
                 <span>UI/UX STRATEGY</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>SAAS DEVELOPMENT</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>MOBILE FRIENDLY</span>
                 <span class="text-brand-secondary">✦</span>
             </div>
             <!-- Duplicate for loop -->
@@ -328,6 +344,7 @@ import { IconArrowRight } from "@tabler/icons-react";
                 ".corner-block",
                 "#mobile-cta",
                 "#mobile-socials",
+                "#hero-subtitle",
             ],
             { y: 20, opacity: 0 },
             { y: 0, opacity: 1, stagger: 0.1, duration: 1.0 },
