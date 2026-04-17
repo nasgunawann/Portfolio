@@ -2,9 +2,27 @@
 import { getCollection } from "astro:content";
 import ProjectCarousel from "@/components/ui/ProjectCarousel";
 import { IconArrowRight, IconChevronRight } from "@tabler/icons-react";
+import { getImage } from "astro:assets";
 
 const projectsEntries = await getCollection("projects");
-const projects = projectsEntries.map((p: any) => p.data);
+
+const projects = await Promise.all(
+    projectsEntries.map(async (p: any) => {
+        const data = p.data;
+        const optimizedImages = await Promise.all(
+            data.images.map(async (img: any) => {
+                const optimized = await getImage({
+                    src: img,
+                    width: 1200,
+                    format: 'webp',
+                    quality: 80,
+                });
+                return { src: optimized.src };
+            })
+        );
+        return { ...data, images: optimizedImages };
+    })
+);
 ---
 
 <section

@@ -2,6 +2,7 @@
 import nas from "@/assets/nasgun_nobg.png";
 import SocialLinks from "@/components/SocialLinks";
 import { IconArrowRight } from "@tabler/icons-react";
+import { Image } from "astro:assets";
 ---
 
 <section
@@ -176,7 +177,7 @@ import { IconArrowRight } from "@tabler/icons-react";
                     class="opacity-0 flex items-center justify-center"
                     id="mobile-socials"
                 >
-                    <SocialLinks className="gap-8" client:load />
+                    <SocialLinks className="gap-8" client:visible />
                 </div>
             </div>
         </div>
@@ -188,10 +189,14 @@ import { IconArrowRight } from "@tabler/icons-react";
             <div
                 class="w-full h-full relative group flex items-end justify-center pointer-events-auto"
             >
-                <img
+                <Image
                     id="portrait-img"
-                    src={nas.src}
+                    src={nas}
                     alt="Nasrullah Gunawan"
+                    width={800}
+                    height={1200}
+                    loading="eager"
+                    fetchpriority="high"
                     class="w-auto h-full object-contain transition-all duration-1000 origin-bottom opacity-0 filter grayscale hover:grayscale-0"
                 />
             </div>
@@ -222,7 +227,7 @@ import { IconArrowRight } from "@tabler/icons-react";
         <div
             class="absolute right-12 bottom-32 hidden xl:block z-30 corner-block opacity-0"
         >
-            <SocialLinks className="gap-8" client:load />
+            <SocialLinks className="gap-8" client:visible />
         </div>
     </div>
 
@@ -315,27 +320,27 @@ import { IconArrowRight } from "@tabler/icons-react";
             defaults: { ease: "power4.out", duration: 1.8 },
         });
 
+        // Portrait Reveal (Prioritized)
+        tl.fromTo(
+            "#portrait-img",
+            { y: 100, opacity: 0, scale: 1.15 },
+            { y: 0, opacity: 1, scale: 1.15, duration: 1.2 },
+            0.1, // Moved to 0.1s instead of 1s
+        );
+
         // Slide Reveal Name
         tl.fromTo(
             "#name-line-1",
             { xPercent: -100, opacity: 0 },
             { xPercent: 0, opacity: 1 },
-            0.2,
+            0.4,
         );
 
         tl.fromTo(
             "#name-line-2",
             { xPercent: 100, opacity: 0 },
             { xPercent: 0, opacity: 1 },
-            0.2,
-        );
-
-        // Portrait Reveal
-        tl.fromTo(
-            "#portrait-img",
-            { y: 100, opacity: 0, scale: 1.15 },
-            { y: 0, opacity: 1, scale: 1.15, duration: 0.1 },
-            1,
+            0.4,
         );
 
         // Corner Blocks & Mobile Content reveal
