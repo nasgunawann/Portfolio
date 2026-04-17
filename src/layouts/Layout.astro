@@ -2,6 +2,8 @@
 import "@/styles/global.css";
 import ClickSpark from "@/components/ui/ClickSpark";
 import SEO from "@/components/SEO.astro";
+import '@fontsource/bebas-neue';
+import '@fontsource-variable/montserrat';
 
 interface Props {
 	title?: string;
@@ -17,12 +19,6 @@ const { title, description, image } = Astro.props;
 	<head>
 		<SEO {title} {description} {image} />
 		<link rel="icon" href="/favicon.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 	<body>
 		<div class="noise-overlay"></div>

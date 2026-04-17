@@ -166,6 +166,9 @@ const projects = await Promise.all(
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Performance Optimization
+    ScrollTrigger.config({ limitCallbacks: true });
 
     window.addEventListener("DOMContentLoaded", () => {
         const sections = ["#projects-tag", "#projects-title", "#projects-info"];

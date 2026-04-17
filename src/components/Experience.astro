@@ -121,6 +121,9 @@ const experiences = experiencesEntries.map((e: any) => e.data);
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // Performance Optimization
+    ScrollTrigger.config({ limitCallbacks: true });
+
     window.addEventListener("DOMContentLoaded", () => {
         // 1. Entrance Reveal
         const experienceSections = ["#experience-tag", "#experience-title", "#experience-info"];
