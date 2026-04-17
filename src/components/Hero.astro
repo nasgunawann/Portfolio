@@ -1,6 +1,6 @@
 ---
 import nas from "@/assets/nasgun_nobg.png";
-import SocialLinks from "@/components/SocialLinks";
+import SocialLinks from "@/components/ui/SocialLinks";
 import { IconArrowRight } from "@tabler/icons-react";
 import { Image } from "astro:assets";
 ---
@@ -148,10 +148,10 @@ import { Image } from "astro:assets";
                 </div>
             </h1>
             <h2
-                class="text-[11px] font-bold tracking-[0.5em] uppercase text-brand-accent mt-4 opacity-0"
+                class="text-[15px] font-bold tracking-[0.5em] uppercase text-brand-accent mt-4 opacity-0 text-center"
                 id="hero-subtitle"
             >
-                Full-Stack Web Developer & AI Specialist
+                Full-Stack Web Developer <br /> AI Specialist
             </h2>
 
             <!-- Minimal CTA & Socials (Mobile Only) -->
@@ -279,7 +279,7 @@ import { Image } from "astro:assets";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     gsap.registerPlugin(ScrollTrigger);
-    
+
     // Performance Optimization: Global GSAP configs
     ScrollTrigger.config({ limitCallbacks: true });
     gsap.ticker.fps(60);

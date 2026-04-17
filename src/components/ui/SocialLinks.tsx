@@ -23,7 +23,7 @@ export default function SocialLinks({
         },
         {
             name: "LinkedIn",
-            url: "https://linkedin.com/in/nasgunawann",
+            url: "https://linkedin.com/in/nasgunawan",
             Icon: IconBrandLinkedin,
         },
         {
