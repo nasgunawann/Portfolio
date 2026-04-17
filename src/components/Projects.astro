@@ -27,7 +27,7 @@ const projects = await Promise.all(
 
 <section
     id="projects"
-    class="relative min-h-screen bg-brand-bg py-24 md:py-40 px-6 md:px-12 overflow-hidden border-t border-brand-text/5"
+    class="relative min-h-screen bg-brand-bg py-12 md:py-24 px-6 md:px-12 overflow-hidden border-t border-brand-text/5"
 >
     <!-- Background Large Typography (Decorative) -->
     <div
@@ -46,7 +46,7 @@ const projects = await Promise.all(
     <div class="max-w-7xl mx-auto relative z-10">
         <!-- Section Header -->
         <div
-            class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8"
+            class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8"
         >
             <div class="overflow-hidden">
                 <h2
@@ -56,7 +56,7 @@ const projects = await Promise.all(
                     02 / SELECTED WORKS
                 </h2>
                 <h3
-                    class="text-6xl md:text-8xl font-bold leading-none tracking-widest"
+                    class="text-4xl md:text-8xl font-bold leading-none tracking-widest"
                     id="projects-title"
                 >
                     PORTFOLIO <br /> ARCHIVE
@@ -82,12 +82,12 @@ const projects = await Promise.all(
                         data-id={project.id}
                     >
                         <!-- Row Summary -->
-                        <div class="flex items-center justify-between py-12 md:py-16 transition-all duration-500 group-hover:px-4 md:group-hover:px-8">
-                            <div class="flex items-center gap-8 md:gap-16">
+                        <div class="flex items-center justify-between py-6 md:py-16 transition-all duration-500 group-hover:px-4 md:group-hover:px-8">
+                            <div class="flex items-center gap-6 md:gap-16">
                                 <span class="text-[12px] md:text-[14px] font-bold text-brand-text/40 tracking-widest font-mono">
                                     [{project.id}]
                                 </span>
-                                <h4 class="text-3xl md:text-6xl font-bold tracking-wide group-hover:text-brand-accent transition-colors">
+                                <h4 class="text-2xl md:text-6xl font-bold tracking-wide group-hover:text-brand-accent transition-colors">
                                     {project.title}
                                 </h4>
                             </div>
@@ -107,10 +107,10 @@ const projects = await Promise.all(
                         </div>
 
                         <!-- Row Detail (Accordion Content) -->
-                        <div class="project-detail max-h-0 opacity-0 px-8 md:px-32 pb-16 overflow-hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 py-12 border-t border-brand-text/5">
+                        <div class="project-detail max-h-0 opacity-0 px-4 md:px-32 pb-8 md:pb-16 overflow-hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-8 md:py-12 border-t border-brand-text/5">
                                 <!-- Text Content -->
-                                <div class="md:col-span-6 space-y-12">
+                                <div class="md:col-span-6 space-y-6 md:space-y-12 order-2 md:order-1">
                                     <p class="text-lg md:text-2xl leading-relaxed text-brand-text/80 font-medium">
                                         {project.description}
                                     </p>
@@ -136,7 +136,7 @@ const projects = await Promise.all(
                                 </div>
 
                                 <!-- Image Preview -->
-                                <div class="md:col-span-6">
+                                <div class="md:col-span-6 order-1 md:order-2">
                                     <div class="relative project-image-container opacity-0 translate-y-6">
                                         <ProjectCarousel 
                                             images={project.images} 
