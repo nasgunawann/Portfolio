@@ -40,6 +40,8 @@ export default function ProjectCarousel({
                             <img
                                 src={image.src}
                                 alt={`${title} preview ${index + 1}`}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover/carousel:scale-105 grayscale-[0.3] group-hover/carousel:grayscale-0"
                             />
                         </div>
