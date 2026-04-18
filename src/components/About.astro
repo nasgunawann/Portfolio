@@ -61,7 +61,7 @@ import { Image } from "astro:assets";
             <!-- Profile Image (Candid) -->
             <div class="md:col-span-4 order-2 md:order-1">
                 <div
-                    class="aspect-4/5 bg-brand-text/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-brand-text/10"
+                    class="aspect-4/5 bg-brand-text/5 rounded-4xl md:rounded-[3rem] overflow-hidden border border-brand-text/10"
                 >
                     <Image
                         src={nas}
@@ -84,7 +84,9 @@ import { Image } from "astro:assets";
             </div>
 
             <!-- Narrative -->
-            <div class="md:col-span-8 flex flex-col justify-center space-y-8 md:space-y-12 order-1 md:order-2">
+            <div
+                class="md:col-span-8 flex flex-col justify-center space-y-8 md:space-y-12 order-1 md:order-2"
+            >
                 <div class="space-y-4 md:space-y-8">
                     <p
                         class="text-xl md:text-4xl leading-relaxed text-brand-text/90 font-medium"
