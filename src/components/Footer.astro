@@ -1,11 +1,20 @@
 ---
-import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
+import { IconArrowUp, IconMail } from "@tabler/icons-react";
+import SocialLinks from "@/components/ui/SocialLinks";
 ---
 
 <footer
     id="contact"
     class="relative min-h-screen bg-brand-bg py-4 px-6 md:py-8 md:px-12 overflow-hidden border-t border-brand-text/5"
 >
+    <!-- Background Parallax Text -->
+    <div
+        id="footer-bg-text"
+        class="absolute inset-x-0 bottom-10 text-[18vw] font-black text-brand-text/[0.02] select-none pointer-events-none text-center leading-none whitespace-nowrap uppercase tracking-tighter z-0"
+    >
+        GET IN TOUCH
+    </div>
+
     <div
         class="max-w-7xl mx-auto relative z-10 flex flex-col h-full min-h-[70vh] justify-between"
         id="footer-content"
@@ -29,84 +38,33 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
                         CONTACT ME
                     </h3>
                 </div>
-                <div class="md:text-right max-w-xs overflow-hidden">
-                    <p
-                        class="text-[11px] leading-relaxed text-brand-text/50 uppercase tracking-widest"
-                        id="footer-info"
-                    >
-                        Available for freelance opportunities and full-time
-                        creative roles.
-                    </p>
-                </div>
             </div>
 
             <!-- Content Area -->
-            <div class="space-y-32">
-                <div
-                    class="grid grid-cols-1 md:grid-cols-12 gap-12 font-medium pt-20"
-                >
-                    <!-- Email Contact -->
-                    <div
-                        class="md:col-span-8 flex flex-col justify-center space-y-8"
-                    >
+            <div class="space-y-16">
+                <div class="flex items-center justify-center">
+                    <div class="flex flex-wrap items-center gap-4">
                         <a
                             href="mailto:nasgunawann@gmail.com"
-                            class="group w-full max-w-full flex items-center gap-4 md:gap-6 text-[7vw] md:text-4xl lg:text-5xl font-bold hover:text-brand-accent transition-colors text-brand-text break-all md:break-normal"
+                            class="p-3.5 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-brand-text/80 shadow-lg hover:bg-brand-text hover:text-brand-bg hover:scale-110 transition duration-300 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 touch-manipulation"
+                            aria-label="Email"
+                            data-magnetic
                         >
-                            nasgunawann@gmail.com
-                            <span
-                                class="md:inline group-hover:translate-x-4 transition-transform text-brand-accent flex items-center justify-center w-12 h-12"
-                                ><IconArrowRight size={32} stroke={2} /></span
-                            >
+                            <IconMail size={22} stroke={1.5} aria-hidden="true" />
                         </a>
+                        <SocialLinks className="gap-4" client:visible />
                     </div>
                 </div>
 
                 <!-- Footer Bottom Links -->
                 <div
-                    class="grid grid-cols-1 md:grid-cols-12 gap-8 border-t border-brand-text/10 pt-8 mt-16"
+                    class="grid grid-cols-1 md:grid-cols-12 gap-8 border-t border-brand-text/10 pt-8"
                 >
-                    <div class="md:col-span-4 space-y-4 relative">
-                        <div
-                            class="absolute -left-4 top-0 bottom-0 w-px bg-brand-text/10 hidden md:block"
-                        >
-                        </div>
+                    <div class="md:col-span-4 space-y-4">
                         <span
                             class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase pl-2"
                         >
-                            Digital Presence
-                        </span>
-                        <div class="flex flex-col gap-2 pt-2 pl-2">
-                            <a
-                                href="https://linkedin.com/in/nasgunawan"
-                                target="_blank"
-                                class="w-fit text-lg font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors"
-                                >LinkedIn</a
-                            >
-                            <a
-                                href="https://github.com/nasgunawann"
-                                target="_blank"
-                                class="w-fit text-lg font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors"
-                                >GitHub</a
-                            >
-                            <a
-                                href="https://instagram.com/nasgunawann"
-                                target="_blank"
-                                class="w-fit text-lg font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors"
-                                >Instagram</a
-                            >
-                        </div>
-                    </div>
-
-                    <div class="md:col-span-4 space-y-4 relative">
-                        <div
-                            class="absolute -left-4 top-0 bottom-0 w-px bg-brand-text/10 hidden md:block"
-                        >
-                        </div>
-                        <span
-                            class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase pl-2"
-                        >
-                            Location
+                            Based In
                         </span>
                         <div class="pt-2 pl-2">
                             <p
@@ -122,13 +80,30 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
                         </div>
                     </div>
 
-                    <div
-                        class="md:col-span-4 space-y-4 flex flex-col md:items-end relative"
-                    >
-                        <div
-                            class="absolute -left-4 top-0 bottom-0 w-px bg-brand-text/10 hidden md:block"
+                    <div class="md:col-span-4 space-y-4">
+                        <span
+                            class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase pl-2"
                         >
+                            Direct Contact
+                        </span>
+                        <div class="pt-2 pl-2">
+                            <a
+                                href="mailto:nasgunawann@gmail.com"
+                                class="text-[13px] font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors block"
+                            >
+                                nasgunawann@gmail.com
+                            </a>
+                            <p
+                                class="text-[13px] font-bold uppercase tracking-widest text-brand-text/40 mt-1"
+                            >
+                                Fast response within 24h
+                            </p>
                         </div>
+                    </div>
+
+                    <div
+                        class="md:col-span-4 space-y-4 flex flex-col md:items-end"
+                    >
                         <span
                             class="text-[11px] font-bold tracking-[0.5em] text-brand-accent uppercase pl-2 md:pr-0"
                         >
@@ -136,10 +111,12 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
                         </span>
                         <button
                             id="back-to-top"
-                            class="pt-2 pl-2 md:pl-0 group flex items-center gap-4 text-lg font-bold uppercase tracking-widest hover:text-brand-accent transition-all text-brand-text/60"
+                            class="pt-2 pl-2 md:pl-0 group flex items-center gap-4 text-lg font-bold uppercase tracking-widest hover:text-brand-accent transition-colors text-brand-text/60 touch-manipulation"
+                            data-magnetic
                         >
                             Back to Top <span
                                 class="group-hover:-translate-y-2 transition-transform leading-none flex items-center justify-center w-6 h-6 border border-brand-text/10 rounded-full"
+                                aria-hidden="true"
                                 ><IconArrowUp size={16} stroke={2} /></span
                             >
                         </button>
@@ -149,7 +126,7 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
         </div>
 
         <div
-            class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 mt-32 pt-8 border-t border-brand-text/5 text-[10px] font-bold tracking-[0.3em] uppercase text-brand-text/30"
+            class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 mt-16 pt-8 border-t border-brand-text/5 text-[10px] font-bold tracking-[0.3em] uppercase text-brand-text/30"
         >
             <p>
                 &copy; {new Date().getFullYear()} NASRULLAH GUNAWAN. ALL RIGHTS RESERVED.
@@ -170,27 +147,59 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
     (window as any).ScrollTrigger = ScrollTrigger;
 
     const initFooter = () => {
-        gsap.from("#footer-content", {
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top 85%",
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-        });
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-        gsap.to("#footer-bg-text", {
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top bottom",
-                end: "bottom bottom",
-                scrub: 1.5,
-            },
-            y: 50,
-            ease: "none",
-        });
+        if (!prefersReducedMotion) {
+            gsap.from("#footer-content", {
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 85%",
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out",
+            });
+
+            gsap.to("#footer-bg-text", {
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top bottom",
+                    end: "bottom bottom",
+                    scrub: 1.5,
+                },
+                y: -80,
+                ease: "none",
+            });
+
+            // Magnetic element effect
+            const magneticElements = document.querySelectorAll("[data-magnetic]");
+            magneticElements.forEach((el) => {
+                el.addEventListener("mousemove", (e: any) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    gsap.to(el, {
+                        x: x * 0.35,
+                        y: y * 0.35,
+                        duration: 0.3,
+                        ease: "power2.out",
+                    });
+                });
+
+                el.addEventListener("mouseleave", () => {
+                    gsap.to(el, {
+                        x: 0,
+                        y: 0,
+                        duration: 0.3,
+                        ease: "power2.out",
+                    });
+                });
+            });
+        }
 
         const backToTop = document.getElementById("back-to-top");
         if (backToTop) {

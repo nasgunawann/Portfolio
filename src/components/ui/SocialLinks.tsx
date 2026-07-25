@@ -41,10 +41,11 @@ export default function SocialLinks({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-brand-text/80 shadow-lg hover:bg-brand-text hover:text-brand-bg hover:scale-110 transition-all duration-300 flex items-center justify-center"
+                    className="p-3.5 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-brand-text/80 shadow-lg hover:bg-brand-text hover:text-brand-bg hover:scale-110 transition duration-300 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 touch-manipulation"
                     aria-label={name}
+                    data-magnetic
                 >
-                    <Icon size={iconSize} stroke={1.5} />
+                    <Icon size={iconSize} stroke={1.5} aria-hidden="true" />
                 </a>
             ))}
         </div>
