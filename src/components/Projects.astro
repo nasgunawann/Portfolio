@@ -183,11 +183,16 @@ const projects = await Promise.all(
 </style>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { gsap as localGsap } from "gsap";
+    import { ScrollTrigger as localScrollTrigger } from "gsap/ScrollTrigger";
+
+    const gsap = (window as any).gsap || localGsap;
+    const ScrollTrigger = (window as any).ScrollTrigger || localScrollTrigger;
 
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ limitCallbacks: true });
+    (window as any).gsap = gsap;
+    (window as any).ScrollTrigger = ScrollTrigger;
 
     const initProjects = () => {
         const headers = ["#projects-tag", "#projects-title", "#projects-info"];

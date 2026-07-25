@@ -212,10 +212,15 @@ const certifications = certsEntries.map((c: any) => c.data);
 </section>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { gsap as localGsap } from "gsap";
+    import { ScrollTrigger as localScrollTrigger } from "gsap/ScrollTrigger";
+
+    const gsap = (window as any).gsap || localGsap;
+    const ScrollTrigger = (window as any).ScrollTrigger || localScrollTrigger;
 
     gsap.registerPlugin(ScrollTrigger);
+    (window as any).gsap = gsap;
+    (window as any).ScrollTrigger = ScrollTrigger;
 
     const initEducation = () => {
         const eduTl = gsap.timeline({
