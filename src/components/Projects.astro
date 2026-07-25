@@ -191,14 +191,27 @@ const projects = await Promise.all(
 
     const initProjects = () => {
         const headers = ["#projects-tag", "#projects-title", "#projects-info"];
-        gsap.timeline({
-            scrollTrigger: { trigger: "#projects", start: "top 70%" },
-        }).from(headers, { y: 40, opacity: 0, stagger: 0.2, duration: 1.2, ease: "power3.out" });
-
-        gsap.from(".project-row", {
-            scrollTrigger: { trigger: "#projects-list-container", start: "top 80%" },
-            y: 50, opacity: 0, stagger: 0.1, duration: 1.0, ease: "power3.out",
+        const tl = gsap.timeline({
+            scrollTrigger: { 
+                trigger: "#projects", 
+                start: "top 80%" 
+            },
         });
+
+        tl.from(headers, { 
+            y: 30, 
+            opacity: 0, 
+            stagger: 0.15, 
+            duration: 1.0, 
+            ease: "power3.out" 
+        })
+        .from(".project-row", {
+            y: 30, 
+            opacity: 0, 
+            stagger: 0.1, 
+            duration: 0.8, 
+            ease: "power3.out"
+        }, "-=0.6");
 
         gsap.to("#projects-bg-text", {
             scrollTrigger: {
@@ -278,4 +291,8 @@ const projects = await Promise.all(
     } else {
         initProjects();
     }
+
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
 </script>
