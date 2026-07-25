@@ -59,7 +59,7 @@ const projects = await Promise.all(
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
-            <div class="hidden lg:block lg:col-span-5 lg:sticky lg:top-32 z-20">
+            <div class="hidden lg:block lg:col-span-5 z-20" id="project-showcase-wrapper">
                 <div class="p-2 bg-brand-text/5 border border-brand-text/10 rounded-[2rem] shadow-2xl">
                     <div class="relative aspect-[4/3] rounded-[calc(2rem-0.5rem)] overflow-hidden bg-brand-bg border border-brand-text/5">
                         {projects.map((project: any, pIdx: number) => (
@@ -205,6 +205,26 @@ const projects = await Promise.all(
             duration: 0.5,
             ease: "power2.out",
         });
+
+        if (window.innerWidth >= 1024) {
+            gsap.to("#project-showcase-wrapper", {
+                scrollTrigger: {
+                    trigger: "#projects-list-container",
+                    start: "top 20%",
+                    end: "bottom 80%",
+                    scrub: 1.2,
+                },
+                y: () => {
+                    const list = document.getElementById("projects-list-container");
+                    const wrapper = document.getElementById("project-showcase-wrapper");
+                    if (list && wrapper) {
+                        return list.offsetHeight - wrapper.offsetHeight;
+                    }
+                    return 0;
+                },
+                ease: "none",
+            });
+        }
 
         gsap.to("#projects-bg-text", {
             scrollTrigger: {
