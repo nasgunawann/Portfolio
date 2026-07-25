@@ -164,84 +164,37 @@ import { Image } from "astro:assets";
 </section>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
+    import { animate, inView, scroll, stagger } from "motion";
 
     window.addEventListener("DOMContentLoaded", () => {
-        const aboutTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top 60%", // Trigger when section is 60% into viewport
-                end: "top 20%",
-                toggleActions: "play none none none",
-            },
+        inView("#about", () => {
+            animate("#about-tag", { x: [-20, 0], opacity: [0, 1] }, { duration: 0.8, easing: [0.25, 0.46, 0.45, 0.94] });
+            animate("#about-title", { y: [50, 0], opacity: [0, 1] }, { delay: 0.2, duration: 1.2, easing: [0.25, 1, 0.5, 1] });
+            animate("#about-info", { opacity: [0, 1] }, { delay: 0.4, duration: 1.0, easing: [0.25, 0.46, 0.45, 0.94] });
         });
 
-        // 1. Title & Tag Reveal
-        aboutTl
-            .from("#about-tag", {
-                x: -20,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out",
-            })
-            .from(
-                "#about-title",
-                {
-                    y: 50,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: "power4.out",
-                },
-                "-=0.6",
-            )
-            .from(
-                "#about-info",
-                {
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                },
-                "-=0.8",
+        inView("#about-image-container", () => {
+            animate("#about-image-container", { y: [80, 0], opacity: [0, 1] }, { duration: 1.5, easing: [0.32, 0.72, 0, 1] });
+        });
+
+        inView("#about-content", () => {
+            animate(
+                "#about-content > div", 
+                { y: [40, 0], opacity: [0, 1] }, 
+                { delay: stagger(0.3), duration: 1.2, easing: [0.32, 0.72, 0, 1] }
             );
-
-        // 2. Image Container Reveal
-        gsap.from("#about-image-container", {
-            scrollTrigger: {
-                trigger: "#about-image-container",
-                start: "top 80%",
-            },
-            y: 80,
-            opacity: 0,
-            duration: 1.5,
-            ease: "power3.out",
         });
 
-        // 3. Content Text Blocks Reveal
-        gsap.from("#about-content > div", {
-            scrollTrigger: {
-                trigger: "#about-content",
-                start: "top 75%",
-            },
-            y: 40,
-            opacity: 0,
-            stagger: 0.3,
-            duration: 1.2,
-            ease: "power3.out",
-        });
-
-        // 4. Background Decorative Text Parallax (Now Sticky with Lag)
-        gsap.to("#about-bg-text", {
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 1.5,
-            },
-            y: 100,
-            ease: "none",
-        });
+        const bgText = document.querySelector("#about-bg-text");
+        const section = document.querySelector("#about");
+        if (bgText && section) {
+            scroll(
+                animate(bgText, { y: [0, 100] }, { easing: "linear" }),
+                {
+                    target: section,
+                    offset: ["start end", "end start"]
+                }
+            );
+        }
     });
 </script>

@@ -158,42 +158,29 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
 </footer>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
+    import { animate, inView, scroll, stagger } from "motion";
 
     window.addEventListener("DOMContentLoaded", () => {
-        // 1. Entrance Reveal Header
-        const headerElements = ["#footer-tag", "#footer-title", "#footer-info"];
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top 70%",
-            },
+        inView("#contact", () => {
+            animate(
+                "#footer-tag, #footer-title, #footer-info",
+                { opacity: [0, 1], y: [40, 0] },
+                { delay: stagger(0.2), duration: 1.2, easing: [0.32, 0.72, 0, 1] }
+            );
         });
 
-        tl.from(headerElements, {
-            y: 40,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1.2,
-            ease: "power3.out",
-        });
+        const bgText = document.querySelector("#footer-bg-text");
+        const section = document.querySelector("#contact");
+        if (bgText && section) {
+            scroll(
+                animate(bgText, { y: [0, 50] }, { easing: "linear" }),
+                {
+                    target: section,
+                    offset: ["start end", "end end"]
+                }
+            );
+        }
 
-        // 2. Background Decorative Text (Lag Scrub)
-        gsap.to("#footer-bg-text", {
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top bottom",
-                end: "bottom bottom",
-                scrub: 1.5,
-            },
-            y: 50,
-            ease: "none",
-        });
-
-        // 3. Back to Top
         const backToTop = document.getElementById("back-to-top");
         if (backToTop) {
             backToTop.addEventListener("click", () => {

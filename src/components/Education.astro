@@ -212,63 +212,55 @@ const certifications = certsEntries.map((c: any) => c.data);
 </section>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { animate, inView, scroll, stagger } from "motion";
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    function initCredentials() {
-        // 1. Header Entrance
-        const headerElements = [
-            "#credentials-tag",
-            "#credentials-title",
-            "#credentials-info",
-        ];
-        
-        gsap.from(headerElements, {
-            scrollTrigger: {
-                trigger: "#credentials",
-                start: "top 80%",
-            },
-            y: 30,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 1,
-            ease: "power3.out",
+    window.addEventListener("DOMContentLoaded", () => {
+        inView("#credentials", () => {
+            animate(
+                "#credentials-tag, #credentials-title, #credentials-info",
+                { opacity: [0, 1], y: [30, 0] },
+                { delay: stagger(0.15), duration: 1, easing: [0.32, 0.72, 0, 1] }
+            );
         });
 
-        // 2. Timeline Line Drawing
-        gsap.from("#education-timeline-line", {
-            scrollTrigger: {
-                trigger: ".section-formal",
-                start: "top 70%",
-                end: "bottom 60%",
-                scrub: 1,
-            },
-            scaleY: 0,
-            ease: "none",
+        inView(".section-formal", () => {
+            animate(
+                ".credential-item",
+                { opacity: [0, 1], y: [40, 0] },
+                { delay: stagger(0.2), duration: 1.2, easing: [0.32, 0.72, 0, 1] }
+            );
         });
 
-        // 3. Items Entrance (Already defined via section or can be reinforced)
-        
-        // 3. Background Sticky Text with Lag
-        gsap.to("#credentials-bg-text", {
-            scrollTrigger: {
-                trigger: "#credentials",
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 1.5,
-            },
-            y: 100,
-            ease: "none",
+        inView(".section-certs", () => {
+            animate(
+                ".credential-item-compact",
+                { opacity: [0, 1], y: [40, 0] },
+                { delay: stagger(0.15), duration: 1.0, easing: [0.32, 0.72, 0, 1] }
+            );
         });
-    }
 
-    // Initialize
-    initCredentials();
+        const line = document.querySelector("#education-timeline-line");
+        const sectionFormal = document.querySelector(".section-formal");
+        if (line && sectionFormal) {
+            scroll(
+                animate(line, { scaleY: [0, 1] }, { easing: "linear" }),
+                {
+                    target: sectionFormal,
+                    offset: ["start 70%", "end 60%"]
+                }
+            );
+        }
 
-    // Refresh on full page load to ensure positions are correct
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
+        const bgText = document.querySelector("#credentials-bg-text");
+        const section = document.querySelector("#credentials");
+        if (bgText && section) {
+            scroll(
+                animate(bgText, { y: [0, 100] }, { easing: "linear" }),
+                {
+                    target: section,
+                    offset: ["start end", "end start"]
+                }
+            );
+        }
     });
 </script>

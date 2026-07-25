@@ -275,18 +275,9 @@ import { Image } from "astro:assets";
 </section>
 
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { animate, scroll, stagger } from "motion";
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Performance Optimization: Global GSAP configs
-    ScrollTrigger.config({ limitCallbacks: true });
-    gsap.ticker.fps(60);
-
-    // Wait for content to load
     window.addEventListener("DOMContentLoaded", () => {
-        // --- Mobile Menu Toggle Logic ---
         const menuToggle = document.getElementById("mobile-menu-toggle");
         const mobileOverlay = document.getElementById("mobile-overlay");
         const bar1 = document.getElementById("bar1");
@@ -319,66 +310,47 @@ import { Image } from "astro:assets";
             });
         }
 
-        // 1. Entrance Animations
-        const tl = gsap.timeline({
-            defaults: { ease: "power4.out", duration: 1.8 },
-        });
-
-        // Portrait Reveal (Prioritized)
-        tl.fromTo(
+        animate(
             "#portrait-img",
-            { y: 100, opacity: 0, scale: 1.15 },
-            { y: 0, opacity: 1, scale: 1.15, duration: 1.2 },
-            0.1, // Moved to 0.1s instead of 1s
+            { y: [100, 0], opacity: [0, 1], scale: [1.15, 1.15] },
+            { duration: 1.2, easing: [0.25, 1, 0.5, 1] }
         );
 
-        // Slide Reveal Name
-        tl.fromTo(
+        animate(
             "#name-line-1",
-            { xPercent: -100, opacity: 0 },
-            { xPercent: 0, opacity: 1 },
-            0.4,
+            { x: ["-100%", "0%"], opacity: [0, 1] },
+            { delay: 0.4, duration: 1.8, easing: [0.25, 1, 0.5, 1] }
         );
 
-        tl.fromTo(
+        animate(
             "#name-line-2",
-            { xPercent: 100, opacity: 0 },
-            { xPercent: 0, opacity: 1 },
-            0.4,
+            { x: ["100%", "0%"], opacity: [0, 1] },
+            { delay: 0.4, duration: 1.8, easing: [0.25, 1, 0.5, 1] }
         );
 
-        // Corner Blocks & Mobile Content reveal
-        tl.fromTo(
-            [
-                ".corner-block",
-                "#mobile-cta",
-                "#mobile-socials",
-                "#hero-subtitle",
-            ],
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, stagger: 0.1, duration: 1.0 },
-            "-=1",
+        animate(
+            ".corner-block, #mobile-cta, #mobile-socials, #hero-subtitle",
+            { y: [20, 0], opacity: [0, 1] },
+            { delay: stagger(0.1, { start: 0.8 }), duration: 1.0, easing: [0.25, 1, 0.5, 1] }
         );
 
-        // 2. Sticky Header Scroll Animation
-        gsap.to("#sticky-header", {
-            opacity: 1,
-            y: 0,
-            duration: 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: "section", // Target this section (Hero)
-                start: "bottom top", // Trigger when Hero bottom reaches viewport top
-                toggleActions: "play none none reverse",
-            },
-        });
+        const stickyHeader = document.getElementById("sticky-header");
+        if (stickyHeader) {
+            scroll(({ y }) => {
+                if (y > window.innerHeight) {
+                    stickyHeader.classList.remove("-translate-y-full", "opacity-0");
+                    stickyHeader.classList.add("translate-y-0", "opacity-100");
+                } else {
+                    stickyHeader.classList.add("-translate-y-full", "opacity-0");
+                    stickyHeader.classList.remove("translate-y-0", "opacity-100");
+                }
+            });
+        }
 
-        // 3. Continuous Marquee Animation (GSAP)
-        gsap.to(".marquee-content", {
-            xPercent: -100,
-            repeat: -1,
-            duration: 25,
-            ease: "none",
-        });
+        animate(
+            ".marquee-content",
+            { transform: ["translateX(0%)", "translateX(-100%)"] },
+            { duration: 25, ease: "linear", repeat: Infinity }
+        );
     });
 </script>
