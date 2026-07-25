@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import ProjectCarousel from "@/components/ui/ProjectCarousel";
 import { IconArrowRight, IconChevronRight } from "@tabler/icons-react";
 import { getImage } from "astro:assets";
 
@@ -9,35 +8,34 @@ const projectsEntries = await getCollection("projects");
 const projects = await Promise.all(
     projectsEntries.map(async (p: any) => {
         const data = p.data;
-        const optimizedImages = await Promise.all(
+        // Process all images for the auto-swiping gallery
+        const optimizedGalleries = await Promise.all(
             data.images.map(async (img: any) => {
                 const optimized = await getImage({
                     src: img,
                     width: 1200,
-                    format: 'webp',
-                    quality: 80,
+                    format: "webp",
+                    quality: 85,
                 });
-                return { src: optimized.src };
+                return optimized.src;
             })
         );
-        return { ...data, images: optimizedImages };
+        return { ...data, gallery: optimizedGalleries };
     })
 );
+
+const featured = projects.find((p: any) => p.featured === true) ?? projects[0];
+const rest = projects.filter((p: any) => p !== featured);
 ---
 
 <section
     id="projects"
-    class="relative min-h-screen bg-brand-bg py-12 md:py-24 px-6 md:px-12 overflow-hidden border-t border-brand-text/5"
+    class="relative bg-brand-bg py-12 md:py-24 px-6 md:px-12 overflow-hidden border-t border-brand-text/5"
 >
-    <!-- Background Large Typography (Decorative) -->
-    <div
-        class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0"
-    >
+    <!-- Background Decorative Text -->
+    <div class="absolute inset-0 w-full flex justify-center pointer-events-none select-none z-0">
         <div class="h-screen flex items-center justify-center sticky top-0">
-            <span
-                class="text-[17vw] font-bold text-brand-text/5 leading-none uppercase"
-                id="projects-bg-text"
-            >
+            <span class="text-[17vw] font-bold text-brand-text/5 leading-none uppercase" id="projects-bg-text">
                 PROJECTS
             </span>
         </div>
@@ -45,119 +43,185 @@ const projects = await Promise.all(
 
     <div class="max-w-7xl mx-auto relative z-10">
         <!-- Section Header -->
-        <div
-            class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8"
-        >
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
             <div class="overflow-hidden">
-                <h2
-                    class="text-brand-accent mb-4 tracking-[0.5em] uppercase"
-                    id="projects-tag"
-                >
+                <h2 class="text-brand-accent mb-4 tracking-[0.5em] uppercase" id="projects-tag">
                     02 / SELECTED WORKS
                 </h2>
-                <h3
-                    class="text-4xl md:text-8xl font-bold leading-none tracking-widest"
-                    id="projects-title"
-                >
+                <h3 class="text-4xl md:text-8xl font-bold leading-none tracking-widest" id="projects-title">
                     PORTFOLIO <br /> ARCHIVE
                 </h3>
             </div>
             <div class="md:text-right max-w-xs overflow-hidden">
-                <p
-                    class="text-[11px] leading-relaxed text-brand-text/50 uppercase tracking-widest"
-                    id="projects-info"
-                >
-                    A Curated Selection of High-End Digital Solutions & Technical
-                    Architecture.
+                <p class="text-[11px] leading-relaxed text-brand-text/50 uppercase tracking-widest" id="projects-info">
+                    A Curated Selection of High-End Digital Solutions &amp; Technical Architecture.
                 </p>
             </div>
         </div>
 
-        <!-- Vertical Accordion List -->
-        <div class="border-t border-brand-text/10" id="projects-list">
-            {
-                projects.map((project: any, index: number) => (
-                    <div
-                        class="project-item group border-b border-brand-text/10 overflow-hidden cursor-pointer"
-                        data-id={project.id}
-                    >
-                        <!-- Row Summary -->
-                        <div class="flex items-center justify-between py-6 md:py-16 transition-all duration-500 group-hover:px-4 md:group-hover:px-8">
-                            <div class="flex items-center gap-6 md:gap-16">
-                                <span class="text-[12px] md:text-[14px] font-bold text-brand-text/40 tracking-widest font-mono">
-                                    [{project.id}]
-                                </span>
-                                <h4 class="text-2xl md:text-6xl font-bold tracking-wide group-hover:text-brand-accent transition-colors">
-                                    {project.title}
-                                </h4>
-                            </div>
-                            <div class="flex items-center gap-12 text-right">
-                                <span class="hidden md:block text-[11px] font-bold tracking-[0.2em] text-brand-text/30 uppercase">
-                                    {project.category}
-                                </span>
-                                <span class="text-[14px] md:text-[18px] font-bold text-brand-text/20 group-hover:text-brand-text transition-colors">
-                                    {project.year}
-                                </span>
-                                <div class="w-8 h-8 rounded-full border border-brand-text/10 flex items-center justify-center">
-                                    <span class="text-lg group-hover:translate-x-1 transition-transform">
-                                        <IconChevronRight size={20} stroke={2} />
-                                    </span>
-                                </div>
-                            </div>
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" id="projects-grid">
+
+            <!-- Featured Card -->
+            <div
+                class="project-card group col-span-1 md:col-span-2 rounded-3xl overflow-hidden border border-brand-text/10 bg-brand-text/5"
+            >
+                <!-- Gallery Container -->
+                <div class="relative aspect-square md:aspect-video overflow-hidden project-gallery">
+                    {featured.gallery.map((img: string, idx: number) => (
+                        <img
+                            src={img}
+                            alt={`${featured.title} preview ${idx + 1}`}
+                            loading={idx === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                            class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-105 transition-transform-opacity ${idx === 0 ? "active opacity-100 z-1" : "opacity-0 z-0"}`}
+                        />
+                    ))}
+                    
+                    <!-- Featured Badge -->
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="px-3 py-1.5 bg-brand-accent text-brand-bg text-[9px] font-bold tracking-[0.3em] uppercase rounded-full">
+                            ★ FEATURED
+                        </span>
+                    </div>
+
+                    <!-- Desktop Hover Overlay -->
+                    <div class="hidden md:flex card-overlay absolute inset-0 bg-brand-bg/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-col justify-center p-12 pointer-events-none group-hover:pointer-events-auto z-20">
+                        <span class="text-[10px] font-bold tracking-[0.4em] text-brand-accent uppercase block mb-4">{featured.category}</span>
+                        <h4 class="text-3xl font-bold text-brand-text tracking-wide mb-4">{featured.title}</h4>
+                        <p class="text-brand-text/70 text-base leading-relaxed max-w-xl mb-6">{featured.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            {featured.tags.map((tag: string) => (
+                                <span class="px-3 py-1 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[9px] font-bold tracking-widest text-brand-accent uppercase">{tag}</span>
+                            ))}
                         </div>
+                        {featured.link !== "#" && (
+                            <a href={featured.link} target="_blank"
+                                class="inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.3em] uppercase text-brand-text border-b border-brand-text/20 pb-1 w-fit hover:border-brand-accent hover:text-brand-accent transition-colors">
+                                EXPLORE SITE <IconArrowRight size={16} stroke={2} client:load />
+                            </a>
+                        )}
+                    </div>
+                </div>
 
-                        <!-- Row Detail (Accordion Content) -->
-                        <div class="project-detail max-h-0 opacity-0 px-4 md:px-32 pb-8 md:pb-16 overflow-hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-8 md:py-12 border-t border-brand-text/5">
-                                <!-- Text Content -->
-                                <div class="md:col-span-6 space-y-6 md:space-y-12 order-2 md:order-1">
-                                    <p class="text-lg md:text-2xl leading-relaxed text-brand-text/80 font-medium">
-                                        {project.description}
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        {project.tags.map((tag: string) => (
-                                            <span class="px-3 py-1.5 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[9px] font-bold tracking-widest text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 uppercase">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <div class="pt-8">
-                                        <a
-                                            href={project.link}
-                                            target="_blank"
-                                            class="group/btn inline-flex items-center gap-6 text-[13px] font-bold tracking-[0.3em] uppercase border-b-2 border-brand-text/10 pb-2 hover:border-brand-accent transition-all w-fit"
-                                        >
-                                            EXPLORE SITE{" "}
-                                            <span class="text-lg group-hover/btn:translate-x-2 transition-transform">
-                                                <IconArrowRight size={20} stroke={2} />
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
+                <!-- Info Bar -->
+                <div class="card-toggle flex items-center justify-between p-5 md:p-6 cursor-pointer border-t border-brand-text/10 select-none">
+                    <div>
+                        <span class="text-[9px] font-bold tracking-[0.4em] text-brand-accent uppercase block mb-1">{featured.category}</span>
+                        <h4 class="text-xl md:text-2xl font-bold text-brand-text tracking-wide">{featured.title}</h4>
+                    </div>
+                    <div class="flex items-center gap-4 shrink-0">
+                        <span class="text-brand-text/30 text-sm font-mono tracking-widest hidden sm:block">{featured.year}</span>
+                        <span class="card-chevron text-brand-text/50 transition-transform duration-300 md:hidden">
+                            <IconChevronRight size={20} stroke={2} client:load />
+                        </span>
+                    </div>
+                </div>
 
-                                <!-- Image Preview -->
-                                <div class="md:col-span-6 order-1 md:order-2">
-                                    <div class="relative project-image-container opacity-0 translate-y-6">
-                                        <ProjectCarousel 
-                                            images={project.images} 
-                                            title={project.title} 
-                                            client:only="react" 
-                                        />
-                                    </div>
-                                </div>
+                <!-- Expandable Panel -->
+                <div class="card-panel max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out md:hidden">
+                    <div class="px-5 pb-6 pt-2 border-t border-brand-text/10 space-y-4">
+                        <p class="text-brand-text/70 text-sm leading-relaxed">{featured.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            {featured.tags.map((tag: string) => (
+                                <span class="px-3 py-1 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[9px] font-bold tracking-widest text-brand-accent uppercase">{tag}</span>
+                            ))}
+                        </div>
+                        {featured.link !== "#" && (
+                            <a href={featured.link} target="_blank"
+                                class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase text-brand-text border-b border-brand-text/20 pb-1 w-fit hover:border-brand-accent hover:text-brand-accent transition-colors mt-2">
+                                EXPLORE SITE <IconArrowRight size={14} stroke={2} client:load />
+                            </a>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rest of Cards -->
+            {rest.map((project: any) => (
+                <div class="project-card group rounded-3xl overflow-hidden border border-brand-text/10 bg-brand-text/5">
+                    <!-- Gallery Container -->
+                    <div class="relative aspect-square overflow-hidden project-gallery">
+                        {project.gallery.map((img: string, idx: number) => (
+                            <img
+                                src={img}
+                                alt={`${project.title} preview ${idx + 1}`}
+                                loading="lazy"
+                                decoding="async"
+                                class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-105 transition-transform-opacity ${idx === 0 ? "active opacity-100 z-1" : "opacity-0 z-0"}`}
+                            />
+                        ))}
+
+                        <!-- Desktop Hover Overlay -->
+                        <div class="hidden md:flex card-overlay absolute inset-0 bg-brand-bg/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-col justify-center p-8 pointer-events-none group-hover:pointer-events-auto z-20">
+                            <span class="text-[9px] font-bold tracking-[0.4em] text-brand-accent uppercase block mb-3">{project.category}</span>
+                            <h4 class="text-xl font-bold text-brand-text tracking-wide mb-3">{project.title}</h4>
+                            <p class="text-brand-text/70 text-sm leading-relaxed mb-4">{project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                {project.tags.map((tag: string) => (
+                                    <span class="px-2 py-1 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[8px] font-bold tracking-widest text-brand-accent uppercase">{tag}</span>
+                                ))}
                             </div>
+                            {project.link !== "#" && (
+                                <a href={project.link} target="_blank"
+                                    class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase text-brand-text border-b border-brand-text/20 pb-1 w-fit hover:border-brand-accent hover:text-brand-accent transition-colors">
+                                    EXPLORE <IconArrowRight size={14} stroke={2} client:load />
+                                </a>
+                            )}
                         </div>
                     </div>
-                ))
-            }
+
+                    <!-- Info Bar -->
+                    <div class="card-toggle flex items-center justify-between p-4 md:p-5 cursor-pointer border-t border-brand-text/10 select-none">
+                        <div>
+                            <span class="text-[9px] font-bold tracking-[0.4em] text-brand-accent uppercase block mb-1">{project.category}</span>
+                            <h4 class="text-lg font-bold text-brand-text tracking-wide">{project.title}</h4>
+                        </div>
+                        <div class="flex items-center gap-3 shrink-0">
+                            <span class="text-brand-text/30 text-xs font-mono tracking-widest hidden sm:block">{project.year}</span>
+                            <span class="card-chevron text-brand-text/50 transition-transform duration-300 md:hidden">
+                                <IconChevronRight size={18} stroke={2} client:load />
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Panel -->
+                    <div class="card-panel max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out md:hidden">
+                        <div class="px-4 pb-5 pt-2 border-t border-brand-text/10 space-y-4">
+                            <p class="text-brand-text/70 text-xs leading-relaxed">{project.description}</p>
+                            <div class="flex flex-wrap gap-2">
+                                {project.tags.map((tag: string) => (
+                                    <span class="px-2 py-1 bg-brand-accent/10 border border-brand-accent/20 rounded-full text-[8px] font-bold tracking-widest text-brand-accent uppercase">{tag}</span>
+                                ))}
+                            </div>
+                            {project.link !== "#" && (
+                                <a href={project.link} target="_blank"
+                                    class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase text-brand-text border-b border-brand-text/20 pb-1 w-fit hover:border-brand-accent hover:text-brand-accent transition-colors">
+                                    EXPLORE <IconArrowRight size={14} stroke={2} client:load />
+                                </a>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
     </div>
 </section>
 
 <style>
-    .project-item.is-active .project-detail {
-        max-height: 2000px;
-        opacity: 1;
+    @media (min-width: 768px) {
+        .card-chevron { display: none; }
+    }
+    .project-card.is-open .card-chevron {
+        transform: rotate(90deg);
+    }
+    .project-card.is-open .card-panel {
+        max-height: 600px;
+    }
+    
+    /* Crossfade gallery styles */
+    .project-gallery img {
+        transition-property: opacity, transform;
     }
 </style>
 
@@ -166,117 +230,22 @@ const projects = await Promise.all(
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     gsap.registerPlugin(ScrollTrigger);
-    
-    // Performance Optimization
     ScrollTrigger.config({ limitCallbacks: true });
 
-    window.addEventListener("DOMContentLoaded", () => {
-        const sections = ["#projects-tag", "#projects-title", "#projects-info"];
+    const initProjects = () => {
+        // Section Header Reveal
+        const headers = ["#projects-tag", "#projects-title", "#projects-info"];
+        gsap.timeline({
+            scrollTrigger: { trigger: "#projects", start: "top 70%" },
+        }).from(headers, { y: 40, opacity: 0, stagger: 0.2, duration: 1.2, ease: "power3.out" });
 
-        // 1. Entrance Reveal for Header
-        const projectsTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#projects",
-                start: "top 70%",
-            },
+        // Bento Card Stagger
+        gsap.from(".project-card", {
+            scrollTrigger: { trigger: "#projects-grid", start: "top 80%" },
+            y: 60, opacity: 0, stagger: 0.15, duration: 1.0, ease: "power3.out",
         });
 
-        projectsTl.from(sections, {
-            y: 40,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1.2,
-            ease: "power3.out",
-        });
-
-        // 2. Sequential Project Row Reveal
-        gsap.from(".project-item", {
-            scrollTrigger: {
-                trigger: "#projects-list",
-                start: "top 80%",
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1.5,
-            ease: "power3.out",
-        });
-
-        // 3. Accordion Logic (Single Expansion)
-        const items = document.querySelectorAll(".project-item");
-
-        items.forEach((item) => {
-            const row = item.querySelector("div:first-child"); // Click target
-            const detail = item.querySelector(".project-detail");
-            const arrow = item.querySelector(".w-8");
-            const imageContainer = item.querySelector(".project-image-container");
-
-            if (row && detail && arrow && imageContainer) {
-                row.addEventListener("click", () => {
-                    const isActive = item.classList.contains("is-active");
-
-                // Close all others
-                items.forEach((others) => {
-                    if (others !== item) {
-                        const otherDetail = others.querySelector(".project-detail");
-                        const otherArrow = others.querySelector(".w-8");
-                        const otherImg = others.querySelector(".project-image-container");
-
-                        gsap.to(otherDetail, {
-                            maxHeight: 0,
-                            opacity: 0,
-                            duration: 0.5,
-                            ease: "power3.out",
-                        });
-                        gsap.to(otherArrow, { rotate: 0, duration: 0.5, ease: "power3.out" });
-                        gsap.to(otherImg, {
-                            opacity: 0,
-                            y: 20,
-                            duration: 0.5,
-                            ease: "power3.out",
-                        });
-                        others.classList.remove("is-active");
-                    }
-                });
-
-                // Toggle current
-                if (isActive) {
-                    gsap.to(detail, {
-                        maxHeight: 0,
-                        opacity: 0,
-                        duration: 0.5,
-                        ease: "power3.out",
-                    });
-                    gsap.to(arrow, { rotate: 0, duration: 0.5, ease: "power3.out" });
-                    gsap.to(imageContainer, {
-                        opacity: 0,
-                        y: 20,
-                        duration: 0.5,
-                        ease: "power3.out",
-                    });
-                    item.classList.remove("is-active");
-                } else {
-                    gsap.to(detail, {
-                        maxHeight: 1200,
-                        opacity: 1,
-                        duration: 0.5,
-                        ease: "power3.out",
-                    });
-                    gsap.to(arrow, { rotate: 90, duration: 0.5, ease: "power3.out" });
-                    
-                    // Image reveal animation
-                    gsap.fromTo(imageContainer, 
-                        { opacity: 0, y: 20 },
-                        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
-                    );
-                    
-                    item.classList.add("is-active");
-                }
-            });
-        }
-    });
-
-        // 4. Background Decorative Text (Sticky with Lag)
+        // Background Decorative Text
         gsap.to("#projects-bg-text", {
             scrollTrigger: {
                 trigger: "#projects",
@@ -284,8 +253,51 @@ const projects = await Promise.all(
                 end: "bottom bottom",
                 scrub: 1.5,
             },
-            y: 100,
-            ease: "none",
+            y: 100, ease: "none",
         });
-    });
+
+        // Mobile Panel Toggle
+        const cards = document.querySelectorAll<HTMLElement>(".project-card");
+        cards.forEach((card) => {
+            const toggle = card.querySelector<HTMLElement>(".card-toggle");
+            if (!toggle) return;
+            toggle.addEventListener("click", () => {
+                const isOpen = card.classList.contains("is-open");
+                cards.forEach((c) => c.classList.remove("is-open"));
+                if (!isOpen) card.classList.add("is-open");
+            });
+        });
+
+        // AUTO SWIPE GALLERY (3s interval)
+        const galleries = document.querySelectorAll<HTMLElement>(".project-gallery");
+        galleries.forEach((gallery) => {
+            const images = gallery.querySelectorAll("img");
+            if (images.length <= 1) return;
+
+            let currentIndex = 0;
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                
+                // Reset Z-axis
+                images.forEach(img => img.style.zIndex = "0");
+                
+                // Prepare next image
+                images[nextIndex].style.zIndex = "1";
+                images[nextIndex].classList.add("opacity-100");
+                images[nextIndex].classList.remove("opacity-0");
+
+                // Fade out current image
+                images[currentIndex].classList.add("opacity-0");
+                images[currentIndex].classList.remove("opacity-100");
+                
+                currentIndex = nextIndex;
+            }, 3000);
+        });
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initProjects);
+    } else {
+        initProjects();
+    }
 </script>
