@@ -312,26 +312,26 @@ import { Image } from "astro:assets";
 
         animate(
             "#portrait-img",
-            { y: [100, 0], opacity: [0, 1], scale: [1.15, 1.15] },
-            { duration: 1.2, easing: [0.16, 1, 0.3, 1] }
+            { y: [100, 0], opacity: [0, 1], scale: [0.8, 1.0] },
+            { duration: 1.2, easing: [0.05, 0.7, 0.1, 1.0] }
         );
 
         animate(
             "#name-line-1",
             { x: ["-100%", "0%"], opacity: [0, 1] },
-            { delay: 0.4, duration: 1.8, easing: [0.16, 1, 0.3, 1] }
+            { delay: 0.4, duration: 1.8, easing: [0.05, 0.7, 0.1, 1.0] }
         );
 
         animate(
             "#name-line-2",
             { x: ["100%", "0%"], opacity: [0, 1] },
-            { delay: 0.4, duration: 1.8, easing: [0.16, 1, 0.3, 1] }
+            { delay: 0.4, duration: 1.8, easing: [0.05, 0.7, 0.1, 1.0] }
         );
 
         animate(
             ".corner-block, #mobile-cta, #mobile-socials, #hero-subtitle",
             { y: [20, 0], opacity: [0, 1] },
-            { delay: stagger(0.1, { start: 0.8 }), duration: 1.0, easing: [0.16, 1, 0.3, 1] }
+            { delay: stagger(0.1, { start: 0.8 }), duration: 1.0, easing: [0.05, 0.7, 0.1, 1.0] }
         );
 
         const stickyHeader = document.getElementById("sticky-header");
