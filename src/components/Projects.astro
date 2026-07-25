@@ -40,7 +40,7 @@ const projects = await Promise.all(
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-7xl mx-auto relative z-10" id="projects-content">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-28 gap-8">
             <div class="overflow-hidden">
                 <h2 class="text-brand-accent mb-4 tracking-[0.5em] uppercase text-xs" id="projects-tag">
@@ -195,29 +195,16 @@ const projects = await Promise.all(
     (window as any).ScrollTrigger = ScrollTrigger;
 
     const initProjects = () => {
-        const headers = ["#projects-tag", "#projects-title", "#projects-info"];
-        
-        const tl = gsap.timeline({
+        gsap.from("#projects-content", {
             scrollTrigger: {
                 trigger: "#projects",
-                start: "top 80%",
-            }
-        });
-
-        tl.from(headers, {
-            y: 30,
+                start: "top 85%",
+            },
+            y: 40,
             opacity: 0,
-            stagger: 0.08,
-            duration: 0.25,
+            duration: 0.5,
             ease: "power2.out",
-        })
-        .from(".project-row", {
-            y: 30,
-            opacity: 0,
-            stagger: 0.06,
-            duration: 0.25,
-            ease: "expo.out",
-        }, "-=0.1");
+        });
 
         gsap.to("#projects-bg-text", {
             scrollTrigger: {

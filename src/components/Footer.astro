@@ -8,6 +8,7 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
 >
     <div
         class="max-w-7xl mx-auto relative z-10 flex flex-col h-full min-h-[70vh] justify-between"
+        id="footer-content"
     >
         <div>
             <!-- Section Header -->
@@ -169,18 +170,14 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
     (window as any).ScrollTrigger = ScrollTrigger;
 
     const initFooter = () => {
-        const footerTl = gsap.timeline({
+        gsap.from("#footer-content", {
             scrollTrigger: {
                 trigger: "#contact",
-                start: "top 80%",
+                start: "top 85%",
             },
-        });
-
-        footerTl.from(["#footer-tag", "#footer-title", "#footer-info"], {
             y: 40,
             opacity: 0,
-            stagger: 0.08,
-            duration: 0.25,
+            duration: 0.5,
             ease: "power2.out",
         });
 

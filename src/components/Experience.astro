@@ -23,7 +23,7 @@ const experiences = experiencesEntries.map((e: any) => e.data);
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-7xl mx-auto relative z-10" id="experience-content">
         <!-- Section Header -->
         <div
             class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8"
@@ -127,27 +127,16 @@ const experiences = experiencesEntries.map((e: any) => e.data);
     (window as any).ScrollTrigger = ScrollTrigger;
 
     const initExperience = () => {
-        const expTl = gsap.timeline({
+        gsap.from("#experience-content", {
             scrollTrigger: {
                 trigger: "#experience",
-                start: "top 80%",
+                start: "top 85%",
             },
-        });
-
-        expTl.from(["#experience-tag", "#experience-title", "#experience-info"], {
             y: 40,
             opacity: 0,
-            stagger: 0.08,
-            duration: 0.25,
+            duration: 0.5,
             ease: "power2.out",
-        })
-        .from(".experience-item", {
-            y: 50,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.3,
-            ease: "expo.out",
-        }, "-=0.15");
+        });
 
         gsap.from("#experience-timeline-line", {
             scrollTrigger: {
