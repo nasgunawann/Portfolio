@@ -34,13 +34,27 @@ const { title, description, image } = Astro.props;
 		</ClickSpark>
 		
 		<script>
-			import { gsap } from "gsap";
-			import { ScrollTrigger } from "gsap/ScrollTrigger";
+			import { gsap as localGsap } from "gsap";
+			import { ScrollTrigger as localScrollTrigger } from "gsap/ScrollTrigger";
+			
+			const gsap = (window as any).gsap || localGsap;
+			const ScrollTrigger = (window as any).ScrollTrigger || localScrollTrigger;
+			
 			gsap.registerPlugin(ScrollTrigger);
 			(window as any).gsap = gsap;
 			(window as any).ScrollTrigger = ScrollTrigger;
+			
 			window.addEventListener("load", () => {
 				ScrollTrigger.refresh();
+			});
+
+			// Recalculate ScrollTriggers as images load to prevent layout shifts from breaking triggers
+			document.querySelectorAll("img").forEach((img) => {
+				if (img.complete) {
+					ScrollTrigger.refresh();
+				} else {
+					img.addEventListener("load", () => ScrollTrigger.refresh());
+				}
 			});
 		</script>
 	</body>
