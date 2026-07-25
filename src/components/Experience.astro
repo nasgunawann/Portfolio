@@ -123,13 +123,13 @@ const experiences = experiencesEntries.map((e: any) => e.data);
             animate(
                 "#experience-tag, #experience-title, #experience-info",
                 { opacity: [0, 1], y: [40, 0] },
-                { delay: stagger(0.05), duration: 0.15, easing: [0.32, 0.72, 0, 1] }
+                { delay: stagger(0.08), duration: 0.25, easing: [0.32, 0.72, 0, 1] }
             );
 
             animate(
                 ".experience-item",
                 { opacity: [0, 1], y: [50, 0] },
-                { delay: stagger(0.05, { start: 0.08 }), duration: 0.15, easing: [0.32, 0.72, 0, 1] }
+                { delay: stagger(0.1, { start: 0.15 }), duration: 0.3, easing: [0.32, 0.72, 0, 1] }
             );
         });
 
