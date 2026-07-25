@@ -116,45 +116,58 @@ const experiences = experiencesEntries.map((e: any) => e.data);
 </section>
 
 <script>
-    import { animate, inView, scroll, stagger } from "motion";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
 
     window.addEventListener("DOMContentLoaded", () => {
-        inView("#experience", () => {
-            animate(
-                "#experience-tag, #experience-title, #experience-info",
-                { opacity: [0, 1], y: [40, 0] },
-                { delay: stagger(0.08), duration: 0.25, easing: [0.32, 0.72, 0, 1] }
-            );
-
-            animate(
-                ".experience-item",
-                { opacity: [0, 1], y: [50, 0] },
-                { delay: stagger(0.1, { start: 0.15 }), duration: 0.3, easing: [0.32, 0.72, 0, 1] }
-            );
+        const expTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#experience",
+                start: "top 80%",
+            },
         });
 
-        const line = document.querySelector("#experience-timeline-line");
-        const timelineTrigger = document.querySelector(".experience-item");
-        if (line && timelineTrigger) {
-            scroll(
-                animate(line, { scaleY: [0, 1] }, { easing: "linear" }),
-                {
-                    target: timelineTrigger,
-                    offset: ["start 80%", "end 60%"]
-                }
-            );
-        }
+        expTl.from(["#experience-tag", "#experience-title", "#experience-info"], {
+            y: 40,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.25,
+            ease: "power2.out",
+        })
+        .from(".experience-item", {
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.3,
+            ease: "expo.out",
+        }, "-=0.15");
 
-        const bgText = document.querySelector("#experience-bg-text");
-        const section = document.querySelector("#experience");
-        if (bgText && section) {
-            scroll(
-                animate(bgText, { y: [0, 100] }, { easing: "linear" }),
-                {
-                    target: section,
-                    offset: ["start end", "end start"]
-                }
-            );
-        }
+        gsap.from("#experience-timeline-line", {
+            scrollTrigger: {
+                trigger: ".experience-item",
+                start: "top 80%",
+                end: "bottom 60%",
+                scrub: 1,
+            },
+            scaleY: 0,
+            ease: "none",
+        });
+
+        gsap.to("#experience-bg-text", {
+            scrollTrigger: {
+                trigger: "#experience",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5,
+            },
+            y: 100,
+            ease: "none",
+        });
+    });
+
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
     });
 </script>

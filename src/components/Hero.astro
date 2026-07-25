@@ -275,7 +275,11 @@ import { Image } from "astro:assets";
 </section>
 
 <script>
-    import { animate, scroll, stagger } from "motion";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ limitCallbacks: true });
 
     window.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.getElementById("mobile-menu-toggle");
@@ -310,48 +314,58 @@ import { Image } from "astro:assets";
             });
         }
 
-        
-        animate(
+        const tl = gsap.timeline({
+            defaults: { ease: "expo.out", duration: 1.8 }
+        });
+
+        tl.fromTo(
             "#portrait-img",
-            { transform: ["translateY(100px) scale(0.8)", "translateY(0px) scale(1.0)"], opacity: [0, 1] },
-            { duration: 1.2, easing: [0.05, 0.7, 0.1, 1.0] }
+            { y: 100, opacity: 0, scale: 0.8 },
+            { y: 0, opacity: 1, scale: 1.0, duration: 1.2 }
         );
 
-        animate(
+        tl.fromTo(
             "#name-line-1",
-            { transform: ["translateX(-100%)", "translateX(0%)"], opacity: [0, 1] },
-            { delay: 0.4, duration: 1.8, easing: [0.05, 0.7, 0.1, 1.0] }
+            { xPercent: -100, opacity: 0 },
+            { xPercent: 0, opacity: 1 },
+            0.4
         );
 
-        animate(
+        tl.fromTo(
             "#name-line-2",
-            { transform: ["translateX(100%)", "translateX(0%)"], opacity: [0, 1] },
-            { delay: 0.4, duration: 1.8, easing: [0.05, 0.7, 0.1, 1.0] }
+            { xPercent: 100, opacity: 0 },
+            { xPercent: 0, opacity: 1 },
+            0.4
         );
 
-        animate(
-            ".corner-block, #mobile-cta, #mobile-socials, #hero-subtitle",
-            { transform: ["translateY(20px)", "translateY(0px)"], opacity: [0, 1] },
-            { delay: stagger(0.1, { start: 0.8 }), duration: 1.0, easing: [0.05, 0.7, 0.1, 1.0] }
+        tl.fromTo(
+            [".corner-block", "#mobile-cta", "#mobile-socials", "#hero-subtitle"],
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.1, duration: 1.0 },
+            "-=1"
         );
 
-        const stickyHeader = document.getElementById("sticky-header");
-        if (stickyHeader) {
-            scroll(({ y }) => {
-                if (y > window.innerHeight) {
-                    stickyHeader.classList.remove("-translate-y-full", "opacity-0");
-                    stickyHeader.classList.add("translate-y-0", "opacity-100");
-                } else {
-                    stickyHeader.classList.add("-translate-y-full", "opacity-0");
-                    stickyHeader.classList.remove("translate-y-0", "opacity-100");
-                }
-            });
-        }
+        gsap.to("#sticky-header", {
+            opacity: 1,
+            y: 0,
+            duration: 0.25,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "section",
+                start: "bottom top",
+                toggleActions: "play none none reverse",
+            },
+        });
 
-        animate(
-            ".marquee-content",
-            { transform: ["translateX(0%)", "translateX(-100%)"] },
-            { duration: 25, ease: "linear", repeat: Infinity }
-        );
+        gsap.to(".marquee-content", {
+            xPercent: -100,
+            repeat: -1,
+            duration: 25,
+            ease: "none",
+        });
+    });
+
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
     });
 </script>

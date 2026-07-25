@@ -183,42 +183,47 @@ const projects = await Promise.all(
 </style>
 
 <script>
-    import { animate, inView, scroll, stagger } from "motion";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ limitCallbacks: true });
 
     const initProjects = () => {
-        inView("#projects", () => {
-            animate(
-                "#projects-tag, #projects-title, #projects-info",
-                { opacity: [0, 1], y: [30, 0] },
-                { 
-                    delay: stagger(0.08), 
-                    duration: 0.25, 
-                    easing: [0.32, 0.72, 0, 1] 
-                }
-            );
-
-            animate(
-                ".project-row",
-                { opacity: [0, 1], y: [30, 0] },
-                { 
-                    delay: stagger(0.06, { start: 0.15 }), 
-                    duration: 0.25, 
-                    easing: [0.32, 0.72, 0, 1] 
-                }
-            );
+        const headers = ["#projects-tag", "#projects-title", "#projects-info"];
+        
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top 80%",
+            }
         });
 
-        const bgText = document.querySelector("#projects-bg-text");
-        const section = document.querySelector("#projects");
-        if (bgText && section) {
-            scroll(
-                animate(bgText, { y: [0, 100] }, { easing: "linear" }),
-                {
-                    target: section,
-                    offset: ["start end", "end start"]
-                }
-            );
-        }
+        tl.from(headers, {
+            y: 30,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.25,
+            ease: "power2.out",
+        })
+        .from(".project-row", {
+            y: 30,
+            opacity: 0,
+            stagger: 0.06,
+            duration: 0.25,
+            ease: "expo.out",
+        }, "-=0.1");
+
+        gsap.to("#projects-bg-text", {
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5,
+            },
+            y: 100,
+            ease: "none",
+        });
 
         const rows = document.querySelectorAll<HTMLElement>(".project-row");
         const showcases = document.querySelectorAll<HTMLElement>(".project-showcase");
@@ -288,4 +293,8 @@ const projects = await Promise.all(
     } else {
         initProjects();
     }
+
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
 </script>
