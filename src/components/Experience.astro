@@ -121,7 +121,7 @@ const experiences = experiencesEntries.map((e: any) => e.data);
 
     gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener("DOMContentLoaded", () => {
+    const initExperience = () => {
         const expTl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#experience",
@@ -165,9 +165,11 @@ const experiences = experiencesEntries.map((e: any) => e.data);
             y: 100,
             ease: "none",
         });
-    });
+    };
 
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
-    });
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initExperience);
+    } else {
+        initExperience();
+    }
 </script>

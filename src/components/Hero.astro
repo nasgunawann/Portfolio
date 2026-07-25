@@ -281,7 +281,7 @@ import { Image } from "astro:assets";
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ limitCallbacks: true });
 
-    window.addEventListener("DOMContentLoaded", () => {
+    const initHero = () => {
         const menuToggle = document.getElementById("mobile-menu-toggle");
         const mobileOverlay = document.getElementById("mobile-overlay");
         const bar1 = document.getElementById("bar1");
@@ -363,9 +363,11 @@ import { Image } from "astro:assets";
             duration: 25,
             ease: "none",
         });
-    });
+    };
 
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
-    });
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initHero);
+    } else {
+        initHero();
+    }
 </script>

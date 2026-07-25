@@ -217,7 +217,7 @@ const certifications = certsEntries.map((c: any) => c.data);
 
     gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener("DOMContentLoaded", () => {
+    const initEducation = () => {
         const eduTl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#credentials",
@@ -278,9 +278,11 @@ const certifications = certsEntries.map((c: any) => c.data);
             y: 100,
             ease: "none",
         });
-    });
+    };
 
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
-    });
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initEducation);
+    } else {
+        initEducation();
+    }
 </script>

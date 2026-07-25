@@ -169,7 +169,7 @@ import { Image } from "astro:assets";
 
     gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener("DOMContentLoaded", () => {
+    const initAbout = () => {
         const aboutTl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#about",
@@ -237,9 +237,11 @@ import { Image } from "astro:assets";
             y: 100,
             ease: "none",
         });
-    });
+    };
 
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
-    });
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAbout);
+    } else {
+        initAbout();
+    }
 </script>

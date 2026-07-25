@@ -32,5 +32,14 @@ const { title, description, image } = Astro.props;
 		>
 			<slot />
 		</ClickSpark>
+		
+		<script>
+			import { gsap } from "gsap";
+			import { ScrollTrigger } from "gsap/ScrollTrigger";
+			gsap.registerPlugin(ScrollTrigger);
+			window.addEventListener("load", () => {
+				ScrollTrigger.refresh();
+			});
+		</script>
 	</body>
 </html>

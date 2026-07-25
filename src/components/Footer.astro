@@ -163,7 +163,7 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
 
     gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener("DOMContentLoaded", () => {
+    const initFooter = () => {
         const footerTl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#contact",
@@ -199,9 +199,11 @@ import { IconArrowRight, IconArrowUp } from "@tabler/icons-react";
                 });
             });
         }
-    });
+    };
 
-    window.addEventListener("load", () => {
-        ScrollTrigger.refresh();
-    });
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initFooter);
+    } else {
+        initFooter();
+    }
 </script>
