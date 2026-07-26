@@ -1,31 +1,244 @@
 ---
-const navItems = [
-  { name: 'SYSTEM', href: '#' },
-  { name: 'ABOUT.EXE', href: '#about' },
-  { name: 'PROJECTS.SH', href: '#projects' },
-  { name: 'SKILLS.DLL', href: '#skills' },
-  { name: 'LOGOUT', href: '#' },
-];
+
 ---
 
-<nav class="fixed top-0 left-0 w-full z-50 bg-brand-primary text-brand-bg px-4 py-1 font-mono text-xs flex items-center justify-between shadow-terminal">
-  <div class="flex items-center gap-4">
-    <span class="font-bold">NAS-OS v1.0.4</span>
-    <span class="hidden md:inline text-[10px] opacity-80 uppercase">Status: Online</span>
-  </div>
-  
-  <div class="flex items-center gap-6">
-    {navItems.map((item) => (
-      <a
-        href={item.href}
-        class="hover:bg-brand-bg hover:text-brand-primary px-2 py-0.5 transition-colors cursor-pointer"
-      >
-        {item.name}
-      </a>
-    ))}
-  </div>
+<!-- Floating Island Nav (Fluid Pill Style) -->
+<nav
+    id="sticky-header"
+    class="fixed top-4 left-1/2 -translate-x-1/2 z-100 w-[calc(100%-2rem)] md:w-max md:min-w-[48rem] max-w-4xl px-6 py-3 md:px-10 md:py-3 flex items-center justify-between bg-brand-bg/80 backdrop-blur-xl border border-brand-text/10 rounded-full opacity-0 pointer-events-none transition-opacity duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+>
+    <div class="flex items-center gap-4 md:gap-10 text-editorial">
+        <div class="flex items-center gap-2">
+            <a
+                href="#"
+                class="hover:text-brand-accent transition-colors font-bold tracking-widest text-sm md:text-lg whitespace-nowrap"
+                >NASRULLAH GUNAWAN</a
+            >
+        </div>
+        <div class="hidden lg:flex items-center gap-8 opacity-70">
+            <a
+                href="#about"
+                data-section="about"
+                class="nav-link text-[10px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+            >
+                <span
+                    class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-3 transition-opacity"
+                    >/</span
+                >
+                Story
+                <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-[1.5px] bg-brand-accent transition-all duration-300"></span>
+            </a>
+            <a
+                href="#projects"
+                data-section="projects"
+                class="nav-link text-[10px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+            >
+                <span
+                    class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-3 transition-opacity"
+                    >/</span
+                >
+                Works
+                <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-[1.5px] bg-brand-accent transition-all duration-300"></span>
+            </a>
+            <a
+                href="#credentials"
+                data-section="credentials"
+                class="nav-link text-[10px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
+            >
+                <span
+                    class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-3 transition-opacity"
+                    >/</span
+                >
+                Credentials
+                <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-[1.5px] bg-brand-accent transition-all duration-300"></span>
+            </a>
+        </div>
+    </div>
 
-  <div class="hidden sm:block text-[10px] font-bold">
-    {new Date().toLocaleTimeString()}
-  </div>
+    <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center text-editorial">
+            <a
+                href="#contact"
+                class="px-4 py-2 border border-brand-accent/20 bg-brand-accent/5 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300"
+            >
+                Let's Talk
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+            id="mobile-menu-toggle"
+            class="lg:hidden flex flex-col justify-center gap-1.5 w-7 h-7 focus:outline-none z-110"
+        >
+            <span
+                class="w-full h-[1.5px] bg-brand-text transition-all duration-300 origin-center"
+                id="bar1"></span>
+            <span
+                class="w-full h-[1.5px] bg-brand-text transition-all duration-300 origin-center"
+                id="bar2"></span>
+        </button>
+    </div>
 </nav>
+
+<!-- Mobile Menu Overlay (Staggered Reveal) -->
+<div
+    id="mobile-overlay"
+    class="fixed inset-0 bg-brand-bg/95 backdrop-blur-2xl z-90 translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden flex flex-col items-center justify-center gap-10"
+>
+    <a
+        href="#about"
+        data-section="about"
+        class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors translate-y-8 opacity-0"
+        >Story</a
+    >
+    <a
+        href="#projects"
+        data-section="projects"
+        class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors translate-y-8 opacity-0"
+        >Works</a
+    >
+    <a
+        href="#credentials"
+        data-section="credentials"
+        class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors translate-y-8 opacity-0"
+        >Credentials</a
+    >
+        <a
+            href="#contact"
+            class="mobile-link text-xl mt-8 font-bold uppercase tracking-widest text-brand-text/70 hover:text-brand-accent transition-colors translate-y-8 opacity-0"
+        >
+            Let's Talk
+        </a>
+</div>
+
+<style>
+    .nav-link.is-visible .nav-indicator {
+        width: 100%;
+    }
+</style>
+
+<script>
+    import { gsap as localGsap } from "gsap";
+
+    const gsap = (window as any).gsap || localGsap;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const initNavbar = () => {
+        const stickyHeader = document.getElementById("sticky-header");
+        const menuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+        const bar1 = document.getElementById("bar1");
+        const bar2 = document.getElementById("bar2");
+        const mobileLinks = document.querySelectorAll<HTMLElement>(".mobile-link");
+        const navLinks = document.querySelectorAll<HTMLElement>(".nav-link");
+
+        // ---- Show navbar when scrolled past 5%, hide at top ----
+        if (stickyHeader) {
+            let ticking = false;
+            const updateNav = () => {
+                const scrollThreshold = window.innerHeight * 0.05;
+                if (window.scrollY > scrollThreshold) {
+                    stickyHeader.style.opacity = "1";
+                    stickyHeader.style.pointerEvents = "auto";
+                } else {
+                    stickyHeader.style.opacity = "0";
+                    stickyHeader.style.pointerEvents = "none";
+                }
+                ticking = false;
+            };
+            window.addEventListener("scroll", () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateNav);
+                    ticking = true;
+                }
+            });
+            updateNav();
+        }
+
+        // ---- Mobile Menu Toggle with Staggered Reveal ----
+        if (menuToggle && mobileOverlay) {
+            let isOpen = false;
+
+            const openMenu = () => {
+                isOpen = true;
+                mobileOverlay.classList.remove("translate-x-full");
+                mobileOverlay.classList.add("translate-x-0");
+                bar1?.classList.add("rotate-45", "translate-y-1");
+                bar2?.classList.add("-rotate-45", "-translate-y-1");
+
+                if (!prefersReducedMotion) {
+                    gsap.fromTo(
+                        mobileLinks,
+                        { y: 24, opacity: 0 },
+                        { y: 0, opacity: 1, stagger: 0.06, duration: 0.5, ease: "power3.out" }
+                    );
+                } else {
+                    mobileLinks.forEach((link) => {
+                        link.classList.remove("translate-y-8", "opacity-0");
+                    });
+                }
+            };
+
+            const closeMenu = () => {
+                isOpen = false;
+                mobileOverlay.classList.remove("translate-x-0");
+                mobileOverlay.classList.add("translate-x-full");
+                bar1?.classList.remove("rotate-45", "translate-y-1");
+                bar2?.classList.remove("-rotate-45", "-translate-y-1");
+
+                mobileLinks.forEach((link) => {
+                    link.classList.add("translate-y-8", "opacity-0");
+                });
+            };
+
+            menuToggle.addEventListener("click", () => {
+                if (isOpen) closeMenu();
+                else openMenu();
+            });
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (isOpen) closeMenu();
+                });
+            });
+        }
+
+        // ---- Scroll-Spy: highlight active nav link ----
+        const sectionIds = ["about", "projects", "credentials"];
+        const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+        if (navLinks.length && sections.length) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            navLinks.forEach((link) => {
+                                const section = link.dataset.section;
+                                if (section === id) {
+                                    link.classList.add("is-visible");
+                                    link.style.opacity = "1";
+                                } else {
+                                    link.classList.remove("is-visible");
+                                    link.style.opacity = "";
+                                }
+                            });
+                        }
+                    });
+                },
+                { threshold: 0, rootMargin: "-100px 0px -40% 0px" }
+            );
+
+            sections.forEach((section) => {
+                if (section) observer.observe(section);
+            });
+        }
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initNavbar);
+    } else {
+        initNavbar();
+    }
+</script>

@@ -1,36 +1,109 @@
 [
     {
+        "id": "cert-12",
+        "title": "AWS Certified Cloud Practitioner",
+        "institution": "Amazon Web Services",
+        "period": "Issued Jul 2026",
+        "technicalNote": "Global certification validating cloud literacy with deep understanding of AWS core services (EC2, S3, RDS), security, architecture best practices, and cloud economics.",
+        "skills": [
+            "Cloud Architecture",
+            "AWS Core Services",
+            "Security Best Practices"
+        ],
+        "link": "https://www.credly.com/badges/aws-ccp",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-11",
+        "title": "AWS re/Start Program",
+        "institution": "Orbit Future Academy / AWS",
+        "period": "Issued Jun 2026",
+        "technicalNote": "Completed an intensive 12-week program focused on AWS Architecture (EC2, S3, RDS, VPC), network security, and scalable cloud deployments.",
+        "skills": [
+            "Cloud Architecture",
+            "VPC",
+            "Security Protocols",
+            "AWS Core Services"
+        ],
+        "link": "https://aws.amazon.com/training/restart/",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-10",
+        "title": "Gemini Academy for Higher Education",
+        "institution": "Google for Education & Paideia",
+        "period": "Issued Jul 2026",
+        "technicalNote": "Training on integrating Google's Gemini AI models into educational workflows, covering prompt engineering, API integration, and responsible AI usage.",
+        "skills": [
+            "Gemini AI",
+            "Prompt Engineering",
+            "AI Integration"
+        ],
+        "link": "https://edu.google.com/gemini-academy",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-09",
+        "title": "Web Development Series 13.0",
+        "institution": "Dibimbing.id",
+        "period": "Issued Feb 2026",
+        "technicalNote": "Advanced full-stack web development training covering modern JavaScript frameworks, API design, and deployment strategies.",
+        "skills": [
+            "Full-Stack Development",
+            "API Design",
+            "Deployment"
+        ],
+        "link": "https://dibimbing.id/certificates/web-dev-13",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-08",
+        "title": "Intro to Software Engineering",
+        "institution": "RevoU",
+        "period": "Issued Jul 2025",
+        "technicalNote": "Fundamental software engineering principles including SDLC, version control, and collaborative development workflows.",
+        "skills": [
+            "SDLC",
+            "Version Control",
+            "Software Engineering"
+        ],
+        "link": "https://revou.co/certificates/intro-se",
+        "linkType": "external"
+    },
+    {
         "id": "cert-07",
         "title": "IBM Granite: Code Optimization",
-        "institution": "IBM",
+        "institution": "IBM SkillsBuild / Hacktiv8",
         "period": "Issued Sep 2025",
         "technicalNote": "Applied knowledge in optimizing Large Language Model performance and code-base integration utilizing the IBM Granite architecture.",
         "skills": [
             "LLM Optimization",
             "IBM Granite",
-            "Python"
+            "Code Generation"
         ],
         "link": "/credentials/ibm-granite-cert.pdf",
         "linkType": "pdf"
     },
     {
         "id": "cert-06",
-        "title": "Data Science with Microsoft Fabric",
-        "institution": "Dicoding Indonesia",
+        "title": "AI Productivity & AI API Integration",
+        "institution": "Hacktiv8 & Google.org",
         "period": "Issued Mar 2026",
-        "technicalNote": "Advanced data analytics and data science application using the Microsoft Fabric platform.",
+        "technicalNote": "Comprehensive training on AI productivity tools and RESTful API integration for Generative AI services in modern applications.",
         "skills": [
-            "Data Analytics",
-            "Data Science",
-            "Microsoft Fabric"
-        ]
+            "AI API Integration",
+            "Generative AI",
+            "Productivity Tools"
+        ],
+        "link": "https://hacktiv8.com/certificates/maju-bareng-ai",
+        "linkType": "external"
     },
     {
         "id": "cert-05",
-        "title": "Gen AI Apps with Microsoft Azure",
-        "institution": "Dicoding Indonesia",
+        "title": "Building Gen AI Apps with Microsoft Azure",
+        "institution": "Dicoding & Microsoft",
         "period": "Issued Mar 2026",
-        "technicalNote": "Implementation of Large Language Models (LLM) and Generative AI application development on Azure.",
+        "technicalNote": "Implementation of Large Language Models (LLM) and Generative AI application development on Azure cloud platform.",
         "skills": [
             "Azure Cloud",
             "LLM",
@@ -41,34 +114,36 @@
     },
     {
         "id": "cert-04",
-        "title": "Intro to Generative AI",
-        "institution": "Amazon Web Services (AWS)",
+        "title": "Applied Data Science with Microsoft Fabric",
+        "institution": "Dicoding & Microsoft",
         "period": "Issued Mar 2026",
-        "technicalNote": "Training badge for foundational Generative AI concepts and deployment within the AWS ecosystem.",
+        "technicalNote": "Advanced data analytics and data science application using the Microsoft Fabric platform for end-to-end analytics solutions.",
         "skills": [
-            "Generative AI",
-            "AWS AI Services",
-            "LLMs"
+            "Data Analytics",
+            "Data Science",
+            "Microsoft Fabric"
         ],
-        "link": "https://www.credly.com/badges/aws-gen-ai",
+        "link": "https://www.dicoding.com/certificates/data-science-fabric",
         "linkType": "external"
     },
     {
         "id": "cert-03",
-        "title": "Student Developer Initiative",
-        "institution": "Hacktiv8 Indonesia",
-        "period": "Issued Oct 2025",
-        "technicalNote": "Advanced program focused on Code Generation and Optimization techniques to improve development efficiency.",
+        "title": "Microsoft Elevate Training Center",
+        "institution": "Microsoft Indonesia",
+        "period": "Issued Mar 2026",
+        "technicalNote": "Intensive training on Microsoft technologies, cloud solutions, and modern development practices for digital transformation.",
         "skills": [
-            "Code Optimization",
-            "Code Generation",
-            "Performance"
-        ]
+            "Microsoft Technologies",
+            "Cloud Solutions",
+            "Digital Transformation"
+        ],
+        "link": "https://microsoft.com/elevate-training",
+        "linkType": "external"
     },
     {
         "id": "cert-02",
         "title": "Fundamental Project Management",
-        "institution": "KOMDIGI & Google",
+        "institution": "Komdigi & Google",
         "period": "Issued Aug 2025",
         "technicalNote": "Specialized training via Fresh Graduate Academy (DTS) focusing on SDLC and strategic project management methodologies.",
         "skills": [
@@ -81,17 +156,16 @@
     },
     {
         "id": "cert-01",
-        "title": "AWS Re/Start Cloud Trainee",
-        "institution": "Orbit Future Academy",
-        "period": "Mar 2026 - Present",
-        "technicalNote": "Selected for an intensive 12-week program focusing on AWS Architecture (EC2, S3, RDS, VPC), network security, and scalable cloud deployments.",
+        "title": "Guide to Learn SQL with AI",
+        "institution": "DQLab",
+        "period": "Issued Aug 2025",
+        "technicalNote": "Modern approach to SQL mastery leveraging AI-assisted learning tools for efficient database query design and optimization.",
         "skills": [
-            "Cloud Architecture",
-            "VPC",
-            "Security Protocols"
+            "SQL",
+            "Database Query",
+            "AI-Assisted Learning"
         ],
-        "isCurrent": true,
-        "link": "https://aws.amazon.com/training/restart/",
+        "link": "https://dqlab.id/certificates/sql-with-ai",
         "linkType": "external"
     }
 ]

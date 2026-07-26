@@ -1,44 +1,34 @@
 [
     {
-        "id": "exp-03",
-        "role": "Graphic Design Intern",
-        "company": "KalenderKonten",
-        "period": "Mar 2023 - Sep 2023",
-        "location": "Medan, ID / On-site",
-        "narrative": "Optimized daily content workflows by architecting reusable master design templates, effectively slicing routine production time by 50%. Supported senior creative teams in translating complex briefs into high-volume, pixel-perfect visuals for major client accounts.",
-        "skills": [
-            "Workflow Optimization",
-            "Master Templating",
-            "Graphic Design Software",
-            "Visual Production"
-        ]
-    },
-    {
         "id": "exp-02",
         "role": "Graphic Designer",
         "company": "KalenderKonten",
         "period": "Sep 2023 - Dec 2024",
         "location": "Medan, ID / Hybrid",
-        "narrative": "Spearheaded visual strategy for multiple high-stakes client accounts, delivering over 115+ strategic marketing assets with rigorous brand fidelity. Collaborated closely with marketing leads to synthesize creative vision with strategic campaign objectives while ensuring zero missed deadlines.",
+        "narrative": "Managed high-volume daily content production for multiple client accounts while maintaining strict brand consistency. Designed workflows and reusable master templates that successfully reduced daily design production time by up to 50%. Collaborated closely with copywriters and clients to translate creative directions into highly accurate visual designs.",
         "skills": [
             "Brand Identity",
             "Visual Design",
-            "Social Media Advertising",
-            "Creative Direction"
+            "Workflow Optimization",
+            "Master Templating",
+            "Social Media Advertising"
         ]
     },
     {
         "id": "exp-01",
-        "role": "Founder & Lead Software Developer",
+        "role": "Founder & Lead Software Engineer",
         "company": "Nanasgunung Creative Studio",
         "period": "Dec 2024 - Present",
         "location": "Medan, ID / Hybrid",
-        "narrative": "Orchestrating the complete project lifecycle for 10+ high-end digital solutions. I specialized in building scalable internal systems using Next.js and Laravel, while pioneered a SaaS MVP integrating IBM Granite LLM that achieved sub-3-second generation speeds.",
+        "narrative": "Manage the end-to-end Software Development Lifecycle (SDLC) for over 10 client projects, transforming business requirements into technical specifications with a 100% on-time delivery rate. Architected a SaaS MVP AI Content Planner using Next.js API Routes and IBM Granite LLM integration. Built a full-stack Attendance System prototype based on the Geolocation API, speeding up the employee attendance process by up to 90%. Implement Git-based CI/CD workflows and Docker containerization for automated deployment and code quality maintenance.",
         "skills": [
             "Next.js",
             "Laravel",
             "IBM Granite",
-            "Software Architecture"
+            "Docker",
+            "CI/CD",
+            "Software Architecture",
+            "AWS"
         ],
         "isCurrent": true
     }

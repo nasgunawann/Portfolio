@@ -1,5 +1,5 @@
 ---
-import { IconArrowUp, IconMail } from "@tabler/icons-react";
+import { IconArrowUp, IconMail, IconBrandWhatsapp } from "@tabler/icons-react";
 import SocialLinks from "@/components/ui/SocialLinks";
 ---
 
@@ -52,6 +52,16 @@ import SocialLinks from "@/components/ui/SocialLinks";
                         >
                             <IconMail size={22} stroke={1.5} aria-hidden="true" />
                         </a>
+                        <a
+                            href="https://wa.me/62881082469420"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="p-3.5 border border-brand-text/20 bg-brand-bg/80 backdrop-blur-sm rounded-full text-brand-text/80 shadow-lg hover:bg-brand-text hover:text-brand-bg hover:scale-110 transition duration-300 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 touch-manipulation"
+                            aria-label="WhatsApp"
+                            data-magnetic
+                        >
+                            <IconBrandWhatsapp size={22} stroke={1.5} aria-hidden="true" />
+                        </a>
                         <SocialLinks className="gap-4" client:visible />
                     </div>
                 </div>
@@ -87,17 +97,20 @@ import SocialLinks from "@/components/ui/SocialLinks";
                             Direct Contact
                         </span>
                         <div class="pt-2 pl-2">
-                            <a
-                                href="mailto:nasgunawann@gmail.com"
-                                class="text-[13px] font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors block"
-                            >
-                                nasgunawann@gmail.com
-                            </a>
-                            <p
-                                class="text-[13px] font-bold uppercase tracking-widest text-brand-text/40 mt-1"
-                            >
-                                Fast response within 24h
-                            </p>
+                        <a
+                            href="mailto:nasgunawann@gmail.com"
+                            class="text-[13px] font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors block"
+                        >
+                            nasgunawann@gmail.com
+                        </a>
+                        <a
+                            href="https://wa.me/62881082469420"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-[13px] font-bold uppercase tracking-widest text-brand-text/60 hover:text-brand-accent transition-colors block mt-1"
+                        >
+                            +62 881-0824-69420
+                        </a>
                         </div>
                     </div>
 

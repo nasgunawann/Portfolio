@@ -1,5 +1,5 @@
 ---
-import nas from "@/assets/nasgun_nobg.png";
+import nas from "@/assets/portrait.png";
 import SocialLinks from "@/components/ui/SocialLinks";
 import { IconArrowRight } from "@tabler/icons-react";
 import { Image } from "astro:assets";
@@ -8,123 +8,6 @@ import { Image } from "astro:assets";
 <section
     class="min-h-screen bg-brand-bg relative flex flex-col items-center justify-center px-6 overflow-hidden"
 >
-    <!-- Sticky Editorial Header (Scroll-Activated) -->
-    <nav
-        id="sticky-header"
-        class="fixed top-0 left-0 w-full z-100 px-6 md:px-12 py-6 flex items-center justify-between bg-brand-bg/80 backdrop-blur-xl border-b border-brand-text/5 opacity-0 -translate-y-full transition-all duration-500"
-    >
-        <div class="flex items-center gap-12 text-editorial">
-            <a
-                href="#"
-                class="hover:text-brand-accent transition-colors font-bold tracking-widest text-lg"
-                >NASRULLAH GUNAWAN</a
-            >
-            <div class="hidden lg:flex items-center gap-10 opacity-70 ml-8">
-                <a
-                    href="#about"
-                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
-                >
-                    <span
-                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
-                        >/</span
-                    >
-                    Story
-                </a>
-                <a
-                    href="#projects"
-                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
-                >
-                    <span
-                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
-                        >/</span
-                    >
-                    Works
-                </a>
-                <a
-                    href="#experience"
-                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
-                >
-                    <span
-                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
-                        >/</span
-                    >
-                    Career
-                </a>
-                <a
-                    href="#credentials"
-                    class="text-[11px] font-bold hover:text-brand-accent hover:opacity-100 transition-all uppercase tracking-[0.3em] relative group flex items-center"
-                >
-                    <span
-                        class="text-brand-accent opacity-0 group-hover:opacity-100 absolute -left-4 transition-opacity"
-                        >/</span
-                    >
-                    Credentials
-                </a>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-8">
-            <div class="hidden md:flex items-center text-editorial">
-                <a
-                    href="#contact"
-                    class="flex items-center gap-3 text-[11px] font-bold hover:text-brand-accent transition-colors uppercase tracking-[0.3em]"
-                >
-                    Let's Talk <span
-                        class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"
-                    ></span>
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button
-                id="mobile-menu-toggle"
-                class="lg:hidden flex flex-col justify-center gap-2 w-8 h-8 focus:outline-none z-110"
-            >
-                <span
-                    class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center"
-                    id="bar1"></span>
-                <span
-                    class="w-full h-[2px] bg-brand-text transition-all duration-300 origin-center"
-                    id="bar2"></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div
-        id="mobile-overlay"
-        class="fixed inset-0 bg-brand-bg/95 backdrop-blur-2xl z-90 translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-10"
-    >
-        <a
-            href="#about"
-            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
-            >Story</a
-        >
-        <a
-            href="#projects"
-            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
-            >Works</a
-        >
-        <a
-            href="#experience"
-            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
-            >Career</a
-        >
-        <a
-            href="#credentials"
-            class="mobile-link text-3xl font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
-            >Credentials</a
-        >
-        <a
-            href="#contact"
-            class="mobile-link text-xl mt-8 flex items-center gap-4 font-bold uppercase tracking-widest text-brand-text hover:text-brand-accent transition-colors"
-        >
-            Let's Talk <span
-                class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"
-            ></span>
-        </a>
-    </div>
-
     <!-- Main Content Layout -->
     <div
         class="relative w-full max-w-7xl mx-auto min-h-screen flex flex-col md:items-center md:justify-center pt-16 md:pt-0"
@@ -148,10 +31,10 @@ import { Image } from "astro:assets";
                 </div>
             </h1>
             <h2
-                class="text-[15px] font-bold tracking-[0.5em] uppercase text-brand-accent mt-4 opacity-0 text-center"
+                class="text-[15px] font-bold tracking-[0.5em] uppercase text-brand-accent mt-4 opacity-0 text-center block md:hidden"
                 id="hero-subtitle"
             >
-                Full-Stack Web Developer <br /> AI Specialist
+                Cloud-Native Full-Stack Developer
             </h2>
 
             <!-- Minimal CTA & Socials (Mobile Only) -->
@@ -193,7 +76,7 @@ import { Image } from "astro:assets";
                     id="portrait-img"
                     src={nas}
                     alt="Nasrullah Gunawan"
-                    width={800}
+                    width={900}
                     height={1200}
                     loading="eager"
                     fetchpriority="high"
@@ -239,19 +122,21 @@ import { Image } from "astro:assets";
             <div
                 class="marquee-content gap-16 text-editorial font-bold! tracking-[0.5em]! text-[11px]!"
             >
-                <span>FULL-STACK DEVELOPMENT</span>
-                <span class="text-brand-secondary">✦</span>
-                <span>LARAVEL</span>
+                <span>CLOUD-NATIVE</span>
                 <span class="text-brand-secondary">✦</span>
                 <span>NEXT.JS</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>AI INTEGRATION</span>
+                <span>LARAVEL</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>UI/UX STRATEGY</span>
+                <span>AWS</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>SAAS DEVELOPMENT</span>
+                <span>DOCKER</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>MOBILE FRIENDLY</span>
+                <span>GEN AI INTEGRATION</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>DEVOPS</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>CI/CD</span>
                 <span class="text-brand-secondary">✦</span>
             </div>
             <!-- Duplicate for loop -->
@@ -259,15 +144,21 @@ import { Image } from "astro:assets";
                 class="marquee-content gap-16 text-editorial font-bold! tracking-[0.5em]! text-[11px]!"
                 aria-hidden="true"
             >
-                <span>FULL-STACK DEVELOPMENT</span>
+                <span>CLOUD-NATIVE</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>LARAVEL EXPERT</span>
+                <span>NEXT.JS</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>NEXT.JS SPECIALIST</span>
+                <span>LARAVEL</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>AI INTEGRATION</span>
+                <span>AWS</span>
                 <span class="text-brand-secondary">✦</span>
-                <span>UI/UX STRATEGY</span>
+                <span>DOCKER</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>GEN AI INTEGRATION</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>DEVOPS</span>
+                <span class="text-brand-secondary">✦</span>
+                <span>CI/CD</span>
                 <span class="text-brand-secondary">✦</span>
             </div>
         </div>
@@ -287,38 +178,6 @@ import { Image } from "astro:assets";
     (window as any).ScrollTrigger = ScrollTrigger;
 
     const initHero = () => {
-        const menuToggle = document.getElementById("mobile-menu-toggle");
-        const mobileOverlay = document.getElementById("mobile-overlay");
-        const bar1 = document.getElementById("bar1");
-        const bar2 = document.getElementById("bar2");
-        const mobileLinks = document.querySelectorAll(".mobile-link");
-
-        if (menuToggle && mobileOverlay) {
-            let isOpen = false;
-
-            const toggleMenu = () => {
-                isOpen = !isOpen;
-                if (isOpen) {
-                    mobileOverlay.classList.remove("translate-x-full");
-                    mobileOverlay.classList.add("translate-x-0");
-                    bar1?.classList.add("rotate-45", "translate-y-1");
-                    bar2?.classList.add("-rotate-45", "-translate-y-1");
-                } else {
-                    mobileOverlay.classList.remove("translate-x-0");
-                    mobileOverlay.classList.add("translate-x-full");
-                    bar1?.classList.remove("rotate-45", "translate-y-1");
-                    bar2?.classList.remove("-rotate-45", "-translate-y-1");
-                }
-            };
-
-            menuToggle.addEventListener("click", toggleMenu);
-            mobileLinks.forEach((link) => {
-                link.addEventListener("click", () => {
-                    if (isOpen) toggleMenu();
-                });
-            });
-        }
-
         const tl = gsap.timeline({
             defaults: { ease: "expo.out", duration: 1.8 }
         });
@@ -326,7 +185,7 @@ import { Image } from "astro:assets";
         tl.fromTo(
             "#portrait-img",
             { y: 100, opacity: 0, scale: 0.8 },
-            { y: 0, opacity: 1, scale: 1.0, duration: 1.2 }
+            { y: 0, opacity: 1, scale: 1.15, duration: 1.2 }
         );
 
         tl.fromTo(
@@ -349,18 +208,6 @@ import { Image } from "astro:assets";
             { y: 0, opacity: 1, stagger: 0.1, duration: 1.0 },
             "-=1"
         );
-
-        gsap.to("#sticky-header", {
-            opacity: 1,
-            y: 0,
-            duration: 0.25,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: "section",
-                start: "bottom top",
-                toggleActions: "play none none reverse",
-            },
-        });
 
         gsap.to(".marquee-content", {
             xPercent: -100,

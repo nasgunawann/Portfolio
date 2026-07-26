@@ -1,15 +1,18 @@
 [
     {
         "id": "edu-01",
-        "title": "Sistem Informasi (S1)",
-        "institution": "Universitas Islam Negeri Sumatera Utara",
-        "period": "2023 - Present",
+        "title": "Information Systems (S1)",
+        "institution": "Universitas Islam Negeri Sumatera Utara (UIN SU)",
+        "period": "2023 – 2027 (Expected)",
         "location": "Medan, ID",
-        "narrative": "Currently pursuing my Bachelor's degree, I focus on the intersection of technical architecture and financial optimization. My academic tenure is dedicated to exploring AI-driven personal finance systems and implementing Agile methodologies for large-scale campus platforms.",
+        "narrative": "Currently pursuing my Bachelor's degree with a GPA of 3.89/4.00, my research focuses on Generative AI and LLM Integration for Personal Finance Management Systems. I actively contribute to open-source digital campus IT (Learning Management System) development and mentor university students in web programming and databases.",
         "skills": [
             "System Analysis",
             "Database Design",
-            "Agile Methodologies"
+            "Generative AI",
+            "LLM Integration",
+            "Agile Methodologies",
+            "Web Programming"
         ]
     }
 ]
