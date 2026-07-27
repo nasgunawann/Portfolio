@@ -12,7 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  site: 'https://nanaslab.com',
+  site: 'https://nasgunawan.dev',
 
   integrations: [react(), sitemap()]
 });

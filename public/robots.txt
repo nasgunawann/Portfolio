@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nanaslab.com/sitemap-index.xml
+Sitemap: https://nasgunawan.dev/sitemap-index.xml

@@ -156,21 +156,21 @@ const certifications = certsEntries.map((c: any) => c.data);
 
                                     <!-- Certificate Preview -->
                                     <div class="relative group/cert h-fit mt-2">
-                                        <div class="aspect-16/10 w-full bg-brand-text/5 rounded-2xl border border-brand-text/5 flex items-center justify-center group-hover:bg-brand-accent/5 group-hover:border-brand-accent/10 transition-all overflow-hidden">
+                                        <div class="aspect-[4/3] w-full bg-brand-text/5 rounded-2xl border border-brand-text/5 flex items-center justify-center group-hover:bg-brand-accent/5 group-hover:border-brand-accent/10 transition-all overflow-hidden">
                                             {item.isCurrent ? (
                                                 <span class="text-[10px] font-bold text-brand-accent animate-pulse uppercase tracking-[0.4em]">IN PROGRESS</span>
                                             ) : item.image ? (
                                                 <Image 
                                                     src={item.image} 
                                                     alt={item.title}
-                                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                    class="w-full h-full object-cover"
                                                 />
                                             ) : (
                                                 <span class="text-[8px] font-bold text-brand-text/20 uppercase tracking-[0.3em] group-hover:text-brand-accent/30">Preview Credential</span>
                                             )}
                                         </div>
 
-                                        {!item.isCurrent && item.link && (
+                                        {/* {!item.isCurrent && item.link && (
                                             <a 
                                                 href={item.link}
                                                 target="_blank"
@@ -189,7 +189,7 @@ const certifications = certsEntries.map((c: any) => c.data);
                                                     </>
                                                 )}
                                             </a>
-                                        )}
+                                        )} */}
                                     </div>
                                 </div>
                                 
