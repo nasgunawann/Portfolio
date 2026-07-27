@@ -1,6 +1,6 @@
 [
     {
-        "id": "cert-12",
+        "id": "cert-01",
         "title": "AWS Certified Cloud Practitioner",
         "institution": "Amazon Web Services",
         "period": "Issued Jul 2026",
@@ -10,11 +10,27 @@
             "AWS Core Services",
             "Security Best Practices"
         ],
+        "image": "",
         "link": "https://www.credly.com/badges/aws-ccp",
         "linkType": "external"
     },
     {
-        "id": "cert-11",
+        "id": "cert-02",
+        "title": "Gemini Academy for Higher Education",
+        "institution": "Google for Education & Paideia",
+        "period": "Issued Jul 2026",
+        "technicalNote": "Training on integrating Google's Gemini AI models into educational workflows, covering prompt engineering, API integration, and responsible AI usage.",
+        "skills": [
+            "Gemini AI",
+            "Prompt Engineering",
+            "AI Integration"
+        ],
+        "image": "",
+        "link": "https://edu.google.com/gemini-academy",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-03",
         "title": "AWS re/Start Program",
         "institution": "Orbit Future Academy / AWS",
         "period": "Issued Jun 2026",
@@ -25,81 +41,12 @@
             "Security Protocols",
             "AWS Core Services"
         ],
+        "image": "",
         "link": "https://aws.amazon.com/training/restart/",
         "linkType": "external"
     },
     {
-        "id": "cert-10",
-        "title": "Gemini Academy for Higher Education",
-        "institution": "Google for Education & Paideia",
-        "period": "Issued Jul 2026",
-        "technicalNote": "Training on integrating Google's Gemini AI models into educational workflows, covering prompt engineering, API integration, and responsible AI usage.",
-        "skills": [
-            "Gemini AI",
-            "Prompt Engineering",
-            "AI Integration"
-        ],
-        "link": "https://edu.google.com/gemini-academy",
-        "linkType": "external"
-    },
-    {
-        "id": "cert-09",
-        "title": "Web Development Series 13.0",
-        "institution": "Dibimbing.id",
-        "period": "Issued Feb 2026",
-        "technicalNote": "Advanced full-stack web development training covering modern JavaScript frameworks, API design, and deployment strategies.",
-        "skills": [
-            "Full-Stack Development",
-            "API Design",
-            "Deployment"
-        ],
-        "link": "https://dibimbing.id/certificates/web-dev-13",
-        "linkType": "external"
-    },
-    {
-        "id": "cert-08",
-        "title": "Intro to Software Engineering",
-        "institution": "RevoU",
-        "period": "Issued Jul 2025",
-        "technicalNote": "Fundamental software engineering principles including SDLC, version control, and collaborative development workflows.",
-        "skills": [
-            "SDLC",
-            "Version Control",
-            "Software Engineering"
-        ],
-        "link": "https://revou.co/certificates/intro-se",
-        "linkType": "external"
-    },
-    {
-        "id": "cert-07",
-        "title": "IBM Granite: Code Optimization",
-        "institution": "IBM SkillsBuild / Hacktiv8",
-        "period": "Issued Sep 2025",
-        "technicalNote": "Applied knowledge in optimizing Large Language Model performance and code-base integration utilizing the IBM Granite architecture.",
-        "skills": [
-            "LLM Optimization",
-            "IBM Granite",
-            "Code Generation"
-        ],
-        "link": "/credentials/ibm-granite-cert.pdf",
-        "linkType": "pdf"
-    },
-    {
-        "id": "cert-06",
-        "title": "AI Productivity & AI API Integration",
-        "institution": "Hacktiv8 & Google.org",
-        "period": "Issued Mar 2026",
-        "technicalNote": "Comprehensive training on AI productivity tools and RESTful API integration for Generative AI services in modern applications.",
-        "skills": [
-            "AI API Integration",
-            "Generative AI",
-            "Productivity Tools"
-        ],
-        "link": "https://hacktiv8.com/certificates/maju-bareng-ai",
-        "linkType": "external"
-    },
-    {
-        "id": "cert-05",
+        "id": "cert-04",
         "title": "Building Gen AI Apps with Microsoft Azure",
         "institution": "Dicoding & Microsoft",
         "period": "Issued Mar 2026",
@@ -109,11 +56,27 @@
             "LLM",
             "Generative AI"
         ],
+        "image": "",
         "link": "https://www.dicoding.com/certificates/gen-ai-azure",
         "linkType": "external"
     },
     {
-        "id": "cert-04",
+        "id": "cert-05",
+        "title": "AI Productivity & AI API Integration",
+        "institution": "Hacktiv8 & Google.org",
+        "period": "Issued Mar 2026",
+        "technicalNote": "Comprehensive training on AI productivity tools and RESTful API integration for Generative AI services in modern applications.",
+        "skills": [
+            "AI API Integration",
+            "Generative AI",
+            "Productivity Tools"
+        ],
+        "image": "",
+        "link": "https://hacktiv8.com/certificates/maju-bareng-ai",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-06",
         "title": "Applied Data Science with Microsoft Fabric",
         "institution": "Dicoding & Microsoft",
         "period": "Issued Mar 2026",
@@ -123,11 +86,12 @@
             "Data Science",
             "Microsoft Fabric"
         ],
+        "image": "",
         "link": "https://www.dicoding.com/certificates/data-science-fabric",
         "linkType": "external"
     },
     {
-        "id": "cert-03",
+        "id": "cert-07",
         "title": "Microsoft Elevate Training Center",
         "institution": "Microsoft Indonesia",
         "period": "Issued Mar 2026",
@@ -137,11 +101,42 @@
             "Cloud Solutions",
             "Digital Transformation"
         ],
+        "image": "",
         "link": "https://microsoft.com/elevate-training",
         "linkType": "external"
     },
     {
-        "id": "cert-02",
+        "id": "cert-08",
+        "title": "Web Development Series 13.0",
+        "institution": "Dibimbing.id",
+        "period": "Issued Feb 2026",
+        "technicalNote": "Advanced full-stack web development training covering modern JavaScript frameworks, API design, and deployment strategies.",
+        "skills": [
+            "Full-Stack Development",
+            "API Design",
+            "Deployment"
+        ],
+        "image": "",
+        "link": "https://dibimbing.id/certificates/web-dev-13",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-09",
+        "title": "IBM Granite: Code Optimization",
+        "institution": "IBM SkillsBuild / Hacktiv8",
+        "period": "Issued Sep 2025",
+        "technicalNote": "Applied knowledge in optimizing Large Language Model performance and code-base integration utilizing the IBM Granite architecture.",
+        "skills": [
+            "LLM Optimization",
+            "IBM Granite",
+            "Code Generation"
+        ],
+        "image": "",
+        "link": "/credentials/ibm-granite-cert.pdf",
+        "linkType": "pdf"
+    },
+    {
+        "id": "cert-10",
         "title": "Fundamental Project Management",
         "institution": "Komdigi & Google",
         "period": "Issued Aug 2025",
@@ -151,11 +146,12 @@
             "SDLC",
             "Strategy"
         ],
+        "image": "",
         "link": "/credentials/google-pm-cert.pdf",
         "linkType": "pdf"
     },
     {
-        "id": "cert-01",
+        "id": "cert-11",
         "title": "Guide to Learn SQL with AI",
         "institution": "DQLab",
         "period": "Issued Aug 2025",
@@ -165,7 +161,23 @@
             "Database Query",
             "AI-Assisted Learning"
         ],
+        "image": "",
         "link": "https://dqlab.id/certificates/sql-with-ai",
+        "linkType": "external"
+    },
+    {
+        "id": "cert-12",
+        "title": "Intro to Software Engineering",
+        "institution": "RevoU",
+        "period": "Issued Jul 2025",
+        "technicalNote": "Fundamental software engineering principles including SDLC, version control, and collaborative development workflows.",
+        "skills": [
+            "SDLC",
+            "Version Control",
+            "Software Engineering"
+        ],
+        "image": "",
+        "link": "https://revou.co/certificates/intro-se",
         "linkType": "external"
     }
 ]
