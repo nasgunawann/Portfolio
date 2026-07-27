@@ -61,7 +61,7 @@
       "Gemini",
       "Supabase"
     ],
-    "link": "https://planner.nanasgunung.com"
+    "link": "https://nanasgunung-planner.vercel.app"
   },
   {
     "id": "02",
@@ -85,7 +85,7 @@
       "Zustand",
       "Tailwind CSS"
     ],
-    "link": "#"
+    "link": "https://otonotif-nanasgunung.vercel.app"
   },
   {
     "id": "01",
@@ -112,6 +112,6 @@
       "PWA",
       "Serwist"
     ],
-    "link": "https://kaslo.nanasgunung.com"
+    "link": "https://kaslo-nanasgunung.vercel.app"
   }
 ]
